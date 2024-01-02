@@ -25,7 +25,7 @@ BuildRequires:  clang
 BuildRequires:  pkgconfig(json-c)
 BuildRequires:  pkgconfig(afb-binding)
 #BuildRequires:  afb-ui-devtools
-BuildRequires:  libafb5
+BuildRequires:  pkgconfig(libafb)
 BuildRequires:  iputils
 %ifarch x86_64
 BuildRequires:  gcc-aarch64-linux-gnu
@@ -48,12 +48,12 @@ mkdir -p .cargo
 cp %{SOURCE2} .cargo/config
 
 %build
-cargo build --offline --release --target %{_arch}-unknown-linux-gnu
+cargo build --offline --release --target %{_arch}-unknown-linux-gnu --features rpm_build
 #{cargo_build}
 
 #TMP FIX
 %ifarch x86_64
-cargo build --offline --release --target aarch64-unknown-linux-gnu
+cargo build --offline --release --target aarch64-unknown-linux-gnu --features rpm_build
 %endif
 
 %install
