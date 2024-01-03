@@ -1,10 +1,15 @@
 {
   "binding": [
     {
-        "uid": "ti-am62x",
-        "api": "tiam62x",
-        "path": "/usr/redpesk/ti-am62x-binding-rs/lib/libafb_tiam62x.so",
-        "info": "Ti MCU(am62x) firmware rpmsg/openamp API"
+      "path": "/usr/redpesk/ti-am62x-binding-rs/lib/libafb_tiam62x.so",
+      "uid": "ti-am62x",
+      "api": "tiam62x",
+      "info": "Ti MCU(am62x) firmware rpmsg/openamp API",
+      "eptname": "rpmsg_tuxevse",
+      "rport": 14,
+      "tic": 5000,
+      "lock_api": "i2c",
+      "lock_verb": "gpio/lock-motor"
     }
   ]
 }

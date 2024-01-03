@@ -17,6 +17,8 @@ Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ti-am62x-binding-rs/start_bender.sh
 Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ti-am62x-binding-rs/binder-test.json
 Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ti-am62x-binding-rs/binding-ti-am62x.json
+Source15: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/binding-i2c.json
+
 
 %ifarch x86_64
 BuildRequires:   rust-archive >= 1.70.0
@@ -32,6 +34,7 @@ BuildRequires: clang-devel
 BuildRequires: glibc-devel
 BuildRequires: glibc-headers
 
+Requires: i2c-binding-rs
 
 %description
 ti-am62x binding.
@@ -79,6 +82,7 @@ cp ./target/%{_arch}-unknown-linux-gnu/release/*.so %{buildroot}%{_prefix}/redpe
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
 cp %{SOURCE13}  %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
 cp %{SOURCE14}  %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
+cp %{SOURCE15}  %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
 cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
