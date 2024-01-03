@@ -15,7 +15,7 @@ Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/manifest-test.yml
 Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/start_bender.sh
 Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/binding-i2c.json
-Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/binding-target.json
+Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/binder-test.json
 
 %ifarch x86_64
 BuildRequires:   rust-archive >= 1.70.0
