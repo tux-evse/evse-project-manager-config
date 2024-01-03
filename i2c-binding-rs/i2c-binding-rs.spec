@@ -11,7 +11,7 @@ Source0: %{name}-%{version}.tar.gz
 Source1: vendor.tar.gz
 Source2: cargo_config
 
-Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/start_bender.sh
+Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/manifest.yml
 Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/manifest-test.yml
 Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/start_bender.sh
 
@@ -63,22 +63,21 @@ EOF
 
 cargo build --offline --release --target %{_arch}-unknown-linux-gnu
 
-
 %install
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/lib
 cp ./target/%{_arch}-unknown-linux-gnu/release/*.so %{buildroot}%{_prefix}/redpesk/%{name}/lib
 
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
-cp ./afb-binding/etc/*.json %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
-
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/bin
-cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}-test/bin/start_bender.sh
-
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
 cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
+cp ./afb-binding/etc/*.json %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
+
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig
 cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig/manifest.yml
+
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/bin
+cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}-test/bin/start_bender.sh
 
 %files
 %dir %{_prefix}/redpesk/%{name}
