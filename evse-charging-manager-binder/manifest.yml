@@ -7,5 +7,8 @@ author: IoT.bzh team <team@iot.bzh>
 license: MIT
 targets:
   - target: main
+    content:
+      src: etc/binder-test.json
+      type: application/vnd.agl.resource
 
 
