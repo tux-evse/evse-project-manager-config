@@ -13,7 +13,7 @@ Source1: vendor.tar.gz
 Source2: cargo_config
 
 Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ti-am62x-binding-rs/manifest.yml
-
+Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ti-am62x-binding-rs/start_bender.sh
 Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ti-am62x-binding-rs/binder-test.json
 Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ti-am62x-binding-rs/binding-ti-am62x.json
 
