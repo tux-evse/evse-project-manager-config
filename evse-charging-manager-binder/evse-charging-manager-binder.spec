@@ -8,11 +8,11 @@ Summary: evse charging manager binder
 License: MIT
 URL: https://github.com/tux-evse/evse-project-manager-config
 
-Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-project-manager-config/manifest.yml
-Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-project-manager-config/manifest-test.yml
-Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-project-manager-config/start_bender.sh
+Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/manifest.yml
+Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/manifest-test.yml
+Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/start_bender.sh
 
-Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-project-manager-config/binding-test.json
+Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-test.json
 Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/binding-i2c.json
 Source15: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ti-am62x-binding-rs/binding-ti-am62x.json
 
