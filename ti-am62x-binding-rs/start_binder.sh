@@ -4,5 +4,4 @@
                     --config /usr/redpesk/ti-am62x-binding-rs-test/etc/binding-ti-am62x.json \
                     --config /usr/redpesk/ti-am62x-binding-rs-test/etc/binding-i2c.json \
                     --ws-server sd:ti-am62x \
-                    --binding /run/$UID/api/binding/ti-am62x-binding-rs
-                    
+                    --binding /run/user/$UID/apis/binding/ti-am62x-binding-rs

@@ -8,13 +8,19 @@ license: MIT
 targets:
   - target: main
     content:
-      src: bin/start_bender.sh
+      src: bin/start_binder.sh
       type: application/x-executable
 
     required-binding:
       - name: ti-am62x
         value: extern
+      - name: i2c
+        value: extern
+
+    provided-api:
+        - name: ti-am62x
+          value: ws
 
 file-properties:
-  - name: bin/start_bender.sh
+  - name: bin/start_binder.sh
     value: executable

@@ -6,9 +6,7 @@ description: i2c binding
 author: IoT.bzh team <team@iot.bzh>
 license: MIT
 targets:
-    provided-api:
-      - name: i2c-binding-rs
-        value: ws
+  - target: main
 
 provided-binding:
    - name: i2c-binding-rs

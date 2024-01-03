@@ -10,9 +10,6 @@ targets:
     content:
       src: lib/libafb_tiam62x.so
       type: application/vnd.agl.resource
-    provided-api:
-        - name: ti-am62x
-          value: ws
 
 provided-binding:
    - name: ti-am62x-binding-rs

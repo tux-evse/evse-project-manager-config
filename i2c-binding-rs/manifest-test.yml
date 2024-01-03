@@ -8,13 +8,17 @@ license: MIT
 targets:
   - target: main
     content:
-      src: bin/start_bender.sh
+      src: bin/start_binder.sh
       type: application/x-executable
 
     required-binding:
       - name: i2c-binding-rs
         value: extern
 
+    provided-api:
+      - name: i2c-binding-rs
+        value: ws
+
 file-properties:
-  - name: bin/start_bender.sh
+  - name: bin/start_binder.sh
     value: executable

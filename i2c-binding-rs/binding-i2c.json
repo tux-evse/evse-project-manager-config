@@ -3,7 +3,7 @@
         {
             "uid": "i2c-bus",
             "api": "i2c",
-            "path": "./lib/libafb_i2c.so",
+            "path": "/usr/redpesk/i2c-binding-rs/lib/libafb_i2c.so",
             "info": "i2c set/get api",
             "i2cbus": "/dev/i2c-0",
             "permission": "acl:i2c:0",
@@ -13,7 +13,7 @@
                     "prefix": "gpio",
                     "info": "interface to power GPIO multiplexer",
                     "addr": "0x20",
-                    "size":1,
+                    "size": 1,
                     "init": [
                         {
                             "reg": "0x02",
