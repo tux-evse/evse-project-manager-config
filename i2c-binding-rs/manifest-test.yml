@@ -1,0 +1,20 @@
+rp-manifest: 1
+id: i2c-binding-rs-test
+version: 0.1
+name: i2c-binding-rs-test
+description: i2c binding test
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: bin/start_bender.sh
+      type: application/x-executable
+
+    required-binding:
+      - name: i2c-binding-rs
+        value: extern
+
+file-properties:
+  - name: bin/start_bender.sh
+    value: executable

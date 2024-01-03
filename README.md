@@ -11,3 +11,8 @@ https://github.com/tux-evse/linky-binding-rs
 ## ti-am62x-binding-rs
 
 https://github.com/tux-evse/ti-am62x-m4-firmware
+
+## i2c-binding-rs
+
+https://github.com/tux-evse/i2c-binding-rs
+
