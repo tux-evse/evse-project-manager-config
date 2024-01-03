@@ -1,0 +1,20 @@
+rp-manifest: 1
+id: ti-am62x-binding-rs-test
+version: 0.1
+name: ti-am62x-binding-rs-test
+description: ti-am62x binding test
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: bin/start_bender.sh
+      type: application/x-executable
+
+    required-binding:
+      - name: ti-am62x
+        value: extern
+
+file-properties:
+  - name: bin/start_bender.sh
+    value: executable

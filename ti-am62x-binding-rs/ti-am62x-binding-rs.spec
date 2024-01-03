@@ -7,12 +7,15 @@ Release: 3%{?dist}
 Summary: ti-am62x binding
 
 License: MIT
-URL: https://github.com/tux-evse/slac-binding-rs.git
+URL: https://github.com/tux-evse/ti-am62x-binding-rs.git
 Source0: %{name}-%{version}.tar.gz
 Source1: vendor.tar.gz
 Source2: cargo_config
 
 Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ti-am62x-binding-rs/manifest.yml
+
+Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ti-am62x-binding-rs/binder-test.json
+Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ti-am62x-binding-rs/binding-ti-am62x.json
 
 %ifarch x86_64
 BuildRequires:   rust-archive >= 1.70.0
@@ -31,6 +34,14 @@ BuildRequires: glibc-headers
 
 %description
 ti-am62x binding.
+
+%package test
+Summary: %{name} binding test
+
+Requires: %{name} = %{version}
+
+%description test
+%{name} binding test.
 
 %prep
 %autosetup -a1
@@ -64,22 +75,30 @@ cargo build --offline --release --target %{_arch}-unknown-linux-gnu
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/lib
 cp ./target/%{_arch}-unknown-linux-gnu/release/*.so %{buildroot}%{_prefix}/redpesk/%{name}/lib
 
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/etc
-cp ./afb-binding/etc/*.json %{buildroot}%{_prefix}/redpesk/%{name}/etc
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
+cp %{SOURCE13}  %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
+cp %{SOURCE14}  %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
-
-LIB_NAME=$(basename target/aarch64-unknown-linux-gnu/release/*.so)
-
 cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
+
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/bin
+cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}-test/bin/start_bender.sh
 
 %files
 %dir %{_prefix}/redpesk/%{name}
 %dir %{_prefix}/redpesk/%{name}/.rpconfig
 %{_prefix}/redpesk/%{name}/.rpconfig/*
-%dir %{_prefix}/redpesk/%{name}/etc
-%{_prefix}/redpesk/%{name}/etc/*
 %dir %{_prefix}/redpesk/%{name}/lib
 %{_prefix}/redpesk/%{name}/lib/*
+
+%files test
+%dir %{_prefix}/redpesk/%{name}-test
+%dir %{_prefix}/redpesk/%{name}-test/bin
+%{_prefix}/redpesk/%{name}-test/bin/*
+%dir %{_prefix}/redpesk/%{name}-test/etc
+%{_prefix}/redpesk/%{name}-test/etc/*
+%dir %{_prefix}/redpesk/%{name}-test/.rpconfig
+%{_prefix}/redpesk/%{name}-test/.rpconfig/*
 
 %changelog

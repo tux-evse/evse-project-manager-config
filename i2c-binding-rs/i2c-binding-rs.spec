@@ -14,6 +14,8 @@ Source2: cargo_config
 Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/manifest.yml
 Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/manifest-test.yml
 Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/start_bender.sh
+Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/binding-i2c.json
+Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/binding-target.json
 
 %ifarch x86_64
 BuildRequires:   rust-archive >= 1.70.0
@@ -35,12 +37,12 @@ BuildRequires: libi2c-devel
 i2c binding.
 
 %package test
-Summary: i2c binding test
+Summary: %{name} binding test
 
 Requires: %{name} = %{version}
 
 %description test
-i2c binding test.
+%{name} binding test.
 
 %prep
 %autosetup -a1
@@ -71,7 +73,8 @@ mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
 cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
-cp ./afb-binding/etc/*.json %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
+cp %{SOURCE13}  %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
+cp %{SOURCE14}  %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig
 cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig/manifest.yml

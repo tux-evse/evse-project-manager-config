@@ -1,0 +1,22 @@
+rp-manifest: 1
+id: charging-manager-test
+version: 0.1
+name: charging-manager-test
+description: charging-manager test
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: bin/start_bender.sh
+      type: application/x-executable
+
+    required-binding:
+      - name: i2c-binding-rs
+        value: extern
+      - name: ti-am62x
+        value: extern
+
+file-properties:
+  - name: bin/start_bender.sh
+    value: executable

@@ -14,3 +14,6 @@ targets:
         - name: ti-am62x
           value: ws
 
+provided-binding:
+   - name: ti-am62x-binding-rs
+     value: lib/libafb_tiam62x.so

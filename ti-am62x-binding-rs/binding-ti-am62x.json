@@ -1,0 +1,10 @@
+{
+  "binding": [
+    {
+        "uid": "ti-am62x",
+        "api": "tiam62x",
+        "path": "/usr/redpesk/ti-am62x-binding-rs/lib/libafb_tiam62x.so",
+        "info": "Ti MCU(am62x) firmware rpmsg/openamp API"
+    }
+  ]
+}
