@@ -1,15 +1,16 @@
 rp-manifest: 1
-id: %{name}
+id: ti-am62x-binding-rs
 version: 0.1
-name: %{name}
+name: ti-am62x-binding-rs
 description: ti-am62x binding
 author: IoT.bzh team <team@iot.bzh>
 license: MIT
 targets:
   - target: main
     content:
-      src: lib/${LIB_NAME}
+      src: lib/libafb_tiam62x.so
       type: application/vnd.agl.resource
     provided-api:
         - name: ti-am62x
-        value: ws
+          value: ws
+
