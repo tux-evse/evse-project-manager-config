@@ -1,0 +1,16 @@
+rp-manifest: 1
+id: display-manager
+version: 0.1
+name: display-manager
+description: evse display manager binder
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: etc/binding-display.json
+      type: application/vnd.agl.resource
+
+    required-binding:
+      - name: display
+        value: extern
