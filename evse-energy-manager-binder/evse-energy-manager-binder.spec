@@ -1,35 +1,37 @@
 %global debug_package %{nil}
 
-Name:    evse-charging-manager-binder
+Name:    evse-energy-manager-binder
 Version: 0.0.1
 Release: 0%{?dist}
-Summary: evse charging manager binder
+Summary: evse energy manager binder
 
 License: MIT
 URL: https://github.com/tux-evse/evse-project-manager-config
 
-Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/manifest.yml
-Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/manifest-test.yml
-Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/start_binder.sh
+Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-energy-manager-binder/manifest.yml
+Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-energy-manager-binder/manifest-test.yml
+Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-energy-manager-binder/start_binder.sh
 
-Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binder-test.json
-Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/i2c-binding-rs/binding-i2c.json
-Source15: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ti-am62x-binding-rs/binding-ti-am62x.json
+Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-energy-manager-binder/binder-test.json
+Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/energy-binding-rs/binding-energy.json
+Source15: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/linky-binding-rs/binding-linky.json
+Source16: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/modbus-binding/binding-modbus.json
 
 
-Requires: i2c-binding-rs
-Requires: ti-am62x-binding-rs
+Requires: modbus-binding
+Requires: linky-binding-rs
+Requires: energy-binding-rs
 
 %description
-evse charging manager binder.
+evse energy manager binder.
 
 %package test
-Summary: evse charging manager binder test
+Summary: evse energy manager binder test
 
 Requires: %{name} = %{version}
 
 %description test
-evse charging manager binder test.
+evse energy manager binder test.
 
 %prep
 
@@ -47,11 +49,11 @@ cp %{SOURCE15} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig
 cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig/manifest.yml
 
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
-cp %{SOURCE13} %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
-
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/bin
 cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}-test/bin/start_binder.sh
+
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
+cp %{SOURCE13} %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
 
 %files
 %dir %{_prefix}/redpesk/%{name}

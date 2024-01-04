@@ -1,8 +1,8 @@
 rp-manifest: 1
-id: charging-manager-test
+id: modbus-binding-test
 version: 0.1
-name: charging-manager-test
-description: charging-manager test
+name: modbus-binding-test
+description: modbus binding test
 author: IoT.bzh team <team@iot.bzh>
 license: MIT
 targets:
@@ -11,6 +11,13 @@ targets:
       src: bin/start_binder.sh
       type: application/x-executable
 
+    required-binding:
+      - name: modbus-binding
+        value: extern
+
+    provided-api:
+      - name: modbus-binding
+        value: ws
 
 file-properties:
   - name: bin/start_binder.sh

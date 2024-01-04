@@ -1,8 +1,8 @@
 rp-manifest: 1
-id: charging-manager-test
+id: energy-binding-rs-test
 version: 0.1
-name: charging-manager-test
-description: charging-manager test
+name: energy-binding-rs-test
+description: energy binding test
 author: IoT.bzh team <team@iot.bzh>
 license: MIT
 targets:
@@ -11,6 +11,13 @@ targets:
       src: bin/start_binder.sh
       type: application/x-executable
 
+    required-binding:
+      - name: energy-binding-rs
+        value: extern
+
+    provided-api:
+      - name: energy-binding-rs
+        value: ws
 
 file-properties:
   - name: bin/start_binder.sh

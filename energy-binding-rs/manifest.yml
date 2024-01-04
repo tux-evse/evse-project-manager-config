@@ -1,0 +1,17 @@
+rp-manifest: 1
+id: energy-binding-rs
+version: 0.1
+name: energy-binding-rs
+description: energy binding
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: lib/libafb_energy.so
+      type: application/vnd.agl.resource
+
+
+provided-binding:
+   - name: energy-binding-rs
+     value: lib/libafb_energy.so

@@ -7,6 +7,15 @@ License:  Apache-2.0
 URL: http://git.ovh.iot/redpesk/redpesk-common/modbus-binding
 Source: %{name}-%{version}.tar.gz
 
+
+Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/modbus-binding/manifest.yml
+Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/modbus-binding/manifest-test.yml
+Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/modbus-binding/start_binder.sh
+
+Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/modbus-binding/binder-test.json
+Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/modbus-binding/binding-modbus.json
+
+
 BuildRequires:  afm-rpm-macros
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
@@ -32,6 +41,14 @@ Summary:        Simulate a modbus tcp device
 %description simulation
 Simulate a modbus tcp device
 
+%package test
+Summary: %{name} binding test
+
+Requires: %{name} = %{version}
+
+%description test
+%{name} binding test.
+
 %prep
 %autosetup -p 1
 
@@ -55,10 +72,36 @@ Simulate a modbus tcp device
 %install
 %afm_makeinstall
 
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/lib
+cp ./target/%{_arch}-unknown-linux-gnu/release/*.so %{buildroot}%{_prefix}/redpesk/%{name}/lib
+
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
+cp %{SOURCE13}  %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
+cp %{SOURCE14}  %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
+
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
+cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
+
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/bin
+cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}-test/bin/start_binder.sh
+
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig
+cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig/manifest.yml
 
 %check
 
 %clean
+
+
+%files test
+%dir %{_prefix}/redpesk/%{name}-test
+%dir %{_prefix}/redpesk/%{name}-test/bin
+%{_prefix}/redpesk/%{name}-test/bin/*
+%dir %{_prefix}/redpesk/%{name}-test/etc
+%{_prefix}/redpesk/%{name}-test/etc/*
+%dir %{_prefix}/redpesk/%{name}-test/.rpconfig
+%{_prefix}/redpesk/%{name}-test/.rpconfig/*
+
 
 %%changelog
 

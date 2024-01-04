@@ -6,10 +6,10 @@
       "permission": "acl:linky",
       "path": "/usr/redpesk/linky-binding-rs/lib/libafb_linky.so",
       "info": "Linky French meeter api",
-      "device": "/dev/ttyUSB0",
+      "device": "/dev/ttyUSB_TIC",
       "speed": 9600,
       "parity": "even",
       "cycle": 25
-    }
+  }
   ]
 }

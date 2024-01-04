@@ -1,8 +1,8 @@
 rp-manifest: 1
-id: charging-manager-test
+id: energy-manager-test
 version: 0.1
-name: charging-manager-test
-description: charging-manager test
+name: energy-manager-test
+description: energy-manager test
 author: IoT.bzh team <team@iot.bzh>
 license: MIT
 targets:
@@ -10,7 +10,6 @@ targets:
     content:
       src: bin/start_binder.sh
       type: application/x-executable
-
 
 file-properties:
   - name: bin/start_binder.sh

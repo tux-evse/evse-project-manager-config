@@ -1,5 +1,5 @@
 {
-    "name": "afb-linky",
+    "name": "afb-modbus",
     "no-ldpaths": true,
     "alias": [
         "/devtools:/usr/share/afb-ui-devtools/binder"

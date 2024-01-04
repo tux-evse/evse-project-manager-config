@@ -1,18 +1,20 @@
 rp-manifest: 1
-id: charging-manager
+id: energy-manager
 version: 0.1
-name: charging-manager
-description: evse charging manager binder
+name: energy-manager
+description: evse energy manager binder
 author: IoT.bzh team <team@iot.bzh>
 license: MIT
 targets:
   - target: main
     content:
-      src: etc/binder-test.json
+      src: etc/binding-energy.json
       type: application/vnd.agl.resource
 
     required-binding:
-      - name: i2c-binding-rs
+      - name: linky-meeter
         value: extern
-      - name: ti-am62x
+      - name: modbus
+        value: extern
+      - name: energy
         value: extern

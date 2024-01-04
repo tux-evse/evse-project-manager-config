@@ -1,0 +1,16 @@
+{
+    "binding": [
+        {
+            "uid": "energy-manager",
+            "api": "energy",
+            "path": "/usr/redpesk/energy-binding-rs/lib/libafb_energy.so",
+            "info": "set/get api",
+            "permission": "acl:nrj",
+            "linky_api": "linky",
+            "meter_api": "modbus",
+            "power_api": "tiam62x",
+            "tic": 1000, // tic in ms
+            "current": 1 // variation in % for notification
+        }
+    ]
+}
