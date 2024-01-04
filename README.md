@@ -20,6 +20,10 @@ https://github.com/tux-evse/i2c-binding-rs
 
 https://github.com/redpesk-core/afb-libafb
 
+## modbus-binding
+
+https://github.com/redpesk-industrial/modbus-binding.git
+
 ## afb-app-manager
 
 https://github.com/redpesk-core/afb-app-manager
