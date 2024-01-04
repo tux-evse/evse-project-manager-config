@@ -1,0 +1,17 @@
+rp-manifest: 1
+id: slac-binding-rs
+version: 0.1
+name: slac-binding-rs
+description: slac binding
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: lib/libafb_slac.so
+      type: application/vnd.agl.resource
+
+
+provided-binding:
+   - name: slac-binding-rs
+     value: lib/libafb_slac.so

@@ -1,0 +1,12 @@
+{
+  "binding": [
+    {
+        "uid": "slac",
+        "path": "/usr/redpesk/i2c-binding-rs/lib/libafb_i2c.so",
+        "info": "RUST Slac ISO15118-3",
+        "iec6185_api": "am62x",
+        "iec6185_evt": "iec6185",
+        "iso_itf": "br0"
+    }
+  ]
+}

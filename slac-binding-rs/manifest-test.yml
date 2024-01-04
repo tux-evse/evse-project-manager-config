@@ -1,0 +1,24 @@
+rp-manifest: 1
+id: slac-binding-rs-test
+version: 0.1
+name: slac-binding-rs-test
+description: slac binding test
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: bin/start_binder.sh
+      type: application/x-executable
+
+    required-binding:
+      - name: slac-binding-rs
+        value: extern
+
+    provided-api:
+      - name: slac-binding-rs
+        value: ws
+
+file-properties:
+  - name: bin/start_binder.sh
+    value: executable
