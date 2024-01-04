@@ -1,0 +1,8 @@
+enable afm-system-daemon.service
+enable afm-system-setup.service
+enable afm-system-daemon.socket
+enable afmpkg-installer.service
+enable afmpkg-installer.socket
+enable afm-api-afm-main@1001
+enable afm-user-setup@1001
+enable afm-user-session@1001
