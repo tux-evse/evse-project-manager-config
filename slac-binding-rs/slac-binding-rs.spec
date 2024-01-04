@@ -28,7 +28,6 @@ BuildRequires:   glibc32
 
 BuildRequires: afb-librust
 BuildRequires: clang-devel
-BuildRequires: libslac-devel
 
 #BuildRequires: glibc-devel
 
