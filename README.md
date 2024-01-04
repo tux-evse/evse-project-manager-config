@@ -16,3 +16,6 @@ https://github.com/tux-evse/ti-am62x-m4-firmware
 
 https://github.com/tux-evse/i2c-binding-rs
 
+## afb-libafb
+
+https://github.com/redpesk-core/afb-libafb
