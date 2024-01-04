@@ -1,0 +1,20 @@
+rp-manifest: 1
+id: display-binding-rs-test
+version: 0.1
+name: display-binding-rs-test
+description: display binding test
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: bin/start_binder.sh
+      type: application/x-executable
+
+    provided-api:
+      - name: display-binding-rs
+        value: ws
+
+file-properties:
+  - name: bin/start_binder.sh
+    value: executable

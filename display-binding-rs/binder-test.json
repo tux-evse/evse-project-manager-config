@@ -1,0 +1,9 @@
+{
+    "name": "afb-display",
+    "no-ldpaths": true,
+    "alias": [
+        "/devtools:/usr/share/afb-ui-devtools/binder"
+    ],
+    "monitoring": true,
+    "tracereq": "all"
+}
