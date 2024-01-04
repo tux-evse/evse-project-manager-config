@@ -29,7 +29,7 @@ Summary:        Micro service application manager
 Group:          Development/Libraries/C and C++
 URL:            https://github.com/redpesk-core/afb-app-manager
 Source0:        %{name}-%{version}.tar.gz
-Source1: 50-afm.preset
+Source1:        https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/afb-app-manager/50-afm.preset
 BuildRequires:  make
 BuildRequires:  cmake
 BuildRequires:  pkgconfig(libsystemd) >= 222
