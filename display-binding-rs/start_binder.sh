@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+cynagora-admin set '' 'HELLO' '' '*' yes
 
 ln -sf /dev/input/event1 /dev/input/lvgl
 
