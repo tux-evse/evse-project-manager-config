@@ -74,7 +74,7 @@ touch gnu/stubs-32.h
 export C_INCLUDE_PATH="${C_INCLUDE_PATH}:$(pwd)"
 #End build fix
 
-cargo build --offline  --target %{_arch}-unknown-linux-gnu
+cargo build --offline  --release --target %{_arch}-unknown-linux-gnu
 
 
 %install
