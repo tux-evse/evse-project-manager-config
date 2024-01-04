@@ -1,5 +1,5 @@
 Name: modbus-binding
-Version: 1.1.0
+Version: 1.4.0
 Release: 7%{?dist}
 Summary: Binding to serve an API connected to modbus hardware
 Group:   Development/Libraries/C and C++
@@ -18,6 +18,9 @@ BuildRequires:  pkgconfig(afb-libhelpers)
 BuildRequires:  pkgconfig(afb-libcontroller)
 BuildRequires:  pkgconfig(libsystemd) >= 222
 BuildRequires:  pkgconfig(libmodbus) >= 3.1.6
+BuildRequires:  pkgconfig(librp-utils-static)
+BuildRequires:  pkgconfig(afb-helpers4-static)
+
 Requires:       afb-binder
 
 %description
