@@ -72,9 +72,6 @@ Requires: %{name} = %{version}
 %install
 %afm_makeinstall
 
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/lib
-cp ./target/%{_arch}-unknown-linux-gnu/release/*.so %{buildroot}%{_prefix}/redpesk/%{name}/lib
-
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
 cp %{SOURCE13}  %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
 cp %{SOURCE14}  %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
