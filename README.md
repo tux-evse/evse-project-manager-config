@@ -19,3 +19,7 @@ https://github.com/tux-evse/i2c-binding-rs
 ## afb-libafb
 
 https://github.com/redpesk-core/afb-libafb
+
+## afb-app-manager
+
+https://github.com/redpesk-core/afb-app-manager
