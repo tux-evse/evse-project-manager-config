@@ -45,6 +45,7 @@ cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE14} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE15} %{buildroot}%{_prefix}/redpesk/%{name}/etc
+cp %{SOURCE16} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig
 cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig/manifest.yml
