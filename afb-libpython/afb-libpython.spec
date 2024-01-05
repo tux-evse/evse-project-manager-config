@@ -1,7 +1,7 @@
 Name:           afb-libpython
 #Hexsha: d9a6340b04da62fdd0f7c99093c33fee7a676572
 Version:        1.0.2
-Release:        3%{?dist}
+Release:        5%{?dist}
 License:        LGPLv3
 Summary:        Abstraction of afb-libafb for integration with non C/C++
 Group:          Development/Libraries/C and C++
