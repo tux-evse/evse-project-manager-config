@@ -10,7 +10,7 @@ Source: %{name}-%{version}.tar.gz
 
 Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/modbus-binding/manifest.yml
 Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/modbus-binding/manifest-test.yml
-Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/modbus-binding/start_binder.sh
+Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/modbus-binding/start-binder.sh
 
 Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/modbus-binding/binder-test.json
 Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/modbus-binding/binding-modbus.json
@@ -80,7 +80,7 @@ mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
 cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/bin
-cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}-test/bin/start_binder.sh
+cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}-test/bin/start-binder.sh
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig
 cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig/manifest.yml

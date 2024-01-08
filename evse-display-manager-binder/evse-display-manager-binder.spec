@@ -10,7 +10,7 @@ URL: https://github.com/tux-evse/evse-project-manager-config
 
 Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-display-manager-binder/manifest.yml
 Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-display-manager-binder/manifest-test.yml
-Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-display-manager-binder/start_binder.sh
+Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-display-manager-binder/start-binder.sh
 
 Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-display-manager-binder/binder-test.json
 Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/display-binding-rs/binding-display.json
@@ -47,7 +47,7 @@ mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig
 cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig/manifest.yml
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/bin
-cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}-test/bin/start_binder.sh
+cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}-test/bin/start-binder.sh
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
 cp %{SOURCE13} %{buildroot}%{_prefix}/redpesk/%{name}-test/etc

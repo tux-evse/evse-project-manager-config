@@ -14,7 +14,7 @@ Source2: cargo_config
 
 Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/display-binding-rs/manifest.yml
 Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/display-binding-rs/manifest-test.yml
-Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/display-binding-rs/start_binder.sh
+Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/display-binding-rs/start-binder.sh
 Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/display-binding-rs/binding-display.json
 Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/display-binding-rs/binder-test.json
 
@@ -92,7 +92,7 @@ mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig
 cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig/manifest.yml
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/bin
-cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}-test/bin/start_binder.sh
+cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}-test/bin/start-binder.sh
 
 %files
 %dir %{_prefix}/redpesk/%{name}

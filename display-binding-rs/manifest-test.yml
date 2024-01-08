@@ -8,7 +8,7 @@ license: MIT
 targets:
   - target: main
     content:
-      src: bin/start_binder.sh
+      src: bin/start-binder.sh
       type: application/x-executable
 
     provided-api:
@@ -16,5 +16,5 @@ targets:
         value: ws
 
 file-properties:
-  - name: bin/start_binder.sh
+  - name: bin/start-binder.sh
     value: executable
