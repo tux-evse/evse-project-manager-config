@@ -1,0 +1,17 @@
+rp-manifest: 1
+id: charging-binding-rs
+version: 0.1
+name: charging-binding-rs
+description: charging binding
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: lib/libafb_chmgr.so
+      type: application/vnd.agl.resource
+
+
+provided-binding:
+   - name: charging-binding-rs
+     value: lib/libafb_charging.so
