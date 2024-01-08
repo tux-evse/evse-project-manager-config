@@ -79,19 +79,19 @@ cargo build --offline --release --target %{_arch}-unknown-linux-gnu
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/lib
 cp ./target/%{_arch}-unknown-linux-gnu/release/*.so %{buildroot}%{_prefix}/redpesk/%{name}/lib
 
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
-cp %{SOURCE13}  %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
-cp %{SOURCE14}  %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
-cp %{SOURCE15}  %{buildroot}%{_prefix}/redpesk/%{name}-test/etc
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
+cp %{SOURCE13}  %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
+cp %{SOURCE14}  %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
+cp %{SOURCE15}  %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
 cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/bin
-cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}-test/bin/start-binder.sh
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
+cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}/test/bin/start-binder.sh
 
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig
-cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig/manifest.yml
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig
+cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml
 
 %files
 %dir %{_prefix}/redpesk/%{name}
@@ -101,12 +101,12 @@ cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}-test/.rpconfig/manifest.ym
 %{_prefix}/redpesk/%{name}/lib/*
 
 %files test
-%dir %{_prefix}/redpesk/%{name}-test
-%dir %{_prefix}/redpesk/%{name}-test/bin
-%{_prefix}/redpesk/%{name}-test/bin/*
-%dir %{_prefix}/redpesk/%{name}-test/etc
-%{_prefix}/redpesk/%{name}-test/etc/*
-%dir %{_prefix}/redpesk/%{name}-test/.rpconfig
-%{_prefix}/redpesk/%{name}-test/.rpconfig/*
+%dir %{_prefix}/redpesk/%{name}/test
+%dir %{_prefix}/redpesk/%{name}/test/bin
+%{_prefix}/redpesk/%{name}/test/bin/*
+%dir %{_prefix}/redpesk/%{name}/test/etc
+%{_prefix}/redpesk/%{name}/test/etc/*
+%dir %{_prefix}/redpesk/%{name}/test/.rpconfig
+%{_prefix}/redpesk/%{name}/test/.rpconfig/*
 
 %changelog
