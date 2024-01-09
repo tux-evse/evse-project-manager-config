@@ -1,4 +1,5 @@
 %global debug_package %{nil}
+ExcludeArch: x86_64
 
 Name: linky-binding-rs
 Version: 0.0.0+20231117+173249+0+ge1f8b8f
@@ -13,11 +14,8 @@ Source2: cargo_config
 
 %ifarch x86_64
 BuildRequires:   rust-archive >= 1.70.0
-BuildRequires:   glibc32
 %else
 %NativeBuildRequires   rust-archive >= 1.70.0
-#Fix for cross build
-%NativeBuildRequires glibc32
 %endif
 
 BuildRequires: afb-librust
@@ -61,6 +59,12 @@ cat << EOF >> "${HOME}/.cargo/config"
 linker = "aarch64-linux-gnu-gcc"
 EOF
 %endif
+
+#build fix
+mkdir -p gnu;
+touch gnu/stubs-32.h
+export C_INCLUDE_PATH="${C_INCLUDE_PATH}:$(pwd)"
+#End build fix
 
 cargo build --offline --release --target %{_arch}-unknown-linux-gnu
 

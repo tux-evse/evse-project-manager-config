@@ -1,5 +1,5 @@
 %global debug_package %{nil}
-#ExcludeArch: x86_64
+ExcludeArch: x86_64
 
 Name: display-binding-rs
 Version: 0.0.4+20231219+2+g0dd0d13

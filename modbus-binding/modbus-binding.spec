@@ -31,6 +31,7 @@ BuildRequires:  pkgconfig(librp-utils-static)
 BuildRequires:  pkgconfig(afb-helpers4-static)
 
 Requires:       afb-binder
+ExcludeArch: x86_64
 
 %description
 %{name} Binding to serve an API connected to modbus hardware.

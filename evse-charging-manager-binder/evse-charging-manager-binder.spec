@@ -1,4 +1,5 @@
 %global debug_package %{nil}
+ExcludeArch: x86_64
 
 Name:    evse-charging-manager-binder
 Version: 0.0.1
