@@ -2,7 +2,7 @@
     "binding": [
         {
             "uid": "energy-manager",
-            "api": "energy",
+            "api": "engy",
             "path": "/usr/redpesk/energy-binding-rs/lib/libafb_energy.so",
             "info": "set/get api",
             "permission": "acl:nrj",
