@@ -52,7 +52,7 @@ find %{buildroot}
 %dir %{_prefix}/redpesk/pcscs-client/bin
 %{_prefix}/redpesk/pcscs-client/bin/pcscd-client
 %{_prefix}/redpesk/pcscs-client/*
-%{_prefix}/lib/libpcscd-glue.*
+%{_prefix}/lib64/libpcscd-glue.*
 
 %files devel
 %{_prefix}/include/*.h
