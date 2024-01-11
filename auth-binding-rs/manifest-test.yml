@@ -1,0 +1,24 @@
+rp-manifest: 1
+id: auth-binding-rs-test
+version: 0.1
+name: auth-binding-rs-test
+description: auth binding test
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: bin/start-binder.sh
+      type: application/x-executable
+
+    required-binding:
+      - name: auth-binding-rs
+        value: extern
+
+    provided-api:
+      - name: auth-binding-rs
+        value: ws
+
+file-properties:
+  - name: bin/start-binder.sh
+    value: executable
