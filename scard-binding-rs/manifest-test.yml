@@ -1,0 +1,24 @@
+rp-manifest: 1
+id: scard-binding-rs-test
+version: 0.1
+name: scard-binding-rs-test
+description: scard binding test
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: bin/start-binder.sh
+      type: application/x-executable
+
+    required-binding:
+      - name: scard-binding-rs
+        value: extern
+
+    provided-api:
+      - name: scard-binding-rs
+        value: ws
+
+file-properties:
+  - name: bin/start-binder.sh
+    value: executable
