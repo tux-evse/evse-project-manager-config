@@ -48,9 +48,10 @@ cd build
 find %{buildroot}
 
 %files
-%dir %{_prefix}/redpesk/%{name}
-%{_prefix}/redpesk/%{name}/bin/pcscd-client
-%{_prefix}/redpesk/%{name}/*
+%dir %{_prefix}/redpesk/pcscs-client
+%dir %{_prefix}/redpesk/pcscs-client/bin
+%{_prefix}/redpesk/pcscs-client/bin/pcscd-client
+%{_prefix}/redpesk/pcscs-client/*
 %{_prefix}/lib/libpcscd-glue.*
 
 %files devel
