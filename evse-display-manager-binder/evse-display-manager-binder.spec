@@ -17,8 +17,10 @@ Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/display-binding-rs/binding-display.json
 
 
-Requires: modbus-binding
-Requires: linky-binding-rs
+Requires: evse-auth-manager-binder
+Requires: evse-charging-manager-binder
+Requires: evse-energy-manager-binder
+
 Requires: display-binding-rs
 
 %description

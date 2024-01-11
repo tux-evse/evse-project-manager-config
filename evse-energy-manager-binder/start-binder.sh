@@ -5,4 +5,6 @@ cynagora-admin set '' 'HELLO' '' '*' yes
                     --config /usr/redpesk/evse-energy-manager-binder/etc/binding-energy.json \
                     --config /usr/redpesk/evse-energy-manager-binder/etc/binding-linky.json \
                     --config /usr/redpesk/evse-energy-manager-binder/etc/binding-modbus.json \
-                    -v
+                    -v \
+                    --tracereq=all \
+                    $*
