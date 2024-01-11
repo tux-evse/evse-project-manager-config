@@ -23,6 +23,7 @@ BuildRequires: clang-devel
 BuildRequires: sec-pcscd-client-devel
 BuildRequires: librp-utils-headers
 BuildRequires: json-c-devel
+BuildRequires: uthash-devel
 
 Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/scard-binding-rs/manifest.yml
 Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/scard-binding-rs/manifest-test.yml
