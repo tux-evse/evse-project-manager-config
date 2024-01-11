@@ -1,0 +1,16 @@
+rp-manifest: 1
+id: auth-manager
+version: 0.1
+name: auth-manager
+description: evse auth manager binder
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: etc/binding-auth.json
+      type: application/vnd.agl.resource
+
+    required-binding:
+      - name: auth
+        value: extern

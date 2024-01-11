@@ -1,0 +1,10 @@
+{
+  "name": "display-manager",
+  "no-ldpaths": true,
+  "port": 1236,
+  "alias": [
+    "/devtools:/usr/share/afb-ui-devtools/binder"
+  ],
+  "monitoring": true,
+  "tracereq": "all"
+}

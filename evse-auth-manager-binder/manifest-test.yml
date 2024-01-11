@@ -1,0 +1,16 @@
+rp-manifest: 1
+id: auth-manager-test
+version: 0.1
+name: auth-manager-test
+description: auth-manager test
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: bin/start-binder.sh
+      type: application/x-executable
+
+file-properties:
+  - name: bin/start-binder.sh
+    value: executable
