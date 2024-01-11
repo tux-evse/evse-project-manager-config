@@ -20,7 +20,7 @@ BuildRequires:   rust-archive >= 1.70.0
 
 BuildRequires: afb-librust
 BuildRequires: clang-devel
-BuildRequires: pkgconfig(sec-pcscd-client)
+BuildRequires: sec-pcscd-client-devel
 
 Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/scard-binding-rs/manifest.yml
 Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/scard-binding-rs/manifest-test.yml
