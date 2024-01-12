@@ -30,6 +30,7 @@ evse energy manager binder.
 Summary: evse energy manager binder test
 
 Requires: %{name} = %{version}
+Requires: afb-ui-devtools
 
 %description test
 evse energy manager binder test.

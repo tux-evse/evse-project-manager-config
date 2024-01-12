@@ -43,6 +43,7 @@ ti-am62x binding.
 Summary: %{name} binding test
 
 Requires: %{name} = %{version}
+Requires: afb-ui-devtools
 
 %description test
 %{name} binding test.

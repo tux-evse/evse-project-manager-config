@@ -28,6 +28,7 @@ evse auth manager binder.
 Summary: evse auth manager binder test
 
 Requires: %{name} = %{version}
+Requires:afb-ui-devtools
 
 %description test
 evse auth manager binder test.

@@ -30,6 +30,7 @@ evse display manager binder.
 Summary: evse display manager binder test
 
 Requires: %{name} = %{version}
+Requires: afb-ui-devtools
 
 %description test
 evse display manager binder test.

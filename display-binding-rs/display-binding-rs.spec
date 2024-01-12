@@ -18,6 +18,7 @@ Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/display-binding-rs/binding-display.json
 Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/display-binding-rs/binder-test.json
 
+lv_port_linux_frame_buffer
 
 %ifarch x86_64
 BuildRequires:   rust-archive >= 1.70.0
@@ -42,6 +43,7 @@ BuildRequires: lvgl-rclib-rs
 Summary: %{name} binding test
 
 Requires: %{name} = %{version}
+Requires:afb-ui-devtools
 
 %description test
 %{name} binding test.

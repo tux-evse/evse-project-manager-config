@@ -28,6 +28,7 @@ evse charging manager binder.
 Summary: evse charging manager binder test
 
 Requires: %{name} = %{version}
+Requires:afb-ui-devtools
 
 %description test
 evse charging manager binder test.
