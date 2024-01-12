@@ -26,6 +26,13 @@ Requires:  pcsc-lite
 %description
 sample implementation for Smartcard/NFC-token authentication based on pcsc-lite.
 
+%package tool
+Summary:        tool  for Smartcard/NFC-token authentication based on pcsc-lite
+Requires:       %{name} = %{version}-%{release}
+
+%description tool
+tool for Smartcard/NFC-token authentication based on pcsc-lite.
+
 %package devel
 Summary:        sample implementation for Smartcard/NFC-token authentication based on pcsc-lite
 Requires:       %{name} = %{version}-%{release}
@@ -52,11 +59,13 @@ cp ./etc/nfc-blacklist.conf %{buildroot}%{_modprobedir}
 
 %files
 %dir %{_prefix}/redpesk/pcscs-client
-%dir %{_prefix}/redpesk/pcscs-client/bin
-%{_prefix}/redpesk/pcscs-client/bin/pcscd-client
 %{_prefix}/redpesk/pcscs-client/*
 %{_prefix}/lib64/libpcscd-glue.*
 %{_modprobedir}/*.conf
+
+%files tool
+%dir %{_prefix}/redpesk/pcscs-client/bin
+%{_prefix}/redpesk/pcscs-client/bin/pcscd-client
 
 %files devel
 %{_prefix}/include/*.h
