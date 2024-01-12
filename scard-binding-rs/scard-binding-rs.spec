@@ -72,7 +72,6 @@ export C_INCLUDE_PATH="${C_INCLUDE_PATH}:$(pwd)"
 
 cargo build --offline --release --target %{_arch}-unknown-linux-gnu --features rpm_build
 
-cp ./afb-binding/etc/pcscd-client-test.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 
 %install
 
@@ -91,6 +90,8 @@ cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.ym
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
 cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}/test/bin/start-binder.sh
+
+cp ./afb-binding/etc/pcscd-client-test.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 
 %files
 %dir %{_prefix}/redpesk/%{name}
