@@ -72,6 +72,7 @@ export C_INCLUDE_PATH="${C_INCLUDE_PATH}:$(pwd)"
 
 cargo build --offline --release --target %{_arch}-unknown-linux-gnu --features rpm_build
 
+cp ./afb-binding/etc/pcscd-client-test.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 
 %install
 

@@ -21,6 +21,8 @@ BuildRequires: pkgconfig(afb-libhelpers)
 BuildRequires: pkgconfig(libpcsclite)
 BuildRequires:  uthash-devel
 
+Requires:  pcsc-lite
+
 %description
 sample implementation for Smartcard/NFC-token authentication based on pcsc-lite.
 
@@ -45,7 +47,8 @@ cd build
 cd build
 %cmake_install
 
-find %{buildroot}
+mkdir -p%{buildroot}%{_modprobedir}
+cp ./etc/nfc-blacklist.conf %{buildroot}%{_modprobedir}
 
 %files
 %dir %{_prefix}/redpesk/pcscs-client
@@ -53,6 +56,7 @@ find %{buildroot}
 %{_prefix}/redpesk/pcscs-client/bin/pcscd-client
 %{_prefix}/redpesk/pcscs-client/*
 %{_prefix}/lib64/libpcscd-glue.*
+%{_modprobedir}/*.conf
 
 %files devel
 %{_prefix}/include/*.h
