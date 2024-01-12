@@ -47,7 +47,7 @@ cd build
 cd build
 %cmake_install
 
-mkdir -p%{buildroot}%{_modprobedir}
+mkdir -p %{buildroot}%{_modprobedir}
 cp ./etc/nfc-blacklist.conf %{buildroot}%{_modprobedir}
 
 %files
