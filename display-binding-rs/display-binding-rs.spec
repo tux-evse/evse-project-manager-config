@@ -39,6 +39,8 @@ BuildRequires: pkgconfig(json-c)
 
 BuildRequires: lvgl-rclib-rs
 
+Conflicts: lv_port_linux_frame_buffer
+
 %package test
 Summary: %{name} binding test
 
