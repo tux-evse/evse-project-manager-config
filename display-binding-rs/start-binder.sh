@@ -13,9 +13,9 @@ CONFDIR=`pwd`/etc
 DEVTOOL_PORT=1235
 echo Energy debug mode config=$CONFDIR/*.json port=$DEVTOOL_PORT
 
-/usr/bin/afb-binder --config /usr/redpesk/display-binding-rs/test/etc/binder-test.json \
-                    --config /usr/redpesk/display-binding-rs/test/etc/binding-display.json \
+/usr/bin/afb-binder --config=/usr/redpesk/display-binding-rs/test/etc/binder-test.json \
+                    --config=/usr/redpesk/display-binding-rs/test/etc/binding-display.json \
                     -v \
                     --tracereq=all \
-                    --port=$DEVTOOL_PORT
+                    --port=$DEVTOOL_PORT \
                     $*
