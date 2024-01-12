@@ -1,4 +1,7 @@
 {
+    "ws-server": [
+      "unix:/tmp/api/engy"
+    ], 
     "binding": [
         {
             "uid": "energy-manager",

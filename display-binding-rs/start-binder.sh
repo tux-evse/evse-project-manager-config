@@ -15,8 +15,7 @@ echo Energy debug mode config=$CONFDIR/*.json port=$DEVTOOL_PORT
 
 /usr/bin/afb-binder --config /usr/redpesk/display-binding-rs/test/etc/binder-test.json \
                     --config /usr/redpesk/display-binding-rs/test/etc/binding-display.json \
-                    --ws-client public:unix:@tux-evse-webapp-mock \
                     -v \
                     --tracereq=all \
-                    --port=$DEVTOOL_PORT 
+                    --port=$DEVTOOL_PORT
                     $*

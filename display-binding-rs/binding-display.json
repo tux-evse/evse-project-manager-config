@@ -1,4 +1,7 @@
 {
+    "ws-client": [
+        "unix:/tmp/api/engy"
+    ],
     "binding": [
         {
             "uid": "display-lvgl",
@@ -11,7 +14,7 @@
                 "y_res": 600,
                 "ratio": 1
             },
-            "mgr_api": "tux-evse-webapp-mock"
+            "mgr_api": "engy"
         }
     ]
 }
