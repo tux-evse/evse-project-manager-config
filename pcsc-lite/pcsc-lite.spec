@@ -1,3 +1,5 @@
+
+ExcludeArch: x86_64
 # doesn't make sense to install a polkit configuration inside a Flatpak
 %if 0%{?flatpak}
 %global with_polkit 0
