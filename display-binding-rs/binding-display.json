@@ -14,7 +14,7 @@
                 "y_res": 600,
                 "ratio": 1
             },
-            "mgr_api": "engy"
+            "engy_api": "engy"
         }
     ]
 }
