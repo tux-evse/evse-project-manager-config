@@ -87,7 +87,7 @@ mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 
 cp ./afb-binding/etc/*.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
-cp ./afb-binding/etc/*.sh %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
+cp ./afb-binding/etc/*.sh %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
 
 %files
 %dir %{_prefix}/redpesk/%{name}
