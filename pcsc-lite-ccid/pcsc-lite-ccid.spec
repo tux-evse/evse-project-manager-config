@@ -43,7 +43,7 @@ PC/SC Lite daemon.
 %prep
 # gpgv2 --keyring %{SOURCE2} %{SOURCE1} %{SOURCE0}
 %setup -q -n ccid-%{version}
-%patch 0 -p1 -b .omnikey
+%patch0 -p1 -b .omnikey
 
 %build
 %configure --enable-twinserial
