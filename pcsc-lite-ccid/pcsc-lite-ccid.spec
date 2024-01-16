@@ -1,3 +1,7 @@
+
+ExcludeArch: x86_64
+%global debug_package %{nil}
+
 %global dropdir %(pkg-config libpcsclite --variable usbdropdir 2>/dev/null)
 %global pcsc_lite_ver 1.8.9
 
