@@ -1,6 +1,7 @@
 {
     "ws-server": [
-      "unix:/tmp/api/engy"
+      "unix:/tmp/api/engy",
+      "tcp:*:12351/engy"
     ], 
     "binding": [
         {
