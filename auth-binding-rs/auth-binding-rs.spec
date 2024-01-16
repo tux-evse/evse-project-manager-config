@@ -14,9 +14,6 @@ Source2: cargo_config
 
 Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/auth-binding-rs/manifest.yml
 Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/auth-binding-rs/manifest-test.yml
-Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/auth-binding-rs/start-binder.sh
-Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/auth-binding-rs/binding-auth.json
-Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/auth-binding-rs/binder-test.json
 
 %ifarch x86_64
 BuildRequires:   rust-archive >= 1.70.0
@@ -76,15 +73,13 @@ cp ./target/%{_arch}-unknown-linux-gnu/release/*.so %{buildroot}%{_prefix}/redpe
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
 cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
-cp %{SOURCE13}  %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
-cp %{SOURCE14}  %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
-
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig
 cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml
 
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
-cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}/test/bin/start-binder.sh
+cp ./afb-binding/etc/*.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
+cp ./afb-binding/etc/*.sh %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
 
 %files
 %dir %{_prefix}/redpesk/%{name}

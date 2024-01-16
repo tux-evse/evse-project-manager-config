@@ -5,5 +5,9 @@
         "/devtools:/usr/share/afb-ui-devtools/binder"
     ],
     "monitoring": true,
-    "tracereq": "all"
+    "tracereq": "all",
+    "tic": 5000,
+    "ws-server": [
+        "unix:/tmp/api/auth"
+    ]
 }
