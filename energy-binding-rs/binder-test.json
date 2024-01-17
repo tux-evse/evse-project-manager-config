@@ -5,5 +5,8 @@
         "/devtools:/usr/share/afb-ui-devtools/binder"
     ],
     "monitoring": true,
-    "tracereq": "all"
+    "tracereq": "all",
+    "ws-server": [
+        "unix:/tmp/api/engy"
+      ]
 }
