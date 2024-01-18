@@ -27,3 +27,7 @@ https://github.com/redpesk-industrial/modbus-binding.git
 ## afb-app-manager
 
 https://github.com/redpesk-core/afb-app-manager
+
+## slac-binding-rs
+
+https://github.com/tux-evse/slac-binding-rs
