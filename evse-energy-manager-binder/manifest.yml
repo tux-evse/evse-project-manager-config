@@ -9,7 +9,7 @@ targets:
   - target: main
     content:
       src: etc/binding-energy.json
-      type: application/vnd.agl.resource
+      type: application/vnd.agl.service
 
     required-binding:
       - name: linky-binding-rs
