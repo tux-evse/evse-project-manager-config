@@ -33,6 +33,15 @@ BuildRequires: clang-devel
 %description
 OCPP Rust afb binding.
 
+%package test
+Summary: %{name} binding test
+
+Requires: %{name} = %{version}
+Requires: afb-ui-devtools
+
+%description test
+%{name} binding test.
+
 %prep
 %autosetup -a1
 
