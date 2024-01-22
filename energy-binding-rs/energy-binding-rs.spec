@@ -36,6 +36,9 @@ Summary: %{name} binding test
 Requires: %{name} = %{version}
 Requires:afb-ui-devtools
 
+Requires: i2c-binding-rs
+Requires: modbus-binding
+
 %description test
 %{name} binding test.
 
