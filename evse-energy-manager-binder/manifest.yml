@@ -18,3 +18,8 @@ targets:
         value: extern
       - name: energy
         value: extern
+    
+    required-config:
+      - etc/binding-energy.json
+      - etc/binding-linky.json
+      - etc/binding-modbus.json
