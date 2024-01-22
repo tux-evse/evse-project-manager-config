@@ -1,0 +1,17 @@
+rp-manifest: 1
+id: ocpp-binding-rs
+version: 0.1
+name: ocpp-binding-rs
+description: ocpp binding
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: lib/libafb_ocpp.so
+      type: application/vnd.agl.resource
+
+
+provided-binding:
+   - name: ocpp-binding-rs
+     value: lib/libafb_ocpp.so

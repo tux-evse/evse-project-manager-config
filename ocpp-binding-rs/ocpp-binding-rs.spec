@@ -11,6 +11,9 @@ Source0: %{name}-%{version}.tar.gz
 Source1: vendor.tar.gz
 Source2: cargo_config
 
+Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ocpp-binding-rs/manifest.yml
+Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ocpp-binding-rs/manifest-test.yml
+
 %ifarch x86_64
 BuildRequires:   rust-archive >= 1.70.0
 BuildRequires:   glibc32
@@ -56,55 +59,32 @@ cargo build --offline --release --target %{_arch}-unknown-linux-gnu
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/lib
 cp ./target/%{_arch}-unknown-linux-gnu/release/*.so %{buildroot}%{_prefix}/redpesk/%{name}/lib
 
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/etc
-cp ./afb-binding/etc/*.json %{buildroot}%{_prefix}/redpesk/%{name}/etc
-CONF_NAME=$(basename t%{buildroot}%{_prefix}/redpesk/%{name}/etc/*.json)
-
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/bin
-cat << EOF >> "%{buildroot}%{_prefix}/redpesk/%{name}/bin/start_bender.sh"
-#!/usr/bin/bash
-
-/usr/bin/afb-binder --config %{_prefix}/redpesk/%{name}/etc/binding-bia-power.json \
-                    --ws-server sd:ocpp
-
-EOF
-
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
+cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 
-LIB_NAME=$(basename target/aarch64-unknown-linux-gnu/release/*.so)
-cat << EOF >> "%{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml"
-rp-manifest: 1
-id: %{name}
-version: 0.1
-name: %{name}
-description: linky binding
-author: IoT.bzh team <team@iot.bzh>
-license: MIT
-targets:
-  - target: main
-    content:
-      src: bin/start_bender.sh
-      type: application/x-executable
-    provided-api:
-      - name: ocpp
-        value: ws
- 
-file-properties:
-  - name: bin/start_bender.sh
-    value: executable
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig
+cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml
 
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
+cp ./afb-binding/etc/*.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
+cp ./afb-binding/etc/*.sh %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
 
-EOF
 
 %files
 %dir %{_prefix}/redpesk/%{name}
 %dir %{_prefix}/redpesk/%{name}/.rpconfig
 %{_prefix}/redpesk/%{name}/.rpconfig/*
-%dir %{_prefix}/redpesk/%{name}/etc
-%{_prefix}/redpesk/%{name}/etc/*
 %dir %{_prefix}/redpesk/%{name}/lib
 %{_prefix}/redpesk/%{name}/lib/*
-%dir %{_prefix}/redpesk/%{name}/bin
-%{_prefix}/redpesk/%{name}/bin/*
+
+%files test
+%dir %{_prefix}/redpesk/%{name}/test
+%dir %{_prefix}/redpesk/%{name}/test/bin
+%{_prefix}/redpesk/%{name}/test/bin/*
+%dir %{_prefix}/redpesk/%{name}/test/etc
+%{_prefix}/redpesk/%{name}/test/etc/*
+%dir %{_prefix}/redpesk/%{name}/test/.rpconfig
+%{_prefix}/redpesk/%{name}/test/.rpconfig/*
 
 %changelog

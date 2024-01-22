@@ -1,0 +1,24 @@
+rp-manifest: 1
+id: ocpp-binding-rs-test
+version: 0.1
+name: ocpp-binding-rs-test
+description: ocpp binding test
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: bin/start-binder.sh
+      type: application/x-executable
+
+    required-binding:
+      - name: ocpp-binding-rs
+        value: extern
+
+    provided-api:
+      - name: ocpp-binding-rs
+        value: ws
+
+file-properties:
+  - name: bin/start-binder.sh
+    value: executable
