@@ -36,8 +36,8 @@ Summary: %{name} binding test
 Requires: %{name} = %{version}
 Requires:afb-ui-devtools
 
-Requires: i2c-binding-rs
 Requires: modbus-binding
+Requires: linky-binding-rs
 
 %description test
 %{name} binding test.
