@@ -14,7 +14,6 @@ Source2: cargo_config
 
 Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/energy-binding-rs/manifest.yml
 Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/energy-binding-rs/manifest-test.yml
-Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/energy-binding-r
 
 %ifarch x86_64
 BuildRequires:   rust-archive >= 1.70.0
