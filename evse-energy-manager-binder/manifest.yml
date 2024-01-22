@@ -12,11 +12,11 @@ targets:
       type: application/vnd.agl.resource
 
     required-binding:
-      - name: linky-meeter
+      - name: linky-binding-rs
         value: extern
-      - name: modbus
+      - name: modbus-binding
         value: extern
-      - name: energy
+      - name: energy-binding-rs
         value: extern
     
     required-config:
