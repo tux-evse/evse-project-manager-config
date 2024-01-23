@@ -37,7 +37,7 @@ Requires: %{name} = %{version}
 Requires:afb-ui-devtools
 
 Requires: modbus-binding
-Requires: linky-binding-rs
+#Requires: linky-binding-rs
 
 %description test
 %{name} binding test.
