@@ -22,5 +22,5 @@ targets:
         value: auto
 
     required-config:
-      - /usr/redpesk/evse-auth-manager-binder/etc/binding-auth.json
-      - /usr/redpesk/evse-auth-manager-binder/etc/binding-scard.json
+      - etc/binding-auth.json
+      - etc/binding-scard.json

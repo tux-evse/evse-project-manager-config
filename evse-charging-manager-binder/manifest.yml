@@ -32,7 +32,7 @@ targets:
         value: auto
 
     required-config:
-      - /usr/redpesk/evse-charging-manager-binder/etc/binding-i2c.json
-      - /usr/redpesk/evse-charging-manager-binder/etc/binding-am62x.json
-      - /usr/redpesk/evse-charging-manager-binder/etc/binding-chmgr.json
-      - /usr/redpesk/evse-charging-manager-binder/etc/binding-slac.json
+      - etc/binding-i2c.json
+      - etc/binding-am62x.json
+      - etc/binding-chmgr.json
+      - etc/binding-slac.json

@@ -22,5 +22,5 @@ targets:
         value: auto
 
     required-config:
-      - /usr/redpesk/evse-energy-manager-binder/etc/binding-energy.json
-      - /usr/redpesk/evse-energy-manager-binder/etc/binding-modbus.json
+      - etc/binding-energy.json
+      - etc/binding-modbus.json

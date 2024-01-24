@@ -24,4 +24,4 @@ targets:
         value: auto
 
     required-config:
-      - /usr/redpesk/evse-display-manager-binder/etc/binding-display.json
+      - etc/binding-display.json
