@@ -18,6 +18,8 @@ Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 Source15: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-chmgr.json
 Source16: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-i2c.json
 Source17: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-slac.json
+#For debug only
+Source90: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-debug.json
 
 Requires: charging-binding-rs
 Requires: ti-am62x-binding-rs
@@ -53,6 +55,9 @@ cp %{SOURCE14} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE15} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE16} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE17} %{buildroot}%{_prefix}/redpesk/%{name}/etc
+
+#For debug only
+cp %{SOURCE90} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig
 cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml

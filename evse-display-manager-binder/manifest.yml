@@ -25,3 +25,4 @@ targets:
 
     required-config:
       - etc/binding-display.json
+      - etc/binding-debug.json

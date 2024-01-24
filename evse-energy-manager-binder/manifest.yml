@@ -24,3 +24,4 @@ targets:
     required-config:
       - etc/binding-energy.json
       - etc/binding-modbus.json
+      - etc/binding-debug.json

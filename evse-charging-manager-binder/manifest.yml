@@ -36,3 +36,4 @@ targets:
       - etc/binding-am62x.json
       - etc/binding-chmgr.json
       - etc/binding-slac.json
+      - etc/binding-debug.json

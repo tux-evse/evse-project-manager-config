@@ -1,0 +1,15 @@
+{
+    "alias": [
+        "/devtools:/usr/share/afb-ui-devtools/binder"
+    ],
+    "monitoring": true,
+    "ws-client": [
+        "private:unix:/tmp/api/engy",
+        "private:unix:/tmp/api/auth"
+    ],
+    "ws-server": [
+        "unix:/tmp/api/chmgr",
+        "tcp::12371/chmgr"
+    ],
+    "port": 1237
+}

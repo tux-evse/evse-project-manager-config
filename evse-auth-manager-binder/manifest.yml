@@ -24,3 +24,4 @@ targets:
     required-config:
       - etc/binding-auth.json
       - etc/binding-scard.json
+      - etc/binding-debug.json
