@@ -16,6 +16,10 @@ targets:
         value: extern
       - name: scard-binding-rs
         value: extern
+    
+    provided-api:
+      - name: auth
+        value: auto
 
     required-config:
       - etc/binding-auth.json

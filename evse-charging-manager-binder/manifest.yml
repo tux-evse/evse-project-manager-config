@@ -21,6 +21,16 @@ targets:
       - name: slac-binding-rs
         value: extern
 
+    provided-api:
+      - name: chmgr
+        value: auto
+
+    required-api:
+      - name: engy
+        value: auto
+      - name: auth
+        value: auto
+
     required-config:
       - etc/binding-i2c.json
       - etc/binding-am62x.json

@@ -14,5 +14,14 @@ targets:
     required-binding:
       - name: display-binding-rs
         value: extern
+
+    required-api:
+      - name: engy
+        value: auto
+      - name: chmgr
+        value: auto
+      - name: auth
+        value: auto
+
     required-config:
       - etc/binding-display.json

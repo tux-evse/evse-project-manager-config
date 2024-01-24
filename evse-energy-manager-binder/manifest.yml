@@ -17,6 +17,10 @@ targets:
       - name: energy-binding-rs
         value: extern
     
+    provided-api:
+      - name: engy
+        value: auto
+
     required-config:
       - etc/binding-energy.json
       - etc/binding-modbus.json
