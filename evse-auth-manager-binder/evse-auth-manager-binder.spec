@@ -19,7 +19,7 @@ Source15: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 
 
 Requires: modbus-binding
-Requires: linky-binding-rs
+#Requires: linky-binding-rs
 Requires: auth-binding-rs
 
 %description
