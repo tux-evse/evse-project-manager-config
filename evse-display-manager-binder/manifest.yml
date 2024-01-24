@@ -9,8 +9,10 @@ targets:
   - target: main
     content:
       src: etc/binding-display.json
-      type: application/vnd.agl.resource
+      type: application/vnd.agl.service
 
     required-binding:
-      - name: display
+      - name: display-binding-rs
         value: extern
+    required-config:
+      - etc/binding-display.json

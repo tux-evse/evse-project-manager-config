@@ -13,7 +13,7 @@ Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-energy-manager-binder/manifest-test.yml
 Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-energy-manager-binder/start-binder.sh
 
-Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-energy-manager-binder/binder-energy.json
+Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-energy-manager-binder/binder-test.json
 Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-energy-manager-binder/binding-energy.json
 Source15: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-energy-manager-binder/binding-linky.json
 Source16: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-energy-manager-binder/binding-modbus.json

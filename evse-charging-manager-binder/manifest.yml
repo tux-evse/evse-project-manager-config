@@ -9,10 +9,20 @@ targets:
   - target: main
     content:
       src: etc/binder-test.json
-      type: application/vnd.agl.resource
+      type: application/vnd.agl.service
 
     required-binding:
       - name: i2c-binding-rs
         value: extern
-      - name: ti-am62x
+      - name: ti-am62x-binding-rs
         value: extern
+      - name: charging-binding-rs
+        value: extern
+      - name: slac-binding-rs
+        value: extern
+
+    required-config:
+      - etc/binding-i2c.json
+      - etc/binding-am62x.json
+      - etc/binding-chmgr.json
+      - etc/binding-slac.json

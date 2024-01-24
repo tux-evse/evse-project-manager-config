@@ -9,8 +9,14 @@ targets:
   - target: main
     content:
       src: etc/binding-auth.json
-      type: application/vnd.agl.resource
+      type: application/vnd.agl.service
 
     required-binding:
-      - name: auth
+      - name: auth-binding-rs
         value: extern
+      - name: scard-binding-rs
+        value: extern
+
+    required-config:
+      - etc/binding-auth.json
+      - etc/binding-scard.json

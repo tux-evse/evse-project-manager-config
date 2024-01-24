@@ -14,7 +14,7 @@ Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-display-manager-binder/start-binder.sh
 
 Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-display-manager-binder/binder-test.json
-Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/display-binding-rs/binding-display.json
+Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-display-manager-binder/binding-display.json
 
 
 Requires: evse-auth-manager-binder
@@ -31,6 +31,11 @@ Summary: evse display manager binder test
 
 Requires: %{name} = %{version}
 Requires: afb-ui-devtools
+
+Requires: display-binding-rs
+Requires: evse-auth-manager-binder
+Requires: evse-charging-manager-binder
+Requires: evse-energy-manager-binder
 
 %description test
 evse display manager binder test.

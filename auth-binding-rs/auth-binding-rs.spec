@@ -36,6 +36,8 @@ Summary: %{name} binding test
 Requires: %{name} = %{version}
 Requires:afb-ui-devtools
 
+Requires: scard-binding-rs
+
 %description test
 %{name} binding test.
 

@@ -1,10 +1,14 @@
 {
-  "name": "display-manager",
+  "name": "afb-auth",
   "no-ldpaths": true,
-  "port": 1236,
   "alias": [
-    "/devtools:/usr/share/afb-ui-devtools/binder"
+      "/devtools:/usr/share/afb-ui-devtools/binder"
   ],
   "monitoring": true,
-  "tracereq": "all"
+  "tracereq": "none",
+  "tic": 5000,
+  "ws-server": [
+      "unix:/tmp/api/auth",
+      "tcp:*:12381/auth"
+  ]
 }

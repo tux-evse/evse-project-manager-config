@@ -1,10 +1,16 @@
 {
-  "name": "charging-manager",
+  "name": "afb-chmgr",
   "no-ldpaths": true,
-  "port": 1236,
   "alias": [
-    "/devtools:/usr/share/afb-ui-devtools/binder"
+      "/devtools:/usr/share/afb-ui-devtools/binder"
   ],
   "monitoring": true,
-  "tracereq": "all"
+  "ws-client": [
+      "private:unix:/tmp/api/engy",
+      "private:unix:/tmp/api/auth"
+  ],
+  "ws-server": [
+      "unix:/tmp/api/chmgr",
+      "tcp::12371/chmgr"
+  ]
 }

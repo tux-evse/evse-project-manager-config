@@ -1,15 +1,12 @@
 {
-  "name": "display-manager",
-  "no-ldpaths": true,
-  "port": 1236,
+  "name": "afb-display",
   "alias": [
-    "/devtools:/usr/share/afb-ui-devtools/binder"
+      "/devtools:/usr/share/afb-ui-devtools/binder"
   ],
+  "monitoring": true,
   "ws-client": [
       "unix:/tmp/api/engy",
       "unix:/tmp/api/chmgr",
       "unix:/tmp/api/auth"
-  ],
-  "monitoring": true,
-  "tracereq": "all"
+  ]
 }

@@ -14,7 +14,8 @@ Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-auth-manager-binder/start-binder.sh
 
 Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-auth-manager-binder/binder-test.json
-Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/auth-binding-rs/binding-auth.json
+Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-auth-manager-binder/binding-auth.json
+Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-auth-manager-binder/binding-scard.json
 
 
 Requires: modbus-binding
@@ -29,6 +30,9 @@ Summary: evse auth manager binder test
 
 Requires: %{name} = %{version}
 Requires:afb-ui-devtools
+
+Requires: auth-binding-rs
+Requires: scard-binding-rs
 
 %description test
 evse auth manager binder test.
