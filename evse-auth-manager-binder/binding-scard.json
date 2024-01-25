@@ -3,7 +3,6 @@
         {
             "uid": "nfc-reader",
             "api": "scard",
-            "path": "/usr/redpesk/scard-binding-rs/lib/libafb_nfc.so",
             "info": "nfc ACR122U Reader binding",
             "permission": "acl:nfc:client",
             "nfc": {
