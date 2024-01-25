@@ -1,6 +1,6 @@
 {
-    "binding": [
-        {
+    "set": {
+        "linky-binding-rs": {
             "uid": "linky-meeter",
             "api": "linky",
             "permission": "acl:linky",
@@ -9,6 +9,6 @@
             "speed": 9600,
             "parity": "even",
             "cycle": 25
-        },
-    ]
+        }
+    }
 }
