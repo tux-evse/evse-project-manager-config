@@ -1,6 +1,6 @@
 {
     "set": {
-        "linky-binding-rs": {
+        "libafb_linky.so": {
             "uid": "linky-meeter",
             "api": "linky",
             "permission": "acl:linky",

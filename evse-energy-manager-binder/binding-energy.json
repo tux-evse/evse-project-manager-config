@@ -1,6 +1,6 @@
 {
     "set": {
-        "energy-binding-rs": {
+        "libafb_energy.so": {
             "uid": "energy-manager",
             "api": "engy",
             "info": "set/get api",
