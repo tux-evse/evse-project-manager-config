@@ -1,4 +1,5 @@
 %define debug_package %{nil}
+ExcludeArch: x86_64
 
 Name: afb-libhelpers
 #Hexsha: 15728e63f546b54f8830f15806ab744642f1abdb
