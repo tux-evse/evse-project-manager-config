@@ -1,3 +1,6 @@
+%define debug_package %{nil}
+ExcludeArch: x86_64
+
 Name: modbus-binding
 Version: 1.4.0
 Release: 7%{?dist}
