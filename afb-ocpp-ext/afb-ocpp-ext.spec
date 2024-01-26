@@ -15,7 +15,7 @@ BuildRequires: gcc
 BuildRequires: gcc-c++
 BuildRequires:  pkgconfig(librp-utils) >= 0.0.3
 BuildRequires:  afb-cmake-modules
-BuildRequires: pkgconfig(afb-binding)
+BuildRequires: pkgconfig(libafb)
 
 %description
 AFB micro-service framework extention for OCPP.
