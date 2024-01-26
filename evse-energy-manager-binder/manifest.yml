@@ -9,7 +9,7 @@ targets:
   - target: main
     content:
       src: etc/binding-energy.json
-      type: application/vnd.agl.service
+      type: text/html
 
     required-binding:
       - name: modbus-binding
