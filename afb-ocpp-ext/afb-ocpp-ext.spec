@@ -31,6 +31,7 @@ cd build
 cmake ../
 
 %install
+cd build
 %cmake_install
 
 %check
