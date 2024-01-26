@@ -27,7 +27,7 @@ AFB micro-service framework extention for OCPP.
 
 %build
 %define __cmake_in_source_build 0
-%cmake -DCMAKE_BUILD_TYPE=DEBUG .
+%cmake -DCMAKE_BUILD_TYPE=DEBUG -B "%{__cmake_builddir}"
 %cmake_build
 
 %install
