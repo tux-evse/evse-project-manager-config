@@ -15,6 +15,7 @@ BuildRequires: gcc
 BuildRequires: gcc-c++
 BuildRequires: pkgconfig(librp-utils) >= 0.0.3
 BuildRequires: afb-cmake-modules
+BuildRequires:  afm-rpm-macros
 BuildRequires: pkgconfig(afb-binding)
 BuildRequires: pkgconfig(libafb)
 BuildRequires: pkgconfig(libafb-binder)
@@ -37,22 +38,22 @@ cd build
 %clean
 
 %files
-%dir %{_prefix}/redpesk/%{name}
-%dir %{_prefix}/redpesk/%{name}/var
-%dir %{_prefix}/redpesk/%{name}/etc
-%dir %{_prefix}/redpesk/%{name}/lib
-%{_prefix}/redpesk/%{name}/htdocs
-%{_prefix}/redpesk/%{name}/bin
+%dir %{_prefix}/redpesk/afb-ocpp
+%dir %{_prefix}/redpesk/afb-ocpp/var
+%dir %{_prefix}/redpesk/afb-ocpp/etc
+%dir %{_prefix}/redpesk/afb-ocpp/lib
+%dir %{_prefix}/redpesk/afb-ocpp/htdocs
+%dir %{_prefix}/redpesk/afb-ocpp/bin
 
-%{_prefix}/redpesk/%{name}
-%{_prefix}/redpesk/%{name}/var
-%{_prefix}/redpesk/%{name}/config.xml
-%{_prefix}/redpesk/%{name}/icon.jpg
-%{_prefix}/redpesk/%{name}/etc
-%{_prefix}/redpesk/%{name}/lib
-%{_prefix}/redpesk/%{name}/lib/libafb-ocpp-ext.so
-%{_prefix}/redpesk/%{name}/htdocs
-%{_prefix}/redpesk/%{name}/bin
+%{_prefix}/redpesk/afb-ocpp
+%{_prefix}/redpesk/afb-ocpp/var
+%{_prefix}/redpesk/afb-ocpp/config.xml
+%{_prefix}/redpesk/afb-ocpp/icon.jpg
+%{_prefix}/redpesk/afb-ocpp/etc
+%{_prefix}/redpesk/afb-ocpp/lib
+%{_prefix}/redpesk/afb-ocpp/lib/libafb-ocpp-ext.so
+%{_prefix}/redpesk/afb-ocpp/htdocs
+%{_prefix}/redpesk/afb-ocpp/bin
 
 
 %changelog
