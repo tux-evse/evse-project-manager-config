@@ -1,6 +1,6 @@
 {
-    "binding": [
-        {
+    "set": {
+        "libafb_nfc.so": {
             "uid": "nfc-reader",
             "api": "scard",
             "info": "nfc ACR122U Reader binding",
@@ -9,7 +9,7 @@
                 "info": "Demo config with Mifare Classic",
                 "reader": "ACR122U",
                 "verbose": 1,
-                "timeout":30,
+                "timeout": 30,
                 "keys": [
                     {
                         "uid": "key-a",

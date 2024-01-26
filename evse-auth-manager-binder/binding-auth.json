@@ -1,6 +1,6 @@
 {
-    "binding": [
-        {
+    "set": {
+        "libafb_auth.so": {
             "uid": "authentication-manager",
             "api": "auth",
             "info": "set/get api",
