@@ -1,4 +1,5 @@
-%global debug_package %{nil}
+%define debug_package %{nil}
+ExcludeArch: x86_64
 
 Name: ocpp-binding-rs
 Version: 0.0.1
