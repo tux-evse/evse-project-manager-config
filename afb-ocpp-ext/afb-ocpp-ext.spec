@@ -7,6 +7,9 @@ License: Apache
 URL: https://github.com/tux-evse/afb-ocpp-ext.git
 Source0: %{name}-%{version}.tar.gz
 
+BuildRequires: cmake
+BuildRequires: gcc
+BuildRequires: gcc-c++
 BuildRequires:  pkgconfig(librp-utils) >= 0.0.3
 
 %description
