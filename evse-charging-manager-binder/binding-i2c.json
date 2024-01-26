@@ -1,6 +1,6 @@
 {
-
-    "binding": [
+    "set": {
+        "libafb_i2c.so":
         {
             "uid": "i2c-bus",
             "api": "i2c",

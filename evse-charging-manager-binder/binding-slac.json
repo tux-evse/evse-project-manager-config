@@ -1,5 +1,6 @@
 {
-  "binding": [
+  "set": {
+      "libafb_slac.so": 
     {
         "uid": "slac-api",
         "api": "slac",

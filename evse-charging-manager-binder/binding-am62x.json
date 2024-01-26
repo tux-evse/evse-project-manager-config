@@ -1,6 +1,6 @@
 {
-    "binding": [
-        {
+    "set": {
+        "libafb_tiam62x.so": {
             "uid": "iec6185",
             "api": "am62x",
             "info": "Ti MCU(am62x) firmware rpmsg/openamp API",
@@ -10,5 +10,5 @@
             "lock_api": "i2c",
             "lock_verb": "gpio/lock-motor"
         }
-    ]
+    }
 }
