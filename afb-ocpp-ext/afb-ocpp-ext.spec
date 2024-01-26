@@ -1,3 +1,6 @@
+%global debug_package %{nil}
+ExcludeArch: x86_64
+
 Name: afb-ocpp-ext
 Version: 0.0.1
 Release: 0%{?dist}
