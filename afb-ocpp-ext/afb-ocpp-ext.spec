@@ -26,19 +26,32 @@ AFB micro-service framework extention for OCPP.
 %autosetup -p 1
 
 %build
-mkdir build
-cd build
-cmake ../
+%afm_configure_cmake
+%afm_build_cmake
 
 %install
-cd build
-%cmake_install
-
+%afm_makeinstall
 %check
 
 %clean
 
 %files
-%{_libdir}/*.so
+%dir %{_prefix}/redpesk/%{name}
+%dir %{_prefix}/redpesk/%{name}/var
+%dir %{_prefix}/redpesk/%{name}/etc
+%dir %{_prefix}/redpesk/%{name}/lib
+%dir %{_prefix}/redpesk/%{name}/htdocs
+%dir %{_prefix}/redpesk/%{name}/bin
+
+%{_prefix}/redpesk/%{name}
+%{_prefix}/redpesk/%{name}/var
+%{_prefix}/redpesk/%{name}/config.xml
+%{_prefix}/redpesk/%{name}/icon.jpg
+%{_prefix}/redpesk/%{name}/etc
+%{_prefix}/redpesk/%{name}/lib
+%{_prefix}/redpesk/%{name}/lib/libafb-ocpp-ext.so
+%{_prefix}/redpesk/%{name}/htdocs
+%{_prefix}/redpesk/%{name}/bin
+
 
 %changelog
