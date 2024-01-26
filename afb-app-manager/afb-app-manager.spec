@@ -99,7 +99,7 @@ Summary:  redpesk rpm plugin
    -Dafm_units_root=%{afm_units_root} \
    -DUNITDIR_USER=/usr/lib/systemd/user \
    -DUNITDIR_SYSTEM=/usr/lib/systemd/system \
-   -DAGL_DEVEL=1 \
+   -DREDPESK_DEVEL=1 \
    -DALLOW_NO_SIGNATURE=ON \
    -Drpm_plugin_dir=%{__plugindir} \
    -Drpm_macros_dir=%{_rpmmacrodir} \
