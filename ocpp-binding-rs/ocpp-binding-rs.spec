@@ -27,6 +27,7 @@ BuildRequires:   glibc32
 BuildRequires: afb-librust
 BuildRequires: clang-devel
 
+Requires: afb-ocpp-ext
 
 #BuildRequires: glibc-devel
 
