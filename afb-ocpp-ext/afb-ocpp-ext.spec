@@ -28,7 +28,7 @@ AFB micro-service framework extention for OCPP.
 %build
 mkdir build
 cd build
-cmake ../
+cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ../
 
 %install
 cd build
