@@ -10,6 +10,8 @@ License: Apache
 URL: https://github.com/tux-evse/afb-ocpp-ext.git
 Source0: %{name}-%{version}.tar.gz
 
+Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/afb-ocpp-ext/manifest.yml
+
 BuildRequires: cmake
 BuildRequires: gcc
 BuildRequires: gcc-c++
@@ -35,6 +37,9 @@ cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ../
 cd build
 %cmake_install
 
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
+cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
+
 %clean
 
 %files
@@ -44,6 +49,7 @@ cd build
 %dir %{_prefix}/redpesk/afb-ocpp/lib
 %dir %{_prefix}/redpesk/afb-ocpp/htdocs
 %dir %{_prefix}/redpesk/afb-ocpp/bin
+%dir %{_prefix}/redpesk/%{name}/.rpconfig
 
 %{_prefix}/redpesk/afb-ocpp
 %{_prefix}/redpesk/afb-ocpp/var
@@ -55,5 +61,6 @@ cd build
 %{_prefix}/redpesk/afb-ocpp/htdocs
 %{_prefix}/redpesk/afb-ocpp/bin
 
+%{_prefix}/redpesk/%{name}/.rpconfig/*
 
 %changelog

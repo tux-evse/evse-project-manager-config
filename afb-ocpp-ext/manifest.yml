@@ -1,0 +1,17 @@
+rp-manifest: 1
+id: afb-ocpp-ext
+version: 0.1
+name: afb-ocpp-ext
+description: afb-ocpp-ext binding
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: lib/libafb-ocpp-ext.so
+      type: application/vnd.agl.resource
+
+
+provided-binding:
+   - name: afb-ocpp-ext
+     value: lib/libafb-ocpp-ext.so
