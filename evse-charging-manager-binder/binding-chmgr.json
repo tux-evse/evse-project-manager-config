@@ -10,7 +10,7 @@
             "iec_api": "am62x",
             "auth_api": "auth",
             "energy_api": "engy",
-            "tic": 3000,
+            "tic": 3000
         }
     }
 }

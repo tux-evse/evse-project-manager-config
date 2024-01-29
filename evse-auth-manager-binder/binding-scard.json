@@ -72,10 +72,10 @@
                         "action": "write",
                         "sec": 5,
                         "len": 48,
-                        "key": "key-b",
+                        "key": "key-b"
                     }
                 ]
             }
         }
-    ]
+    }
 }
