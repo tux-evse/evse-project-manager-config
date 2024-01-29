@@ -10,6 +10,6 @@
     "tcp::12351/engy"
    ],
     "monitoring": true,
-    "port": 1235,
+    "interface": ["tcp:*:1235"],
     "no-httpd": false
 }
