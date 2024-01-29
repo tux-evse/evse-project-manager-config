@@ -61,6 +61,6 @@ cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 %{_prefix}/redpesk/afb-ocpp/htdocs
 %{_prefix}/redpesk/afb-ocpp/bin
 
-%{_prefix}/redpesk/%{name}/.rpconfig/*
+%{_prefix}/redpesk/afb-ocpp/.rpconfig/*
 
 %changelog
