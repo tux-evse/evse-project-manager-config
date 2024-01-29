@@ -8,7 +8,7 @@ license: MIT
 targets:
   - target: main
     content:
-      src: etc/binder-test.json
+      src: etc/binding-chmgr.json
       type: application/vnd.agl.service
 
     required-binding:
