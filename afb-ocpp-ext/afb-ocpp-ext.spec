@@ -37,8 +37,8 @@ cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ../
 cd build
 %cmake_install
 
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
-cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
+mkdir -p %{buildroot}%{_prefix}/redpesk/afb-ocpp/.rpconfig
+cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/afb-ocpp/.rpconfig/manifest.yml
 
 %clean
 
@@ -49,7 +49,7 @@ cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 %dir %{_prefix}/redpesk/afb-ocpp/lib
 %dir %{_prefix}/redpesk/afb-ocpp/htdocs
 %dir %{_prefix}/redpesk/afb-ocpp/bin
-%dir %{_prefix}/redpesk/%{name}/.rpconfig
+%dir %{_prefix}/redpesk/afb-ocpp/.rpconfig
 
 %{_prefix}/redpesk/afb-ocpp
 %{_prefix}/redpesk/afb-ocpp/var
