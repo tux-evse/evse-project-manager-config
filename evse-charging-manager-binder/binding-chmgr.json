@@ -3,7 +3,6 @@
         "libafb_chmgr.so": {
             "uid": "charging-manager",
             "api": "chmgr",
-            "path": "/usr/redpesk/charging-binding-rs/lib/libafb_chmgr.so",
             "info": "set/get api",
             "permission": "acl:chmgr",
             "slac_api": "slac",
