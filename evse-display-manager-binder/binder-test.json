@@ -1,12 +1,3 @@
 {
-  "name": "afb-display",
-  "alias": [
-      "/devtools:/usr/share/afb-ui-devtools/binder"
-  ],
-  "monitoring": true,
-  "ws-client": [
-      "unix:/tmp/api/engy",
-      "unix:/tmp/api/chmgr",
-      "unix:/tmp/api/auth"
-  ]
+  "name": "afb-display"
 }

@@ -1,14 +1,3 @@
 {
-  "name": "afb-auth",
-  "no-ldpaths": true,
-  "alias": [
-      "/devtools:/usr/share/afb-ui-devtools/binder"
-  ],
-  "monitoring": true,
-  "tracereq": "none",
-  "tic": 5000,
-  "ws-server": [
-      "unix:/tmp/api/auth",
-      "tcp:*:12381/auth"
-  ]
+  "name": "afb-auth"
 }
