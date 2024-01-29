@@ -10,11 +10,11 @@ DIRNAME=`dirname $0`
 cd $DIRNAME/..
 CONFDIR=`pwd`/etc
 
-DEVTOOL_PORT=1235
-echo Display debug mode config=$CONFDIR/*.json port=$DEVTOOL_PORT
+echo Display debug mode config=$CONFDIR/*.json
 
-afb-binder --name=afb-energy --port=$DEVTOOL_PORT -v \
+afb-binder --name=afb-energy-v \
   --config=$CONFDIR/binder-test.json \
   --config=$CONFDIR/../../etc/binding-display.json \
+  --config=$CONFDIR/../../etc/binding-debug.json \
   --tracereq=all \
   $*

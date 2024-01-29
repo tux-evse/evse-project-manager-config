@@ -10,12 +10,13 @@ DIRNAME=`dirname $0`
 cd $DIRNAME/..
 CONFDIR=`pwd`/etc
 
-DEVTOOL_PORT=1235
-echo Auth debug mode config=$CONFDIR/../../etc/*.json port=$DEVTOOL_PORT
+echo Auth debug mode config=$CONFDIR/../../etc/*.json
 
-afb-binder --name=afb-energy --port=$DEVTOOL_PORT -v \
+afb-binder --name=afb-energy -v \
   --config=$CONFDIR/binder-test.json \
-  --config=$CONFDIR/../../etc/binding-energy.json \
-  --config=$CONFDIR/../../etc/binding-modbus.json \
+  --config=$CONFDIR/../../etc/binding-auth.json \
+  --config=$CONFDIR/../../etc/binding-scard.json \
+  --config=$CONFDIR/../../etc/binding-bia-power.json \
+  --config=$CONFDIR/../../etc/binding-debug.json \
   --tracereq=all \
   $*
