@@ -1,0 +1,23 @@
+{
+    "ws-server": [
+        "unix:@OCPP-C"
+    ],
+    "extension": [
+        {
+            "path": "/usr/redpesk/afb-ocpp/lib/libafb-ocpp-ext.so"
+        }
+    ],
+    "@extconfig": {
+        "OCPP": {
+            "ocpp-client": "ocpp.biastaging.com:80/23WH0NJGH0"
+        }
+    },
+    "set": {
+        "libafb_ocpp.so": {
+            "uid": "ocpp-charger",
+            "api": "ocpp",
+            "station": "Tux-Basic",
+            "info": "RUST OCPP-16 Charger client"
+        }
+    ]
+}

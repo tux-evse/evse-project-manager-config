@@ -8,5 +8,8 @@
         "unix:/tmp/api/chmgr",
         "unix:/tmp/api/auth"
     ],
-    "port": 1236
+    "interface": [
+        "tcp:*:1236"
+    ],
+    "no-httpd": false
 }

@@ -9,5 +9,8 @@
         "unix:/tmp/api/auth",
         "tcp:*:12381/auth"
     ],
-    "port": 1238
+    "interface": [
+        "tcp:*:1238"
+    ],
+    "no-httpd": false
 }

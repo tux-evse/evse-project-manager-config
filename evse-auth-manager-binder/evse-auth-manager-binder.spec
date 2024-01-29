@@ -16,6 +16,8 @@ Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-auth-manager-binder/binder-test.json
 Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-auth-manager-binder/binding-auth.json
 Source15: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-auth-manager-binder/binding-scard.json
+Source16: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-auth-manager-binder/binding-bia-power.json
+
 #For debug only
 Source90: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-auth-manager-binder/binding-debug.json
 
@@ -50,6 +52,7 @@ cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE14} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE15} %{buildroot}%{_prefix}/redpesk/%{name}/etc
+cp %{SOURCE16} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 #For debug only
 cp %{SOURCE90} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 

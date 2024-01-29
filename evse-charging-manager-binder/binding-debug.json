@@ -11,5 +11,8 @@
         "unix:/tmp/api/chmgr",
         "tcp::12371/chmgr"
     ],
-    "port": 1237
+    "interface": [
+        "tcp:*:1237"
+    ],
+    "no-httpd": false
 }
