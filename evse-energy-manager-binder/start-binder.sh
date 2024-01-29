@@ -12,7 +12,7 @@ CONFDIR=`pwd`/etc
 
 echo Energy debug mode config=$CONFDIR/*.json
 
-afb-binder --name=afb-energy --port=$DEVTOOL_PORT -v \
+afb-binder --name=afb-energy -v \
   --config=$CONFDIR/binder-test.json \
   --config=$CONFDIR/../../etc/binding-energy.json \
   --config=$CONFDIR/../../etc/binding-modbus.json \
