@@ -14,4 +14,4 @@ targets:
 
 provided-binding:
    - name: charging-binding-rs
-     value: lib/libafb_charging.so
+     value: lib/libafb_chmgr.so
