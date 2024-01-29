@@ -19,5 +19,9 @@ afb-binder --name=afb-energy --port=$DEVTOOL_PORT -v \
   --config=$CONFDIR/../../etc/binding-chmgr.json \
   --config=$CONFDIR/../../etc/binding-slac.json \
   --config=$CONFDIR/../../etc/binding-debug.json \
+  --binding=/usr/redpesk/i2c-binding-rs/lib/libafb_i2c.so \
+  --binding=/usr/redpesk/ti-am62x-binding-rs/lib/libafb_tiam62x.so \
+  --binding=/usr/redpesk/charging-binding-rs/lib/libafb_chmgr.so \
+  --binding=/usr/redpesk/slac-binding-rs/lib/libafb_slac.so \
   --tracereq=all \
   $*

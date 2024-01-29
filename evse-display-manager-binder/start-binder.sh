@@ -16,5 +16,6 @@ afb-binder --name=afb-energy-v \
   --config=$CONFDIR/binder-test.json \
   --config=$CONFDIR/../../etc/binding-display.json \
   --config=$CONFDIR/../../etc/binding-debug.json \
+  --binding=/usr/redpesk/display-binding-rs/lib/libafb_display_lvgl.so \
   --tracereq=all \
   $*

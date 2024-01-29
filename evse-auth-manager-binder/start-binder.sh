@@ -18,5 +18,8 @@ afb-binder --name=afb-energy -v \
   --config=$CONFDIR/../../etc/binding-scard.json \
   --config=$CONFDIR/../../etc/binding-bia-power.json \
   --config=$CONFDIR/../../etc/binding-debug.json \
+  --binding=/usr/redpesk/auth-binding-rs/lib/libafb_auth.so \
+  --binding=/usr/redpesk/scard-binding-rs/lib/libafb_nfc.so \
+  --binding=/usr/redpesk/ocpp-binding-rs/lib/libafb_ocpp.so \
   --tracereq=all \
   $*

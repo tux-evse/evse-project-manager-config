@@ -16,6 +16,8 @@ targets:
         value: extern
       - name: scard-binding-rs
         value: extern
+      - name: ocpp-binding-rs
+        value: extern
     
     provided-api:
       - name: auth
