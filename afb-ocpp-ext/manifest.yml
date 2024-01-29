@@ -1,7 +1,7 @@
 rp-manifest: 1
-id: afb-ocpp-ext
+id: afb-ocpp
 version: 0.1
-name: afb-ocpp-ext
+name: afb-ocpp
 description: afb-ocpp-ext binding
 author: IoT.bzh team <team@iot.bzh>
 license: MIT
@@ -13,5 +13,5 @@ targets:
 
 
 provided-binding:
-   - name: afb-ocpp-ext
+   - name: afb-ocpp
      value: lib/libafb-ocpp-ext.so
