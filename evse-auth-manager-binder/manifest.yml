@@ -29,5 +29,5 @@ targets:
       - etc/binding-bia-power.json
       - etc/binding-debug.json
 
-    permission:
+    required-permission:
       - urn:AGL:permission::system:capability:keep-all
