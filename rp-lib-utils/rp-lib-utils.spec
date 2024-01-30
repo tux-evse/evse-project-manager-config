@@ -1,5 +1,7 @@
+ExcludeArch: x86_64
+%global debug_package %{nil}
+
 Name: rp-lib-utils
-#Hexsha: 38253178b95f15cfe0ebe0b10c15812b34a946b6
 Version: 0.0.6
 Release: 14%{?dist}
 Summary: Library of utilities
