@@ -28,3 +28,6 @@ targets:
       - etc/binding-scard.json
       - etc/binding-bia-power.json
       - etc/binding-debug.json
+
+    permission:
+      - urn:AGL:permission::system:capability:keep-all
