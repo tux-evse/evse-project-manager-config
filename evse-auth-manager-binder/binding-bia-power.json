@@ -1,7 +1,7 @@
 {
     "ws-server": [
         "unix:@OCPP-C"
-    ],  
+    ],
     "extension": [
         {
             "path": "/usr/redpesk/afb-ocpp/lib/libafb-ocpp-ext.so"
@@ -18,11 +18,10 @@
             "api": "ocpp",
             "station": "Tux-Basic",
             "info": "RUST OCPP-16 Charger client",
-            "cid": 1, // biapower does not support connector-id==0
-            "tic": 0, // bia power does not support cross request
-            "chmgr_api": "chmgr",
-            "engy_api": "engy"
-    
+	    "tic": 0 ,
+            "cid": 1,
+	    "chmgr_api": "chmgr",
+	    "engy_api": "engy"
         }
     }
 }
