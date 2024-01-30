@@ -1,7 +1,4 @@
 {
-    "ws-server": [
-        "unix:@OCPP-C"
-    ],
     "extension": [
         {
             "path": "/usr/redpesk/afb-ocpp/lib/libafb-ocpp-ext.so"
@@ -18,10 +15,10 @@
             "api": "ocpp",
             "station": "Tux-Basic",
             "info": "RUST OCPP-16 Charger client",
-	    "tic": 0 ,
+            "tic": 0,
             "cid": 1,
-	    "chmgr_api": "chmgr",
-	    "engy_api": "engy"
+            "chmgr_api": "chmgr",
+            "engy_api": "engy"
         }
     }
 }
