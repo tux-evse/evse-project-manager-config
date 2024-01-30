@@ -1,6 +1,6 @@
 rp-manifest: 1
 id: charging-manager
-version: 0.1
+version: "0.1"
 name: charging-manager
 description: evse charging manager binder
 author: IoT.bzh team <team@iot.bzh>
@@ -37,3 +37,6 @@ targets:
       - etc/binding-chmgr.json
       - etc/binding-slac.json
       - etc/binding-debug.json
+
+    required-permission:
+      - urn:AGL:permission::system:capability:keep-all

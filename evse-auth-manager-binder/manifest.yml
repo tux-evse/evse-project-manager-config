@@ -1,6 +1,6 @@
 rp-manifest: 1
 id: auth-manager
-version: 0.1
+version: "0.1"
 name: auth-manager
 description: evse auth manager binder
 author: IoT.bzh team <team@iot.bzh>

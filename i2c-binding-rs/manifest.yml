@@ -1,6 +1,6 @@
 rp-manifest: 1
 id: i2c-binding-rs
-version: 0.1
+version: "0.1"
 name: i2c-binding-rs
 description: i2c binding
 author: IoT.bzh team <team@iot.bzh>

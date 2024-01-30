@@ -1,6 +1,6 @@
 rp-manifest: 1
 id: display-manager
-version: 0.1
+version: "0.1"
 name: display-manager
 description: evse display manager binder
 author: IoT.bzh team <team@iot.bzh>
