@@ -1,5 +1,4 @@
 %global debug_package %{nil}
-ExcludeArch: x86_64
 
 Name: lvgl-evse-lib
 Version: 0.0.1
