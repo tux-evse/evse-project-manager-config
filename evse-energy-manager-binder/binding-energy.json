@@ -6,7 +6,7 @@
             "info": "set/get api",
             "permission": "acl:engy",
             "meter_api": "modbus",
-            "tic": 1000,
+            "tic": 30000,
             "amp": 1
         }
     }
