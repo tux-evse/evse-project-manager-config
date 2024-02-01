@@ -29,6 +29,8 @@ targets:
 
     required-permission:
       - urn:AGL:permission::system:run-by-default
+      - urn:AGL:permission::partner:video
+      - urn:AGL:permission::partner:input
       - acl:engy
       - acl:auth
       - acl:chmgr
