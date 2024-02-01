@@ -119,6 +119,9 @@ mkdir -p $RPM_BUILD_ROOT%{_localstatedir}/run/pcscd
 
 rm $RPM_BUILD_ROOT%{_libdir}/*.la
 
+mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/default
+echo PCSCD_ARGS=\"--disable-polkit\" >  $RPM_BUILD_ROOT%{_sysconfdir}/default/pcscd
+
 
 %post
 %systemd_post pcscd.socket pcscd.service
@@ -146,6 +149,7 @@ fi
 %doc doc/README.polkit
 %doc install_spy.sh uninstall_spy.sh
 %dir %{_sysconfdir}/reader.conf.d/
+%{_sysconfdir}/default/pcscd
 %{_unitdir}/pcscd.service
 %{_unitdir}/pcscd.socket
 %{_sbindir}/pcscd
