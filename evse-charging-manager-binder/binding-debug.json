@@ -3,9 +3,8 @@
         "/devtools:/usr/share/afb-ui-devtools/binder"
     ],
     "monitoring": true,
-    "ws-client": [
-        "private:unix:/tmp/api/engy",
-        "private:unix:/tmp/api/auth"
+    "auto-api": [
+      "/tmp/api"
     ],
     "ws-server": [
         "unix:/tmp/api/chmgr",
