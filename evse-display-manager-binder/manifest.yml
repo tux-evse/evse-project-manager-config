@@ -26,3 +26,9 @@ targets:
     required-config:
       - etc/binding-display.json
       - etc/binding-debug.json
+
+    required-permission:
+      - urn:AGL:permission::system:run-by-default
+      - acl:engy
+      - acl:auth
+      - acl:chmgr
