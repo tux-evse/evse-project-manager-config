@@ -25,3 +25,6 @@ targets:
       - etc/binding-energy.json
       - etc/binding-modbus.json
       - etc/binding-debug.json
+
+    required-permission:
+      - urn:AGL:permission::partner:dialout
