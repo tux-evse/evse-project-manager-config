@@ -36,6 +36,10 @@ Dedicated for all Valeo Charger board config (net, firewall...)
 %{__install} -Dm744 ./firewall/config-firewall.sh %{buildroot}%{_bindir}/config-firewall
 %{__install} -Dm644 ./hotspot_wifi/config-hotspot.service %{buildroot}%{_unitdir}/config-hotspot.service
 %{__install} -Dm744 ./hotspot_wifi/config-hotspot.sh %{buildroot}%{_bindir}/config-hotspot
+
+%{__install} -Dm644 ./cynagora/cynagora-debug-configuration.service %{buildroot}%{_unitdir}/cynagora-debug-configuration.service
+%{__install} -Dm744 ./cynagora/cynagora-debug-configuration.sh %{buildroot}%{_bindir}/cynagora-debug-configuration.sh
+
 # captive portal install
 mkdir -p %{buildroot}%{_prefix}/redpesk/captive_portal/
 cp -R ./hotspot_wifi/captive_portal/* %{buildroot}%{_prefix}/redpesk/captive_portal/
@@ -44,9 +48,13 @@ cp -R ./hotspot_wifi/captive_portal/* %{buildroot}%{_prefix}/redpesk/captive_por
 %systemd_post config-network.service
 %systemd_post config-firewall.service
 %systemd_post config-hotspot.service
+%systemd_post cynagora-debug-configuration.service
+
 systemctl enable config-network.service > /dev/null
 systemctl enable config-firewall.service > /dev/null
 systemctl enable config-hotspot.service > /dev/null
+systemctl enable cynagora-debug-configuration.service > /dev/null
+
 # disable dnf metadata expiration
 repo_file=$(ls /etc/yum.repos.d/tux-evse*.repo >/dev/null)
 if [ -n "$repo_file" ]; then
@@ -58,11 +66,13 @@ fi
 %systemd_preun config-network.service
 %systemd_preun config-firewall.service
 %systemd_preun config-hotspot.service
+%systemd_preun cynagora-debug-configuration.service
 
 %postun
 %systemd_postun_with_restart config-network.service
 %systemd_postun_with_restart config-firewall.service
 %systemd_postun_with_restart config-hotspot.service
+%systemd_postun_with_restart cynagora-debug-configuration.service
 
 if [ -f /etc/sysconfig/network-scripts/ifcfg-tuxevse_dhcp ]; then
 nmcli con delete tuxevse_dhcp
@@ -81,6 +91,7 @@ fi
 # some configuration files (usb, udev rules...)
 %{_udevrulesdir}/10-tty-evse.rules
 %{_udevrulesdir}/20-rpmsg.rules
+
 #systemD services files
 %{_unitdir}/config-network.service
 %{_bindir}/config-network
@@ -88,6 +99,9 @@ fi
 %{_bindir}/config-firewall
 %{_unitdir}/config-hotspot.service
 %{_bindir}/config-hotspot
+%{_unitdir}/cynagora-debug-configuration.service
+%{_bindir}/cynagora-debug-configuration.sh
+
 # captive portal
 %{_prefix}/redpesk/captive_portal/conf-captive-portal.json
 %{_prefix}/redpesk/captive_portal/html/assets/tux-evsex250.png
