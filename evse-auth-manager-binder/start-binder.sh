@@ -12,7 +12,7 @@ CONFDIR=`pwd`/etc
 
 echo Auth debug mode config=$CONFDIR/../../etc/*.json
 
-afb-binder --name=afb-energy -v \
+afb-binder --name=afb-auth -v \
   --config=$CONFDIR/binder-test.json \
   --config=$CONFDIR/../../etc/binding-auth.json \
   --config=$CONFDIR/../../etc/binding-scard.json \

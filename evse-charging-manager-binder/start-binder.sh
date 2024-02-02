@@ -12,7 +12,7 @@ CONFDIR=`pwd`/etc
 
 echo Energy debug mode config=$CONFDIR/../../*.json
 
-afb-binder --name=afb-energy -v \
+afb-binder --name=afb-charging -v \
   --config=$CONFDIR/binder-test.json \
   --config=$CONFDIR/../../etc/binding-i2c.json \
   --config=$CONFDIR/../../etc/binding-am62x.json \

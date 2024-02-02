@@ -12,7 +12,7 @@ CONFDIR=`pwd`/etc
 
 echo Display debug mode config=$CONFDIR/*.json
 
-afb-binder --name=afb-energy-v \
+afb-binder --name=afb-display -v \
   --config=$CONFDIR/binder-test.json \
   --config=$CONFDIR/../../etc/binding-display.json \
   --config=$CONFDIR/../../etc/binding-debug.json \
