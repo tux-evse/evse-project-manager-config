@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name: sec-pcscd-client
-Version: 0.0.1
+Version: 0.0.2+20240125+11+gf636635
 Release: 2%{?dist}
 Summary: sample implementation for Smartcard/NFC-token authentication based on pcsc-lite.
 
@@ -58,15 +58,14 @@ cd ..
 mkdir -p %{buildroot}%{_modprobedir}
 cp ./etc/nfc-blacklist.conf %{buildroot}%{_modprobedir}
 
+rm -fr  %{buildroot}/usr/redpesk/pcscs-client
+
 %files
-%dir %{_prefix}/redpesk/pcscs-client
-%{_prefix}/redpesk/pcscs-client/*
 %{_prefix}/lib64/libpcscd-glue.*
 %{_modprobedir}/*.conf
 
 %files tool
-%dir %{_prefix}/redpesk/pcscs-client/bin
-%{_prefix}/redpesk/pcscs-client/bin/pcscd-client
+%{_bindir}/pcscd-client
 
 %files devel
 %{_prefix}/include/*.h
