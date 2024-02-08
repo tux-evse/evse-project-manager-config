@@ -74,19 +74,6 @@ fi
 %systemd_postun_with_restart config-hotspot.service
 %systemd_postun_with_restart cynagora-debug-configuration.service
 
-if [ -f /etc/sysconfig/network-scripts/ifcfg-tuxevse_dhcp ]; then
-nmcli con delete tuxevse_dhcp
-fi
-
-if [ -f /etc/sysconfig/network-scripts/ifcfg-tuxevse_static ]; then
-nmcli con delete tuxevse_static
-fi
-
-if [ -f /etc/sysconfig/network-scripts/ifcfg-tuxevse_linklocal ]; then
-nmcli con delete tuxevse_linklocal
-fi
-
-
 %files
 # some configuration files (usb, udev rules...)
 %{_udevrulesdir}/10-tty-evse.rules
