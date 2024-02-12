@@ -40,10 +40,11 @@ cd build
 %cmake_install
 
 %files
-%{_prefix}/lib64/*
+%{_prefix}/lib64/libiso15118.so.*
 
 
 %files devel
-%{_prefix}/include/*.h
+%{_prefix}/lib64/libiso15118.so
+%{_prefix}/include/iso15118/*.h
 
 %changelog
