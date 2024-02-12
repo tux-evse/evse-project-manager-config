@@ -1,0 +1,400 @@
+diff --git a/netdissect.h b/netdissect.h
+index 4f3c666a..93fa8be6 100644
+--- a/netdissect.h
++++ b/netdissect.h
+@@ -465,6 +465,7 @@ extern u_int raw_if_print IF_PRINTER_ARGS;
+ extern u_int sl_bsdos_if_print IF_PRINTER_ARGS;
+ extern u_int sl_if_print IF_PRINTER_ARGS;
+ extern u_int sll_if_print IF_PRINTER_ARGS;
++extern u_int sll2_if_print IF_PRINTER_ARGS;
+ extern u_int sunatm_if_print IF_PRINTER_ARGS;
+ extern u_int symantec_if_print IF_PRINTER_ARGS;
+ extern u_int token_if_print IF_PRINTER_ARGS;
+diff --git a/print-sll.c b/print-sll.c
+index 571b7c5e..5a4e2f68 100644
+--- a/print-sll.c
++++ b/print-sll.c
+@@ -84,6 +84,21 @@ struct sll_header {
+ 	uint16_t	sll_protocol;	/* protocol */
+ };
+ 
++/*
++ * A DLT_LINUX_SLL2 fake link-layer header.
++ */
++#define SLL2_HDR_LEN	20		/* total header length */
++
++struct sll2_header {
++	uint16_t	sll2_protocol;		/* protocol */
++	uint16_t	sll2_reserved_mbz;	/* reserved - must be zero */
++	uint32_t	sll2_if_index;		/* 1-based interface index */
++	uint16_t	sll2_hatype;		/* link-layer address type */
++	uint8_t		sll2_pkttype;		/* packet type */
++	uint8_t		sll2_halen;		/* link-layer address length */
++	u_char		sll2_addr[SLL_ADDRLEN];	/* link-layer address */
++};
++
+ /*
+  * The LINUX_SLL_ values for "sll_pkttype"; these correspond to the
+  * PACKET_ values on Linux, but are defined here so that they're
+@@ -308,3 +323,192 @@ recurse:
+ 
+ 	return (hdrlen);
+ }
++
++static void
++sll2_print(netdissect_options *ndo, const struct sll2_header *sllp, u_int length)
++{
++	u_short ether_type;
++
++	ndo->ndo_protocol = "sll2";
++       ND_PRINT((ndo,"ifindex %u ", EXTRACT_32BITS(&sllp->sll2_if_index)));
++
++	/*
++	 * XXX - check the link-layer address type value?
++	 * For now, we just assume 6 means Ethernet.
++	 * XXX - print others as strings of hex?
++	 */
++	if (EXTRACT_8BITS(&sllp->sll2_halen) == 6)
++		ND_PRINT((ndo, "%s ", etheraddr_string(ndo, sllp->sll2_addr)));
++
++	if (!ndo->ndo_qflag) {
++		ether_type = EXTRACT_16BITS(&sllp->sll2_protocol);
++
++		if (ether_type <= MAX_ETHERNET_LENGTH_VAL) {
++			/*
++			 * Not an Ethernet type; what type is it?
++			 */
++			switch (ether_type) {
++
++			case LINUX_SLL_P_802_3:
++				/*
++				 * Ethernet_802.3 IPX frame.
++				 */
++				ND_PRINT((ndo, "802.3"));
++				break;
++
++			case LINUX_SLL_P_802_2:
++				/*
++				 * 802.2.
++				 */
++				ND_PRINT((ndo, "802.2"));
++				break;
++
++			default:
++				/*
++				 * What is it?
++				 */
++				ND_PRINT((ndo, "ethertype Unknown (0x%04x)",
++				    ether_type));
++				break;
++			}
++		} else {
++			ND_PRINT((ndo, "ethertype %s (0x%04x)",
++			    tok2str(ethertype_values, "Unknown", ether_type),
++			    ether_type));
++		}
++		ND_PRINT((ndo, ", length %u: ", length));
++	}
++}
++
++/*
++ * This is the top level routine of the printer.  'p' points to the
++ * Linux "cooked capture" header of the packet, 'h->ts' is the timestamp,
++ * 'h->len' is the length of the packet off the wire, and 'h->caplen'
++ * is the number of bytes actually captured.
++ */
++u_int
++sll2_if_print(netdissect_options *ndo, const struct pcap_pkthdr *h, const u_char *p)
++{
++	u_int caplen = h->caplen;
++	u_int length = h->len;
++	const struct sll2_header *sllp;
++	u_short ether_type;
++	int llc_hdrlen;
++	u_int hdrlen;
++
++	ndo->ndo_protocol = "sll2";
++	if (caplen < SLL2_HDR_LEN) {
++		/*
++		 * XXX - this "can't happen" because "pcap-linux.c" always
++		 * adds this many bytes of header to every packet in a
++		 * cooked socket capture.
++		 */
++		ND_PRINT((ndo, " [|%s]", ndo->ndo_protocol));
++		return (caplen);
++	}
++
++	sllp = (const struct sll2_header *)p;
++#ifdef HAVE_NET_IF_H
++	uint32_t if_index = EXTRACT_32BITS(&sllp->sll2_if_index);
++	if (!if_indextoname(if_index, ifname))
++		strncpy(ifname, "?", 2);
++	ND_PRINT((ndo, "%-5s ", ifname));
++#endif
++
++	ND_PRINT((ndo, "%-3s ",
++		tok2str(sll_pkttype_values, "?", EXTRACT_8BITS(&sllp->sll2_pkttype))));
++
++	if (ndo->ndo_eflag)
++		sll2_print(ndo, sllp, length);
++
++	/*
++	 * Go past the cooked-mode header.
++	 */
++	length -= SLL2_HDR_LEN;
++	caplen -= SLL2_HDR_LEN;
++	p += SLL2_HDR_LEN;
++	hdrlen = SLL2_HDR_LEN;
++
++	ether_type = EXTRACT_16BITS(&sllp->sll2_protocol);
++
++recurse:
++	/*
++	 * Is it (gag) an 802.3 encapsulation, or some non-Ethernet
++	 * packet type?
++	 */
++	if (ether_type <= MAX_ETHERNET_LENGTH_VAL) {
++		/*
++		 * Yes - what type is it?
++		 */
++		switch (ether_type) {
++
++		case LINUX_SLL_P_802_3:
++			/*
++			 * Ethernet_802.3 IPX frame.
++			 */
++			ipx_print(ndo, p, length);
++			break;
++
++		case LINUX_SLL_P_802_2:
++			/*
++			 * 802.2.
++			 * Try to print the LLC-layer header & higher layers.
++			 */
++			llc_hdrlen = llc_print(ndo, p, length, caplen, NULL, NULL);
++			if (llc_hdrlen < 0)
++				goto unknown;	/* unknown LLC type */
++			hdrlen += llc_hdrlen;
++			break;
++
++		default:
++			/*FALLTHROUGH*/
++
++		unknown:
++			/* packet type not known, print raw packet */
++			if (!ndo->ndo_suppress_default_print)
++				ND_DEFAULTPRINT(p, caplen);
++			break;
++		}
++	} else if (ether_type == ETHERTYPE_8021Q) {
++		/*
++		 * Print VLAN information, and then go back and process
++		 * the enclosed type field.
++		 */
++		if (caplen < 4) {
++			ND_PRINT((ndo, "[|vlan]"));
++			return (hdrlen + caplen);
++		}
++		if (length < 4) {
++			ND_PRINT((ndo, "[|vlan]"));
++			return (hdrlen + length);
++		}
++	        if (ndo->ndo_eflag) {
++			uint16_t tag = EXTRACT_16BITS(p);
++
++			ND_PRINT((ndo, "%s, ", ieee8021q_tci_string(tag)));
++		}
++
++		ether_type = EXTRACT_16BITS(p + 2);
++		if (ether_type <= MAX_ETHERNET_LENGTH_VAL)
++			ether_type = LINUX_SLL_P_802_2;
++		if (!ndo->ndo_qflag) {
++			ND_PRINT((ndo, "ethertype %s, ",
++			    tok2str(ethertype_values, "Unknown", ether_type)));
++		}
++		p += 4;
++		length -= 4;
++		caplen -= 4;
++		hdrlen += 4;
++		goto recurse;
++	} else {
++		if (ethertype_print(ndo, ether_type, p, length, caplen, NULL, NULL) == 0) {
++			/* ether_type not known, print raw packet */
++			if (!ndo->ndo_eflag)
++				sll2_print(ndo, sllp, length + SLL2_HDR_LEN);
++			if (!ndo->ndo_suppress_default_print)
++				ND_DEFAULTPRINT(p, caplen);
++		}
++	}
++
++	return (hdrlen);
++}
+diff --git a/print.c b/print.c
+index b9c92adc..4cc35bab 100644
+--- a/print.c
++++ b/print.c
+@@ -126,6 +126,9 @@ static const struct printer printers[] = {
+ #ifdef DLT_LINUX_SLL
+ 	{ sll_if_print,		DLT_LINUX_SLL },
+ #endif
++#ifdef DLT_LINUX_SLL2
++	{ sll2_if_print,	DLT_LINUX_SLL2 },
++#endif
+ #ifdef DLT_FR
+ 	{ fr_if_print,		DLT_FR },
+ #endif
+diff --git a/ethertype.h b/ethertype.h
+index f38ec8e4..7719a6f0 100644
+--- a/ethertype.h
++++ b/ethertype.h
+@@ -19,6 +19,13 @@
+  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  */
+ 
++/*
++ * Maximum length of the length field in an Ethernet header; any value
++ * greater than this is not a length value, so it's either an Ethernet
++ * type or an invalid value.
++ */
++#define        MAX_ETHERNET_LENGTH_VAL 1500
++
+ /*
+  * Ethernet types.
+  *
+diff --git a/config.h.in b/config.h.in
+index 4fcbba77..8ae16730 100644
+--- a/config.h.in
++++ b/config.h.in
+@@ -78,6 +78,9 @@
+ /* Define to 1 if you have the <netinet/if_ether.h> header file. */
+ #undef HAVE_NETINET_IF_ETHER_H
+ 
++/* Define to 1 if you have the <net/if.h> header file. */
++#undef HAVE_NET_IF_H
++
+ /* Define to 1 if you have the <net/if_pflog.h> header file. */
+ #undef HAVE_NET_IF_PFLOG_H
+ 
+diff --git a/configure b/configure
+index eb33db18..f64c4eea 100755
+--- a/configure
++++ b/configure
+@@ -4037,7 +4037,7 @@ fi
+ done
+ 
+ 
+-for ac_header in fcntl.h rpc/rpc.h rpc/rpcent.h
++for ac_header in fcntl.h rpc/rpc.h rpc/rpcent.h net/if.h
+ do :
+   as_ac_Header=`$as_echo "ac_cv_header_$ac_header" | $as_tr_sh`
+ ac_fn_c_check_header_mongrel "$LINENO" "$ac_header" "$as_ac_Header" "$ac_includes_default"
+diff --git a/configure.ac b/configure.ac
+index 32f48b60..46f841c0 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -24,7 +24,7 @@ AC_PROG_CC_C99
+ 	fi
+ fi
+ 
+-AC_CHECK_HEADERS(fcntl.h rpc/rpc.h rpc/rpcent.h)
++AC_CHECK_HEADERS(fcntl.h rpc/rpc.h rpc/rpcent.h net/if.h)
+ AC_CHECK_HEADERS(net/pfvar.h, , , [#include <sys/types.h>
+ #include <sys/socket.h>
+ #include <net/if.h>])
+diff --git a/print-sll.c b/print-sll.c
+index 96031442..e6c7bd4a 100644
+--- a/print-sll.c
++++ b/print-sll.c
+@@ -25,6 +25,10 @@
+ #include "config.h"
+ #endif
+ 
++#ifdef HAVE_NET_IF_H
++#include <net/if.h>
++#endif
++
+ #include <netdissect-stdinc.h>
+ 
+ #include "netdissect.h"
+@@ -395,6 +399,9 @@ sll2_if_print(netdissect_options *ndo, const struct pcap_pkthdr *h, const u_char
+ 	u_short ether_type;
+ 	int llc_hdrlen;
+ 	u_int hdrlen;
++#ifdef HAVE_NET_IF_H
++	char ifname[IF_NAMESIZE];
++#endif
+ 
+ 	ndo->ndo_protocol = "sll2";
+ 	if (caplen < SLL2_HDR_LEN) {
+diff --git a/tcpdump.c b/tcpdump.c
+index 2bef72c8..0ef21117 100644
+--- a/tcpdump.c
++++ b/tcpdump.c
+@@ -1978,6 +1978,10 @@ main(int argc, char **argv)
+ 			    RFileName, dlt_name,
+ 			    pcap_datalink_val_to_description(dlt));
+ 		}
++#ifdef DLT_LINUX_SLL2
++		if (dlt == DLT_LINUX_SLL2)
++			fprintf(stderr, "Warning: interface names might be incorrect\n");
++#endif
+ 	} else {
+ 		/*
+ 		 * We're doing a live capture.
+diff --git a/tcpdump.c b/tcpdump.c
+index 376d9a20..06d3d9b9 100644
+--- a/tcpdump.c
++++ b/tcpdump.c
+@@ -155,6 +155,7 @@ static int Iflag;			/* rfmon (monitor) mode */
+ static int Jflag;			/* list available time stamp types */
+ #endif
+ static int jflag = -1;			/* packet time stamp source */
++static int oflag = 0;
+ static int pflag;			/* don't go promiscuous */
+ #ifdef HAVE_PCAP_SETDIRECTION
+ static int Qflag = -1;			/* restrict captured packet by send/receive direction */
+@@ -515,7 +515,7 @@ show_devices_and_exit (void)
+ #define Q_FLAG
+ #endif
+ 
+-#define SHORTOPTS "aAb" B_FLAG "c:C:d" D_FLAG "eE:fF:G:hHi:" I_FLAG j_FLAG J_FLAG "KlLm:M:nNOpq" Q_FLAG "r:s:StT:u" U_FLAG "vV:w:W:xXy:Yz:Z:#"
++#define SHORTOPTS "aAb" B_FLAG "c:C:d" D_FLAG "eE:fF:G:hHi:" I_FLAG j_FLAG J_FLAG "KlLm:M:nNoOpq" Q_FLAG "r:s:StT:u" U_FLAG "vV:w:W:xXy:Yz:Z:#"
+ 
+ /*
+  * Long options.
+@@ -1340,6 +1341,10 @@ main(int argc, char **argv)
+ 			++ndo->ndo_Nflag;
+ 			break;
+ 
++		case 'o':
++			oflag++;
++			break;
++
+ 		case 'O':
+ 			Oflag = 0;
+ 			break;
+@@ -1932,6 +1932,14 @@ main(int argc, char **argv)
+ 		show_devices_and_exit();
+ #endif
+ 
++#if defined(DLT_LINUX_SLL2) && defined(HAVE_PCAP_SET_DATALINK)
++/* Set default linktype DLT_LINUX_SLL2 when capturing on the "any" device */
++		if (device != NULL &&
++		    strncmp (device, "any", strlen("any")) == 0
++		    && yflag_dlt == -1 && oflag > 0)
++			yflag_dlt = DLT_LINUX_SLL2;
++#endif
++
+ 	switch (ndo->ndo_tflag) {
+ 
+ 	case 0: /* Default */
+@@ -2180,7 +2188,8 @@ main(int argc, char **argv)
+ 			}
+ #endif
+ 			(void)fprintf(stderr, "%s: data link type %s\n",
+-				      program_name, yflag_dlt_name);
++				      program_name,
++				      pcap_datalink_val_to_name(yflag_dlt));
+ 			(void)fflush(stderr);
+ 		}
+ 		i = pcap_snapshot(pd);

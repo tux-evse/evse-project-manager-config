@@ -1,0 +1,13 @@
+diff --git a/print-esp.c b/print-esp.c
+index 6fabff1..cdeca9d 100644
+--- a/print-esp.c
++++ b/print-esp.c
+@@ -259,7 +259,7 @@ int esp_print_decrypt_buffer_by_ikev2(netdissect_options *ndo,
+ 		EVP_CIPHER_CTX_free(ctx);
+ 		(*ndo->ndo_error)(ndo, "can't allocate memory for decryption buffer");
+ 	}
+-	EVP_Cipher(ctx, output_buffer, input_buffer, len);
++	EVP_Cipher(ctx, output_buffer, input_buffer, buffer_size);
+ 	EVP_CIPHER_CTX_free(ctx);
+ 
+ 	/*

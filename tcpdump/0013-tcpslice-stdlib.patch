@@ -1,0 +1,12 @@
+diff --git a/tcpslice-1.2a3/util.c b/tcpslice-1.2a3/util.c
+index cebaa5b..cada4c1 100644
+--- a/tcpslice-1.2a3/util.c
++++ b/tcpslice-1.2a3/util.c
+@@ -27,6 +27,7 @@ static const char rcsid[] =
+ #include <sys/types.h>
+ 
+ #include <stdio.h>
++#include <stdlib.h>
+ #if __STDC__
+ #include <stdarg.h>
+ #else
