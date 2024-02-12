@@ -10,7 +10,7 @@ Requires(pre): shadow-utils
 BuildRequires: automake openssl-devel libpcap-devel git-core
 
 Source0: http://www.tcpdump.org/release/tcpdump-%{version}.tar.gz
-Source1: ftp://ftp.ee.lbl.gov/tcpslice-1.2a3.tar.gz
+Source1: https://src.fedoraproject.org/repo/pkgs/tcpdump/tcpslice-1.2a3.tar.gz/e329cbeb7e589f132d92c3447c477190/tcpslice-1.2a3.tar.gz
 Source2: http://www.tcpdump.org/release/tcpdump-%{version}.tar.gz.sig
 
 Patch0002:      https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tcpdump/0002-Use-getnameinfo-instead-of-gethostbyaddr.patch
