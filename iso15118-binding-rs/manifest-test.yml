@@ -1,0 +1,24 @@
+rp-manifest: 1
+id: iso15118-binding-rs-test
+version: 0.1
+name: iso15118-binding-rs-test
+description: scard binding test
+author: IoT.bzh team <team@iot.bzh>
+license: Apache
+targets:
+  - target: main
+    content:
+      src: bin/start-binder.sh
+      type: application/x-executable
+
+    required-binding:
+      - name: iso15118-binding-rs
+        value: extern
+
+    provided-api:
+      - name: iso15118-binding-rs
+        value: ws
+
+file-properties:
+  - name: bin/start-binder.sh
+    value: executable
