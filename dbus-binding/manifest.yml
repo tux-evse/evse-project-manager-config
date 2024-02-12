@@ -1,0 +1,16 @@
+rp-manifest: 1
+id: dbus-binding
+version: 0.1
+name: dbus-binding
+description: modbus binding
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: dbus-binding.so
+      type: application/vnd.agl.resource
+
+provided-binding:
+   - name: dbus-binding.so
+     value: dbus-binding.so
