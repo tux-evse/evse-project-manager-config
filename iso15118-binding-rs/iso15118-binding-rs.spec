@@ -23,6 +23,7 @@ BuildRequires:   rust-archive >= 1.70.0
 
 BuildRequires: afb-librust
 BuildRequires: clang-devel
+BuildRequires: pkgconfig(gnutls)
 
 #BuildRequires: glibc-devel
 
