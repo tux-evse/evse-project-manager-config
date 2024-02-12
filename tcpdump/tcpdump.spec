@@ -13,19 +13,19 @@ Source0: http://www.tcpdump.org/release/tcpdump-%{version}.tar.gz
 Source1: ftp://ftp.ee.lbl.gov/tcpslice-1.2a3.tar.gz
 Source2: http://www.tcpdump.org/release/tcpdump-%{version}.tar.gz.sig
 
-Patch0002:      0002-Use-getnameinfo-instead-of-gethostbyaddr.patch
-Patch0003:      0003-Drop-root-priviledges-before-opening-first-savefile-.patch
-Patch0004:      0004-tcpslice-update-tcpslice-patch-to-1.2a3.patch
-Patch0005:      0005-tcpslice-remove-unneeded-include.patch
-Patch0006:      0006-tcpslice-don-t-test-the-pointer-but-pointee-for-NULL.patch
-Patch0007:      0007-Introduce-nn-option.patch
-Patch0009:      0009-Change-n-flag-to-nn-in-TESTonce.patch
-Patch0011:      0011-Evp-cipher-buffers.patch
-Patch0012:      0012-Add-printing-support-for-vsockmon-devices.patch
-Patch0013:      0013-tcpslice-stdlib.patch
-Patch0014:      0014-enhance-mptcp.patch
-Patch0015:      0015-CVE-2020-8037.patch
-Patch0016:      0016-direction-for-any.patch
+Patch0002:      https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tcpdump/0002-Use-getnameinfo-instead-of-gethostbyaddr.patch
+Patch0003:      https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tcpdump/0003-Drop-root-priviledges-before-opening-first-savefile-.patch
+Patch0004:      https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tcpdump/0004-tcpslice-update-tcpslice-patch-to-1.2a3.patch
+Patch0005:      https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tcpdump/0005-tcpslice-remove-unneeded-include.patch
+Patch0006:      https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tcpdump/0006-tcpslice-don-t-test-the-pointer-but-pointee-for-NULL.patch
+Patch0007:      https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tcpdump/0007-Introduce-nn-option.patch
+Patch0009:      https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tcpdump/0009-Change-n-flag-to-nn-in-TESTonce.patch
+Patch0011:      https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tcpdump/0011-Evp-cipher-buffers.patch
+Patch0012:      https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tcpdump/0012-Add-printing-support-for-vsockmon-devices.patch
+Patch0013:      https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tcpdump/0013-tcpslice-stdlib.patch
+Patch0014:      https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tcpdump/0014-enhance-mptcp.patch
+Patch0015:      https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tcpdump/0015-CVE-2020-8037.patch
+Patch0016:      https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tcpdump/0016-direction-for-any.patch
 
 %define tcpslice_dir tcpslice-1.2a3
 
