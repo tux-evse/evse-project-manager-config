@@ -45,18 +45,8 @@ ExcludeArch: x86_64
 %install
 %afm_makeinstall
 
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
-cp %{SOURCE13}  %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
-cp %{SOURCE14}  %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
-
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
 cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
-
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
-cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}/test/bin/start-binder.sh
-
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig
-cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml
 
 %check
 
