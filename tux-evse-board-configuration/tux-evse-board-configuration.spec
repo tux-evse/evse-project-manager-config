@@ -12,10 +12,14 @@ Source0: %{name}-%{version}.tar.gz
 
 ExclusiveArch:  aarch64
 
+BuildRequires: systemd-rpm-macros
+
 Requires: firewalld
 Requires: NetworkManager
-Requires: avahi, avahi-tools, avahi-autoipd
-BuildRequires: systemd-rpm-macros
+Requires: avahi
+Requires: avahi-tools
+Requires: avahi-autoipd
+Requires: sec-pcscd-client-tool
 
 %description
 Dedicated for all Valeo Charger board config (net, firewall...)
