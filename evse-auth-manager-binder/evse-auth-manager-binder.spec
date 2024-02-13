@@ -24,6 +24,8 @@ Source90: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 Requires: modbus-binding
 #Requires: linky-binding-rs
 Requires: auth-binding-rs
+Requires: scard-binding-rs
+Requires: ocpp-binding-rs
 
 %description
 evse auth manager binder.
@@ -33,10 +35,6 @@ Summary: evse auth manager binder test
 
 Requires: %{name} = %{version}
 Requires:afb-ui-devtools
-
-Requires: auth-binding-rs
-Requires: scard-binding-rs
-Requires: ocpp-binding-rs
 
 %description test
 evse auth manager binder test.
