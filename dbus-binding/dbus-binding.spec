@@ -7,20 +7,18 @@ Release: 1%{?dist}
 Summary: Binding to serve an API connected to dbus
 Group:   Development/Libraries/C and C++
 License:  GPLv3
-URL: http://git.ovh.iot/redpesk/redpesk-common/dbus-binding
+URL: https://github.com/redpesk-labs/dbus-binding
 Source: %{name}-%{version}.tar.gz
+
+Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/dbus-binding/manifest.yml
 
 BuildRequires:  afm-rpm-macros
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  afb-cmake-modules
-BuildRequires:  pkgconfig(json-c)
-BuildRequires:  pkgconfig(lua) >= 5.3
 BuildRequires:  pkgconfig(afb-binding)
 BuildRequires:  pkgconfig(afb-libhelpers)
-BuildRequires:  pkgconfig(afb-libcontroller)
 BuildRequires:  pkgconfig(libsystemd) >= 222
-BuildRequires:  pkgconfig(libmodbus) >= 3.1.6
 BuildRequires:  pkgconfig(librp-utils-static)
 BuildRequires:  pkgconfig(afb-helpers4-static)
 
