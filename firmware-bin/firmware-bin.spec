@@ -6,10 +6,10 @@ Summary: Firmware Binaries
 License: MIT
 URL: http://nourl.org
 
-Source0: tiboot3.bin
-Source1: tispl.bin
-Source2: u-boot.img
-Source3: am62-mcu-m4f0_0-fw
+Source0: https://github.com/tux-evse/evse-project-manager-config/raw/main/firmware-bin/tiboot3.bin
+Source1: https://github.com/tux-evse/evse-project-manager-config/raw/main/firmware-bin/tispl.bin
+Source2: https://github.com/tux-evse/evse-project-manager-config/raw/main/firmware-bin/u-boot.img
+Source3: https://github.com/tux-evse/evse-project-manager-config/raw/main/firmware-bin/am62-mcu-m4f0_0-fw
 
 %description
 This is firmware binaries.
