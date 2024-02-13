@@ -22,7 +22,7 @@ This is firmware binaries.
 %build
 
 %install
-%{__install} -d %{buildroot}/firmware
+%{__install} -d %{buildroot}%{_prefix}/lib/firmware/
 %{__install} -d %{buildroot}%{_prefix}%{_sharedstatedir}/uboot_firmware/
 %{__install} -Dm644 %{SOURCE0} %{buildroot}%{_sharedstatedir}/uboot_firmware
 %{__install} -Dm644 %{SOURCE1} %{buildroot}%{_sharedstatedir}/uboot_firmware
