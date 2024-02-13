@@ -36,6 +36,7 @@ Requires:afb-ui-devtools
 
 Requires: auth-binding-rs
 Requires: scard-binding-rs
+Requires: ocpp-binding-rs
 
 %description test
 evse auth manager binder test.
