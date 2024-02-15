@@ -9,10 +9,14 @@ targets:
   - target: main
     content:
       src: lib/dbus-binding.so
-      type: application/vnd.agl.resource
+      type: application/vnd.agl.service
     required-binding:
       - name: lib/dbus-binding.so
         value: local
     provided-api:
       - name: dbus
         value: auto
+
+provided-binding:
+  - name: dbus
+    value: lib/dbus-binding.so
