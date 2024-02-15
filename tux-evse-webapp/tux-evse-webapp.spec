@@ -8,7 +8,6 @@ Summary:        WebApp to display Tux-EVSE data
 License:        Apache
 URL:            https://github.com/tux-evse/tux-evse-webapp
 Source0:        %{name}-%{version}.tar.gz
-Source1:        webapp-htdocs-prebuild-1.0.tar.gz
 
 Requires:       afb-binder
 
