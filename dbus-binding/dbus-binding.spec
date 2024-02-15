@@ -3,7 +3,7 @@ ExcludeArch: x86_64
 
 Name: dbus-binding
 Version: 1.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Binding to serve an API connected to dbus
 Group:   Development/Libraries/C and C++
 License:  GPLv3
