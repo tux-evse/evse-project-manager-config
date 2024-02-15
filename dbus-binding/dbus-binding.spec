@@ -10,6 +10,8 @@ License:  GPLv3
 URL: https://github.com/redpesk-labs/dbus-binding
 Source: %{name}-%{version}.tar.gz
 
+Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/dbus-binding/manifest.yml
+
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  pkgconfig(afb-binding)
@@ -30,6 +32,9 @@ Requires:       afb-binder
 
 %install
 %cmake_install
+
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
+cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 
 %files
 %dir %{_prefix}/redpesk/%{name}
