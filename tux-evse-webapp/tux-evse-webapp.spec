@@ -18,6 +18,13 @@ BuildArch:      noarch
 %description
 WebApp to display Tux-EVSE data
 
+%package test
+Requires:       %{name} = %{version}
+Summary:        Test package for %{name}
+
+%description test
+WebApp to display Tux-EVSE data 
+
 %package mock
 Requires:       %{name} = %{version}
 Summary:        Mock package for %{name}
@@ -38,6 +45,10 @@ cp tux-evse-webapp-start.sh %{buildroot}%{_prefix}/redpesk/%{name}/bin/
 cp dist/valeo/* %{buildroot}%{_prefix}/redpesk/%{name}/htdocs/
 cp conf.d/packaging/manifest-webapp.yml %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 
+install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
+install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig
+cp conf.d/packaging/manifest-webapp-test.yml %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml
+
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}-mock/bin
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}-mock/.rpconfig
 cp mock/tux-evse-mock-api.py %{buildroot}%{_prefix}/redpesk/%{name}-mock/bin/
@@ -48,6 +59,11 @@ cp conf.d/packaging/manifest-mock.yml %{buildroot}%{_prefix}/redpesk/%{name}-moc
 %{_prefix}/redpesk/%{name}/bin/tux-evse-webapp-start.sh
 %{_prefix}/redpesk/%{name}/htdocs
 %{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
+
+%files test
+%dir %{_prefix}/redpesk/%{name}/test
+%{_prefix}/redpesk/%{name}/test/bin/tux-evse-webapp-start.sh
+%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml
 
 %files mock
 %dir %{_prefix}/redpesk/%{name}-mock
