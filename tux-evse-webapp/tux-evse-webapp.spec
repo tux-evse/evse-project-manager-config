@@ -37,7 +37,7 @@ Summary:        Mock package for %{name}
 Mock part for webapp Tux-EVSE
 
 %prep
-%autosetup -a 1
+%autosetup
 
 %build
 
