@@ -46,7 +46,6 @@ Mock part for webapp Tux-EVSE
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/etc
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/htdocs
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
-cp tux-evse-webapp-start.sh %{buildroot}%{_prefix}/redpesk/%{name}/bin/
 cp dist/valeo/* %{buildroot}%{_prefix}/redpesk/%{name}/htdocs/
 cp conf.d/packaging/manifest-webapp.yml %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 cp conf.d/packaging/tux-evse-webapp-debug.json %{buildroot}%{_prefix}/redpesk/%{name}/etc
@@ -57,6 +56,7 @@ install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig
 cp conf.d/packaging/tux-evse-webapp-binder.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 cp conf.d/packaging/manifest-webapp-test.yml %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml
+cp tux-evse-webapp-start.sh %{buildroot}%{_prefix}/redpesk/%{name}/test/bin/
 
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}-mock/bin
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}-mock/.rpconfig
