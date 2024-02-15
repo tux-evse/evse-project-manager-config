@@ -35,3 +35,4 @@ targets:
 
     required-permission:
       - urn:AGL:permission::system:capability:keep-all
+      - acl:engy
