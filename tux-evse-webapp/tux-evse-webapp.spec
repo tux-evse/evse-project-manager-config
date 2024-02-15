@@ -11,7 +11,10 @@ Source0:        %{name}-%{version}.tar.gz
 Source1:        webapp-htdocs-prebuild-1.0.tar.gz
 
 Requires:       afb-binder
-Requires:       afb-libpython
+
+Requires: evse-auth-manager-binder
+Requires: evse-charging-manager-binder
+Requires: evse-energy-manager-binder
 
 BuildArch:      noarch
 
@@ -27,6 +30,8 @@ WebApp to display Tux-EVSE data
 
 %package mock
 Requires:       %{name} = %{version}
+Requires:       afb-libpython
+
 Summary:        Mock package for %{name}
 
 %description mock
@@ -38,15 +43,19 @@ Mock part for webapp Tux-EVSE
 %build
 
 %install
-install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/bin
+install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/etc
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/htdocs
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
 cp tux-evse-webapp-start.sh %{buildroot}%{_prefix}/redpesk/%{name}/bin/
 cp dist/valeo/* %{buildroot}%{_prefix}/redpesk/%{name}/htdocs/
 cp conf.d/packaging/manifest-webapp.yml %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
+cp conf.d/packaging/tux-evse-webapp-debug.json %{buildroot}%{_prefix}/redpesk/%{name}/etc
+cp conf.d/packaging/tux-evse-webapp.json %{buildroot}%{_prefix}/redpesk/%{name}/etc
 
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
+install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig
+cp conf.d/packaging/tux-evse-webapp-binder.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 cp conf.d/packaging/manifest-webapp-test.yml %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml
 
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}-mock/bin
@@ -56,12 +65,17 @@ cp conf.d/packaging/manifest-mock.yml %{buildroot}%{_prefix}/redpesk/%{name}-moc
 
 %files
 %dir %{_prefix}/redpesk/%{name}
-%{_prefix}/redpesk/%{name}/bin/tux-evse-webapp-start.sh
-%{_prefix}/redpesk/%{name}/htdocs
+%dir %{_prefix}/redpesk/%{name}/htdocs
+%{_prefix}/redpesk/%{name}/htdocs/*
+%dir %{_prefix}/redpesk/%{name}/etc
+%{_prefix}/redpesk/%{name}/etc/*
 %{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 
 %files test
 %dir %{_prefix}/redpesk/%{name}/test
+%dir %{_prefix}/redpesk/%{name}/test/etc
+%dir %{_prefix}/redpesk/%{name}/test/bin
+%{_prefix}/redpesk/%{name}/test/etc/*
 %{_prefix}/redpesk/%{name}/test/bin/tux-evse-webapp-start.sh
 %{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml
 
