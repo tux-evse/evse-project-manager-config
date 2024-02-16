@@ -11,6 +11,7 @@ URL: https://github.com/redpesk-labs/dbus-binding
 Source: %{name}-%{version}.tar.gz
 
 Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/dbus-binding/manifest.yml
+Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/dbus-binding/manifest-test.yml
 
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
@@ -44,6 +45,9 @@ Requires:afb-ui-devtools
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
 cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
+
+mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig
+cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
