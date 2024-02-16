@@ -47,8 +47,8 @@ cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
-cp ./afb-binding/etc/*.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
-cp ./afb-binding/etc/*.sh %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
+cp ./etc/*.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
+cp ./etc/*.sh %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
 
 %files
 %dir %{_prefix}/redpesk/%{name}
