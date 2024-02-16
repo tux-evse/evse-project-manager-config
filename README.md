@@ -31,3 +31,7 @@ https://github.com/redpesk-core/afb-app-manager
 ## slac-binding-rs
 
 https://github.com/tux-evse/slac-binding-rs
+
+## dbus-binding
+
+https://github.com/tux-evse/dbus-binding
