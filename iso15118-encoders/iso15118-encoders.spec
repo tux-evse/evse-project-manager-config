@@ -1,5 +1,4 @@
 %global debug_package %{nil}
-ExcludeArch: x86_64
 
 Name: iso15118-encoders
 Version: 0.0.1
