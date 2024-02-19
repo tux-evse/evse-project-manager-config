@@ -20,6 +20,7 @@ BuildRequires:  pkgconfig(libsystemd) >= 222
 BuildRequires:  pkgconfig(json-c)
 
 Requires:       afb-binder
+Requires:       sec-pcscd-client
 
 %description
 %{name} Binding to serve an API connected to dbus.
