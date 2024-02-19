@@ -8,8 +8,8 @@ License: GPL-2.0-only
 Url:  http://www.dest-unreach.org/socat/
 Source: http://www.dest-unreach.org/socat/download/%{name}-%{version}.tar.gz
 
-Patch1: socat-1.7.3.3-warn.patch
-Patch2: socat-configure-c99.patch
+Patch1: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/socat/socat-1.7.3.3-warn.patch
+Patch2: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/socat/socat-configure-c99.patch
 
 BuildRequires: make
 BuildRequires:  gcc
