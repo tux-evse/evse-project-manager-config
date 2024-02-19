@@ -40,10 +40,12 @@ cd build
 
 %files
 %{_prefix}/lib64/libiso15118.so.*
+%{_prefix}/lib64/libcb_exi_codec.so.*
 
 
 %files devel
 %{_prefix}/lib64/libiso15118.so
+%{_prefix}/lib64/libcb_exi_codec.so
 %{_prefix}/include/iso15118/*.h
-
+%{_prefix}/include/cb_exi_codec/*.h
 %changelog
