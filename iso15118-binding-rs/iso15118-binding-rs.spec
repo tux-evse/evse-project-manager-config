@@ -25,7 +25,7 @@ BuildRequires: afb-librust
 BuildRequires: clang-devel
 BuildRequires: pkgconfig(gnutls)
 
-BuildRequires: iso15118-encoders
+BuildRequires: iso15118-encoders-devel
 
 
 %description
