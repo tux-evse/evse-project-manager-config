@@ -18,6 +18,8 @@ BuildRequires:  gcc-c++
 BuildRequires:  pkgconfig(afb-binding)
 BuildRequires:  pkgconfig(libsystemd) >= 222
 BuildRequires:  pkgconfig(json-c)
+BuildRequires:  sec-pcscd-client
+BuildRequires:  sec-pcscd-client-devel
 
 Requires:       afb-binder
 Requires:       sec-pcscd-client
