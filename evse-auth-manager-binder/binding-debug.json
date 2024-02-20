@@ -8,7 +8,8 @@
     "ws-server": [
         "unix:/tmp/api/auth",
         "tcp:*:12381/auth",
-        "unix:/tmp/api/ocpp"
+        "unix:/tmp/api/ocpp",
+        "tcp:*:12382/ocpp"
     ],
     "interface": [
         "tcp:*:1238"

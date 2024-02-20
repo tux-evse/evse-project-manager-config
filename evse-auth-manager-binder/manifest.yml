@@ -22,6 +22,8 @@ targets:
     provided-api:
       - name: auth
         value: auto
+      - name: ocpp
+        value: auto
 
     required-api:
       - name: engy
