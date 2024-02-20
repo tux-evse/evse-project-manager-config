@@ -180,7 +180,6 @@ fi
 %dir %{afm_icondir}
 %config %{_sysconfdir}/afm/afm-unit.conf
 %config %{_sysconfdir}/afm/certs
-%config %{_sysconfdir}/dbus-1/session.d/*
 %config %{_sysconfdir}/dbus-1/system.d/*
 %config %{_sysconfdir}/pam.d/*
 %config %{_presetdir}/%{basename:%{SOURCE1}}
