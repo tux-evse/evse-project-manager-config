@@ -9,13 +9,13 @@ License:        Apache
 URL:            https://github.com/tux-evse/tux-evse-webapp
 Source0:        %{name}-%{version}.tar.gz
 
-Source10:        manifest-mock.yml
-Source11:        manifest-webapp-test.yml
-Source12:        manifest-webapp.yml
+Source10:        https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tux-evse-webapp/manifest-mock.yml
+Source11:        https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tux-evse-webapp/manifest-webapp-test.yml
+Source12:        https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tux-evse-webapp/manifest-webapp.yml
 
-Source21:        tux-evse-webapp-binder.json
-Source22:        tux-evse-webapp-debug.json
-Source23:        tux-evse-webapp.json
+Source21:        https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tux-evse-webapp/tux-evse-webapp-binder.json
+Source22:        https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tux-evse-webapp/tux-evse-webapp-debug.json
+Source23:        https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tux-evse-webapp/tux-evse-webapp.json
 
 Requires:       afb-binder
 
