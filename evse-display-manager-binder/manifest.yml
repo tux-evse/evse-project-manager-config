@@ -22,6 +22,8 @@ targets:
         value: auto
       - name: auth
         value: auto
+      - name: dbus
+        value: auto
 
     required-config:
       - etc/binding-display.json
@@ -34,3 +36,4 @@ targets:
       - acl:engy
       - acl:auth
       - acl:chmgr
+      - acl:dbus

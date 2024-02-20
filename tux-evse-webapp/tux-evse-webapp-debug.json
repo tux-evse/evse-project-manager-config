@@ -1,0 +1,13 @@
+{
+  "monitoring": true,
+  "auto-api": [
+    "/tmp/api"
+  ],
+  "interface": [
+      "tcp:*:1239"
+  ],
+  "alias": [
+    "/monitoring:/usr/share/afb-binder/monitoring"
+  ],
+  "log": "error+warning+notice+info+debug"
+}

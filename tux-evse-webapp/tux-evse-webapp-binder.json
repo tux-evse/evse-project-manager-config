@@ -1,0 +1,8 @@
+{
+    "name": "tux-evse-webapp",
+    "monitoring": true,
+    "roothttp": "/usr/redpesk/tux-evse-webapp/htdocs",
+    "alias": [
+        "/webapp:/usr/redpesk/tux-evse-webapp/htdocs/"
+    ]
+}

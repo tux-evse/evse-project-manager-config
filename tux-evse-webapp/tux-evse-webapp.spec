@@ -9,6 +9,14 @@ License:        Apache
 URL:            https://github.com/tux-evse/tux-evse-webapp
 Source0:        %{name}-%{version}.tar.gz
 
+Source10:        manifest-mock.yml
+Source11:        manifest-webapp-test.yml
+Source12:        manifest-webapp.yml
+
+Source21:        tux-evse-webapp-binder.json
+Source22:        tux-evse-webapp-debug.json
+Source23:        tux-evse-webapp.json
+
 Requires:       afb-binder
 
 Requires: evse-auth-manager-binder
@@ -46,21 +54,21 @@ install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/etc
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/htdocs
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
 cp -r dist/valeo/* %{buildroot}%{_prefix}/redpesk/%{name}/htdocs/
-cp conf.d/packaging/manifest-webapp.yml %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
-cp conf.d/packaging/tux-evse-webapp-debug.json %{buildroot}%{_prefix}/redpesk/%{name}/etc
-cp conf.d/packaging/tux-evse-webapp.json %{buildroot}%{_prefix}/redpesk/%{name}/etc
+cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
+cp %{SOURCE22} %{buildroot}%{_prefix}/redpesk/%{name}/etc
+cp %{SOURCE23} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig
-cp conf.d/packaging/tux-evse-webapp-binder.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
-cp conf.d/packaging/manifest-webapp-test.yml %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml
+cp %{SOURCE21} %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
+cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml
 cp tux-evse-webapp-start.sh %{buildroot}%{_prefix}/redpesk/%{name}/test/bin/
 
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}-mock/bin
 install -vd  %{buildroot}%{_prefix}/redpesk/%{name}-mock/.rpconfig
 cp mock/tux-evse-mock-api.py %{buildroot}%{_prefix}/redpesk/%{name}-mock/bin/
-cp conf.d/packaging/manifest-mock.yml %{buildroot}%{_prefix}/redpesk/%{name}-mock/.rpconfig/manifest.yml
+cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}-mock/.rpconfig/manifest.yml
 
 %files
 %dir %{_prefix}/redpesk/%{name}
