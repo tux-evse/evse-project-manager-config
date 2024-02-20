@@ -16,6 +16,7 @@ Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  pkgconfig(afb-binding)
+BuildRequires:  pkgconfig(afb-helpers4)
 BuildRequires:  pkgconfig(libsystemd) >= 222
 BuildRequires:  pkgconfig(json-c)
 BuildRequires:  sec-pcscd-client
