@@ -22,6 +22,7 @@ BuildRequires:  pkgconfig(afb-binding)
 BuildRequires:  pkgconfig(afb-helpers4)
 BuildRequires:  pkgconfig(libsystemd) >= 222
 BuildRequires:  pkgconfig(json-c)
+BuildRequires:  pkgconfig(librp-utils)
 BuildRequires:  sec-pcscd-client
 BuildRequires:  sec-pcscd-client-devel
 
