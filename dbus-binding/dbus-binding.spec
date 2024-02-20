@@ -66,10 +66,6 @@ mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
 cp ./etc/binder-test-dbus.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 cp ./etc/start-binder.sh %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
 
-Source20: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/dbus-binding/dbus-binding.json
-Source21: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/dbus-binding/binding-debug.json
-
-
 %files
 %dir %{_prefix}/redpesk/%{name}
 %{_prefix}/redpesk/%{name}/.rpconfig/*
