@@ -5,8 +5,5 @@
         "/devtools:/usr/share/afb-ui-devtools/binder"
     ],
     "monitoring": true,
-    "ws-server": [
-        "tcp::12311/dbus"
-    ],
     "no-httpd":"false"
 }

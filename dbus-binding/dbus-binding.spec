@@ -12,6 +12,9 @@ Source: %{name}-%{version}.tar.gz
 
 Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/dbus-binding/manifest.yml
 Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/dbus-binding/manifest-test.yml
+Source20: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/dbus-binding/dbus-binding.json
+Source21: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/dbus-binding/binding-debug.json
+
 
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
@@ -54,11 +57,17 @@ mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig
 cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/etc
-cp ./etc/binder-dbus.json %{buildroot}%{_prefix}/redpesk/%{name}/etc
+cp %{SOURCE20} %{buildroot}%{_prefix}/redpesk/%{name}/etc
+cp %{SOURCE21} %{buildroot}%{_prefix}/redpesk/%{name}/etc
+
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
 cp ./etc/binder-test-dbus.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 cp ./etc/start-binder.sh %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
+
+Source20: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/dbus-binding/dbus-binding.json
+Source21: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/dbus-binding/binding-debug.json
+
 
 %files
 %dir %{_prefix}/redpesk/%{name}

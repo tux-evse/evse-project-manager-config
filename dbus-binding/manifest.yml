@@ -17,6 +17,10 @@ targets:
       - name: dbus
         value: auto
 
+    required-config:
+      - etc/dbus-binding.json
+      - etc/binding-debug.json
+
 provided-binding:
   - name: dbus
     value: lib/dbus-binding.so
