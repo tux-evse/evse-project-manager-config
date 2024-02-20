@@ -41,6 +41,8 @@ Dedicated for all Valeo Charger board config (net, firewall...)
 %{__install} -Dm644 ./hotspot_wifi/config-hotspot.service %{buildroot}%{_unitdir}/config-hotspot.service
 %{__install} -Dm744 ./hotspot_wifi/config-hotspot.sh %{buildroot}%{_bindir}/config-hotspot
 %{__install} -Dm744 ./linux_pcscd_usb/config-usb.sh %{buildroot}%{_bindir}/config-usb
+%{__install} -Dm744 ./linux_pcscd_usb/reset_demo.sh %{buildroot}%{_bindir}/reset_demo
+
 %{__install} -Dm644 ./cynagora/cynagora-debug-configuration.service %{buildroot}%{_unitdir}/cynagora-debug-configuration.service
 %{__install} -Dm744 ./cynagora/cynagora-debug-configuration.sh %{buildroot}%{_bindir}/cynagora-debug-configuration.sh
 
@@ -85,6 +87,9 @@ fi
 
 # script used for the NFC reader configuration
 %{_bindir}/config-usb
+
+# script used to stop/restart the full demo using the framework with user rp-owner.
+%{_bindir}/reset_demo
 
 #systemD services files
 %{_unitdir}/config-network.service
