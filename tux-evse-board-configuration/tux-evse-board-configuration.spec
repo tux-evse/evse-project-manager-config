@@ -33,6 +33,8 @@ Dedicated for all Valeo Charger board config (net, firewall...)
 #udev
 %{__install} -Dm644 ./linux_udev_rules/10-tty-evse.rules %{buildroot}%{_udevrulesdir}/10-tty-evse.rules
 %{__install} -Dm644 ./linux_udev_rules/20-rpmsg.rules %{buildroot}%{_udevrulesdir}/20-rpmsg.rules
+%{__install} -Dm644 ./linux_udev_rules/30-pcscd.rules %{buildroot}%{_udevrulesdir}/30-pcscd.rules
+
 # systemD units & scripts installs
 %{__install} -Dm644 ./network/config-network.service %{buildroot}%{_unitdir}/config-network.service
 %{__install} -Dm744 ./network/config-network.sh %{buildroot}%{_bindir}/config-network
@@ -41,7 +43,7 @@ Dedicated for all Valeo Charger board config (net, firewall...)
 %{__install} -Dm644 ./hotspot_wifi/config-hotspot.service %{buildroot}%{_unitdir}/config-hotspot.service
 %{__install} -Dm744 ./hotspot_wifi/config-hotspot.sh %{buildroot}%{_bindir}/config-hotspot
 %{__install} -Dm744 ./linux_pcscd_usb/config-usb.sh %{buildroot}%{_bindir}/config-usb
-%{__install} -Dm744 ./linux_pcscd_usb/reset_demo.sh %{buildroot}%{_bindir}/reset_demo
+%{__install} -Dm744 ./linux_pcscd_usb/reset-demo.sh %{buildroot}%{_bindir}/reset-demo
 
 %{__install} -Dm644 ./cynagora/cynagora-debug-configuration.service %{buildroot}%{_unitdir}/cynagora-debug-configuration.service
 %{__install} -Dm744 ./cynagora/cynagora-debug-configuration.sh %{buildroot}%{_bindir}/cynagora-debug-configuration.sh
@@ -84,12 +86,13 @@ fi
 # some configuration files (usb, udev rules...)
 %{_udevrulesdir}/10-tty-evse.rules
 %{_udevrulesdir}/20-rpmsg.rules
+%{_udevrulesdir}/30-pcscd.rules
 
 # script used for the NFC reader configuration
 %{_bindir}/config-usb
 
 # script used to stop/restart the full demo using the framework with user rp-owner.
-%{_bindir}/reset_demo
+%{_bindir}/reset-demo
 
 #systemD services files
 %{_unitdir}/config-network.service
