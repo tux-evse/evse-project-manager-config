@@ -63,6 +63,7 @@ cp ./etc/start-binder.sh %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
 %dir %{_prefix}/redpesk/%{name}
 %{_prefix}/redpesk/%{name}/.rpconfig/*
 %{_prefix}/redpesk/%{name}/lib/*
+%{_prefix}/redpesk/%{name}/etc/*
 
 %files test
 %dir %{_prefix}/redpesk/%{name}/test
