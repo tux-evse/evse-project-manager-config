@@ -1,9 +1,0 @@
-{
-    "name": "afb-i2c",
-    "no-ldpaths": true,
-    "alias": [
-        "/devtools:/usr/share/afb-ui-devtools/binder"
-    ],
-    "monitoring": true,
-    "tracereq": "all"
-}
