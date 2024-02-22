@@ -1,0 +1,9 @@
+{
+    "set": {
+        "dbus-binding.so": {
+            "uid": "dbus-binding",
+            "api": "dbus",
+            "info": "Binding for interfacing DBUS"
+        }
+    }
+}
