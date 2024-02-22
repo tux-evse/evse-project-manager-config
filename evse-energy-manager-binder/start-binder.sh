@@ -18,6 +18,6 @@ afb-binder --name=afb-energy -v \
   --config=$CONFDIR/../../etc/binding-modbus.json \
   --config=$CONFDIR/../../etc/binding-debug.json \
   --binding=/usr/redpesk/energy-binding-rs/lib/libafb_energy.so \
-  --binding=/usr/redpesk/modbus-binding/lib/afb-modbus.so \
+  --binding=/usr/redpesk/modbus-binding/lib/modbus-binding.so \
   --tracereq=all \
   $*
