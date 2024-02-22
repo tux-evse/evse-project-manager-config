@@ -8,10 +8,10 @@ license: MIT
 targets:
   - target: main
     content:
-      src: lib/afb-modbus.so
+      src: lib/modbus-binding.so
       type: application/vnd.agl.resource
 
 
 provided-binding:
    - name: modbus-binding
-     value: lib/afb-modbus.so
+     value: lib/modbus-binding.so
