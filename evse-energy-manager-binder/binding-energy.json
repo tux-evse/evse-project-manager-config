@@ -6,8 +6,10 @@
             "info": "set/get api",
             "permission": "acl:engy",
             "meter_api": "modbus",
-            "tic": 30000,
-            "amp": 1
+            "tic": 30000, // timer state tic in ms
+            "amp": 1, // variation in % for notification
+            "imax": 20, // force imax by config
+            "pmax": 22, // force pmax by config
         }
     }
 }

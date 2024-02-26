@@ -4,7 +4,7 @@
             "reference": "https://xn--stromzhler-v5a.eu/media/pdf/93/17/d7/SDM72DM-V2.pdf",
             "metadata": {
                 "uid": "modbus",
-                "version": "v1.0",
+                "version": "1.0",
                 "api": "modbus",
                 "info": "Generic Eastron default Test Config"
             },

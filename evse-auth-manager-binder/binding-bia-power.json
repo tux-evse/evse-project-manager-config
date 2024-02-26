@@ -15,9 +15,6 @@
             "api": "ocpp",
             "station": "Tux-Basic",
             "info": "RUST OCPP-16 Charger client",
-            "tic": 0,
-            "cid": 1,
-            "chmgr_api": "chmgr",
             "engy_api": "engy"
         }
     }
