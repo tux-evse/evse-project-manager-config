@@ -8,7 +8,8 @@
             "tic": 30000,
             "nfc_api": "scard",
             "ocpp_api": "ocpp",
-            "engy_api": "engy"
+            "engy_api": "engy",
+            "verbosity": 9
         }
     }
 }

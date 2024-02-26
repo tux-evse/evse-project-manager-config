@@ -15,7 +15,8 @@
             "api": "ocpp",
             "station": "Tux-Basic",
             "info": "RUST OCPP-16 Charger client",
-            "engy_api": "engy"
+            "engy_api": "engy",
+            "verbosity": 9
         }
     }
 }
