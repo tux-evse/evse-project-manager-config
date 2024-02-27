@@ -18,11 +18,11 @@ Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 #For debug only
 Source90: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-display-manager-binder/binding-debug.json
 
-
+Requires: dbus-binding
 Requires: evse-auth-manager-binder
 Requires: evse-charging-manager-binder
 Requires: evse-energy-manager-binder
-
+Requires: tux-evse-webapp
 Requires: display-binding-rs
 
 %description
