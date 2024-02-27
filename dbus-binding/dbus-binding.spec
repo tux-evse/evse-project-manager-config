@@ -25,6 +25,7 @@ BuildRequires:  pkgconfig(json-c)
 BuildRequires:  pkgconfig(librp-utils)
 BuildRequires:  sec-pcscd-client
 BuildRequires:  sec-pcscd-client-devel
+BuildRequires:  afb-idl
 
 Requires:       afb-binder
 Requires:       sec-pcscd-client
