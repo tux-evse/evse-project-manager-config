@@ -7,7 +7,7 @@ Release: 1%{?dist}
 Summary: Board config (net, wifi hotspot, firewall...)
 
 License: GPLv3
-URL: https://github.com/tux-evse/Tux-evse-board-configuration.git
+URL: https://github.com/tux-evse/tux-evse-board-configuration.git
 Source0: %{name}-%{version}.tar.gz
 
 ExclusiveArch:  aarch64
@@ -44,7 +44,7 @@ Dedicated for all Valeo Charger board config (net, firewall...)
 %{__install} -Dm744 ./hotspot_wifi/config-hotspot.sh %{buildroot}%{_bindir}/config-hotspot
 %{__install} -Dm744 ./linux_pcscd_usb/config-usb.sh %{buildroot}%{_bindir}/config-usb
 %{__install} -Dm744 ./linux_pcscd_usb/reset-demo.sh %{buildroot}%{_bindir}/reset-demo
-
+%{__install} -Dm744 ./openssl/genssl-demo.sh %{buildroot}%{_bindir}/genssl-demo
 %{__install} -Dm644 ./cynagora/cynagora-debug-configuration.service %{buildroot}%{_unitdir}/cynagora-debug-configuration.service
 %{__install} -Dm744 ./cynagora/cynagora-debug-configuration.sh %{buildroot}%{_bindir}/cynagora-debug-configuration.sh
 
@@ -71,6 +71,12 @@ if [ -n "$repo_file" ]; then
     fi
 fi
 
+# openssl certificates for https binder
+if ! [ -d "/usr/redpesk/genssl" ] ; then
+    echo "OpenSSL certificates, keys... generating..."
+    /usr/bin/genssl-demo
+fi
+
 %systemd_preun config-network.service
 %systemd_preun config-firewall.service
 %systemd_preun config-hotspot.service
@@ -93,6 +99,9 @@ fi
 
 # script used to stop/restart the full demo using the framework with user rp-owner.
 %{_bindir}/reset-demo
+
+# script for openssl certificates, keys generating (for https binder)
+%{_bindir}/genssl-demo
 
 #systemD services files
 %{_unitdir}/config-network.service

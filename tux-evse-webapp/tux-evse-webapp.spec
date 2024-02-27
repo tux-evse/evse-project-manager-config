@@ -18,7 +18,7 @@ Source22:        https://raw.githubusercontent.com/tux-evse/evse-project-manager
 Source23:        https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/tux-evse-webapp/tux-evse-webapp.json
 
 Requires:       afb-binder
-
+Requires: tux-evse-board-configuration
 Requires: evse-auth-manager-binder
 Requires: evse-charging-manager-binder
 Requires: evse-energy-manager-binder

@@ -1,3 +1,6 @@
 {
-    "roothttp": "/usr/redpesk/tux-evse-webapp/htdocs"
+    "roothttp": "/usr/redpesk/tux-evse-webapp/htdocs",
+    "https": true,
+    "https-cert": "/usr/redpesk/genssl/tuxevse-cert.pem",
+    "https-key": "/usr/redpesk/genssl/tuxevse-key.pem"
 }
