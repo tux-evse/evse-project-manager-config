@@ -1,14 +1,3 @@
-From b24d24c29678ec1ff7f7bebea55aad979ab2232a Mon Sep 17 00:00:00 2001
-From: Ronan Le Martret <ronan.lemartret@iot.bzh>
-Date: Wed, 28 Feb 2024 18:15:12 +0100
-Subject: [PATCH] Hack to stabilize nfc reader
-
-* In some case (unstable) we've got a problem on the acr122u reader.
- Remove the timeout on "libusb_bulk_transfer" solve the problem.
----
- src/ccid_usb.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
 diff --git a/src/ccid_usb.c b/src/ccid_usb.c
 index ff157a1..9858cba 100644
 --- a/src/ccid_usb.c
@@ -22,6 +11,3 @@ index ff157a1..9858cba 100644
  
  		if (rv < 0)
  		{
--- 
-2.43.2
-
