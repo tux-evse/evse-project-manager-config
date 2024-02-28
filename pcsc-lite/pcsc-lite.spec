@@ -9,6 +9,8 @@ ExcludeArch: x86_64
 %global with_polkit 1
 %endif
 
+%global with_polkit 0
+
 Name:           pcsc-lite
 Version:        2.0.1
 Release:        1%{?dist}
@@ -17,7 +19,7 @@ Summary:        PC/SC Lite smart card framework and applications
 License:        BSD-3-Clause AND BSD-2-Clause AND GPL-3.0-or-later
 URL:            https://pcsclite.apdu.fr/
 Source0:        https://pcsclite.apdu.fr/files/%{name}-%{version}.tar.bz2
-#Source1:        https://pcsclite.apdu.fr/files/%{name}-%{version}.tar.bz2.asc
+#Source1:        https://pcsclite.apdu.fr/files/%%{name}-%%{version}.tar.bz2.asc
 # Source2:        gpgkey-F5E11B9FFE911146F41D953D78A1B4DFE8F9C57E.gpg
 
 BuildRequires:  make
@@ -30,6 +32,7 @@ BuildRequires:  perl-podlators
 BuildRequires:  polkit-devel
 %endif
 BuildRequires:  autoconf
+BuildRequires:  autoconf-archive
 BuildRequires:  automake
 BuildRequires:  gettext-devel
 BuildRequires:  libtool
@@ -97,6 +100,8 @@ done
 
 
 %build
+./bootstrap
+
 %configure \
   --disable-static \
 %if ! %{with_polkit}
