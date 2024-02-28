@@ -12,10 +12,11 @@ Summary:        Generic USB CCID smart card reader driver
 
 License:        BSD 3-Clause AND GPL-2.0-or-later AND LGPL-2.1-or-later
 URL:            https://ccid.apdu.fr/files
-Source0:        https://ccid.apdu.fr/files/ccid-%{version}.tar.bz2
+Source0:        https://ccid.apdu.fr/files/ccid-%{version}.tar.gz
 # Source1:        https://ccid.apdu.fr/files/ccid-%%{version}.tar.bz2.asc
 # Source2:        gpgkey-F5E11B9FFE911146F41D953D78A1B4DFE8F9C57E.gpg
 Patch0:         https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/pcsc-lite-ccid/ccid-1.4.26-omnikey-3121.patch
+Patch1:         https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/pcsc-lite-ccid/0001-Hack-to-stabilize-nfc-reader.patch
 
 BuildRequires: make
 BuildRequires:  autoconf
@@ -49,6 +50,7 @@ PC/SC Lite daemon.
 # gpgv2 --keyring %{SOURCE2} %{SOURCE1} %{SOURCE0}
 %setup -q -n ccid-%{version}
 %patch0 -p1 -b .omnikey
+%patch1 -p1
 
 %build
 ./bootstrap
@@ -74,7 +76,7 @@ cp -p src/openct/LICENSE LICENSE.openct
 
 
 %files
-%doc AUTHORS ChangeLog README.md
+%doc AUTHORS  README.md
 %license COPYING LICENSE.openct
 %{dropdir}/ifd-ccid.bundle/
 %{dropdir}/serial/
