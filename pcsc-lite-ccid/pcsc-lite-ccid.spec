@@ -52,7 +52,7 @@ PC/SC Lite daemon.
 # gpgv2 --keyring %{SOURCE2} %{SOURCE1} %{SOURCE0}
 %setup -q -n %{name}-%{version}
 %patch0 -p1 -b .omnikey
-%autopatch -m 1
+%patch1 -p1
 
 %build
 ./bootstrap
