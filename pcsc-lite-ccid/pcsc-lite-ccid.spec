@@ -13,11 +13,16 @@ Summary:        Generic USB CCID smart card reader driver
 License:        BSD 3-Clause AND GPL-2.0-or-later AND LGPL-2.1-or-later
 URL:            https://ccid.apdu.fr/files
 Source0:        https://ccid.apdu.fr/files/ccid-%{version}.tar.bz2
-Source1:        https://ccid.apdu.fr/files/ccid-%{version}.tar.bz2.asc
+# Source1:        https://ccid.apdu.fr/files/ccid-%{version}.tar.bz2.asc
 # Source2:        gpgkey-F5E11B9FFE911146F41D953D78A1B4DFE8F9C57E.gpg
 Patch0:         https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/pcsc-lite-ccid/ccid-1.4.26-omnikey-3121.patch
 
 BuildRequires: make
+BuildRequires:  autoconf
+BuildRequires:  autoconf-archive
+BuildRequires:  automake
+BuildRequires:  gettext-devel
+BuildRequires:  libtool
 BuildRequires:  perl-interpreter
 BuildRequires:  perl-Getopt-Long
 BuildRequires:  libusb1-devel
@@ -46,6 +51,7 @@ PC/SC Lite daemon.
 %patch0 -p1 -b .omnikey
 
 %build
+./bootstrap
 %configure --enable-twinserial
 %make_build
 
