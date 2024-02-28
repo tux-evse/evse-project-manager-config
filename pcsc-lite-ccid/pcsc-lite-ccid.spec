@@ -6,7 +6,7 @@ ExcludeArch: x86_64
 %global pcsc_lite_ver 1.8.9
 
 Name:           pcsc-lite-ccid
-Version:        1.5.5
+Version:        1.5.5+20240216+3+g696b1b5
 Release:        1%{?dist}
 Summary:        Generic USB CCID smart card reader driver
 
@@ -50,9 +50,9 @@ PC/SC Lite daemon.
 
 %prep
 # gpgv2 --keyring %{SOURCE2} %{SOURCE1} %{SOURCE0}
-%setup -q -n ccid-%{version}
+%setup -q -n %{name}-%{version}
 %patch0 -p1 -b .omnikey
-%patch1 -p1
+%autopatch -m 1
 
 %build
 ./bootstrap
