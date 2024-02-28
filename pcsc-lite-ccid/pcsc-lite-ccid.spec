@@ -2,7 +2,7 @@
 ExcludeArch: x86_64
 %global debug_package %{nil}
 
-%global dropdir %(pkg-config libpcsclite --variable usbdropdir 2>/dev/null)
+%global dropdir /usr/lib64/pcsc/drivers
 %global pcsc_lite_ver 1.8.9
 
 Name:           pcsc-lite-ccid
@@ -13,7 +13,7 @@ Summary:        Generic USB CCID smart card reader driver
 License:        BSD 3-Clause AND GPL-2.0-or-later AND LGPL-2.1-or-later
 URL:            https://ccid.apdu.fr/files
 Source0:        https://ccid.apdu.fr/files/ccid-%{version}.tar.bz2
-# Source1:        https://ccid.apdu.fr/files/ccid-%{version}.tar.bz2.asc
+# Source1:        https://ccid.apdu.fr/files/ccid-%%{version}.tar.bz2.asc
 # Source2:        gpgkey-F5E11B9FFE911146F41D953D78A1B4DFE8F9C57E.gpg
 Patch0:         https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/pcsc-lite-ccid/ccid-1.4.26-omnikey-3121.patch
 
@@ -52,7 +52,12 @@ PC/SC Lite daemon.
 
 %build
 ./bootstrap
-%configure --enable-twinserial
+%configure \
+  --enable-twinserial \
+  --enable-serialconfdir=/etc/reader.conf.d \
+  --enable-ccidtwindir=/usr/lib64/pcsc/drivers/serial \
+  --enable-usbdropdir=/usr/lib64/pcsc/drivers \
+
 %make_build
 
 
