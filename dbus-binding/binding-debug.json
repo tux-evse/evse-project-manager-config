@@ -5,6 +5,7 @@
     "monitoring": true,
     "tracereq": "none",
     "ws-server": [
+        "unix:/tmp/api/dbus",
         "tcp::12311/dbus"
     ],
     "interface": [
