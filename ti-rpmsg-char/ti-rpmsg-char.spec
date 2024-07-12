@@ -48,7 +48,7 @@ export C_INCLUDE_PATH="${C_INCLUDE_PATH}:$(pwd)"
 %files
 %{_libdir}/*.so.0.*
 %{_libdir}/*.so.0
-%{_bindir}/*
+#%%{_bindir}/*
 
 %files devel
 %{_includedir}/*.h
