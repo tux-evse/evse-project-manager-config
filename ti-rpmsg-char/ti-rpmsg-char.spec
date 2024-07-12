@@ -39,11 +39,11 @@ touch gnu/stubs-32.h
 export C_INCLUDE_PATH="${C_INCLUDE_PATH}:$(pwd)"
 
 %{make_build}
-%{make_build} -C examples
+#%%{make_build} -C examples
 
 %install
 %{make_install}
-%{make_install} -C examples install
+#%%{make_install} -C examples install
 
 %files
 %{_libdir}/*.so.0.*
