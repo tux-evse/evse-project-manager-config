@@ -12,7 +12,7 @@ ExcludeArch: x86_64
 %global with_polkit 0
 
 Name:           pcsc-lite
-Version:        2.0.1
+Version:        2.2.2
 Release:        1%{?dist}
 Summary:        PC/SC Lite smart card framework and applications
 
