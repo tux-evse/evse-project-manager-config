@@ -15,22 +15,12 @@ Source2: cargo_config
 Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ocpp-binding-rs/manifest.yml
 Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ocpp-binding-rs/manifest-test.yml
 
-%ifarch x86_64
-BuildRequires:   rust-archive >= 1.70.0
-BuildRequires:   glibc32
-%else
-%NativeBuildRequires   rust-archive >= 1.70.0
-#Fix for cross build
-%NativeBuildRequires glibc32
-%endif
-
-BuildRequires: afb-librust
+BuildRequires:   afb-librust
+BuildRequires:   rust >= 1.70
+BuildRequires:   cargo >= 1.70
 BuildRequires: clang-devel
 
 Requires: afb-ocpp-ext
-
-#BuildRequires: glibc-devel
-
 
 %description
 OCPP Rust afb binding.
@@ -51,20 +41,8 @@ mkdir -p .cargo
 cp %{SOURCE2} .cargo/config
 
 %build
-%ifarch aarch64
-export PKG_CONFIG_DIR="${PKG_CONFIG_DIR}:$CROSS_ROOT/usr/lib64/pkgconfig"
-export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:$CROSS_ROOT/usr/lib64/pkgconfig"
-export PKG_CONFIG=/usr/aarch64-linux-gnu/sys-root/usr/bin/pkgconf
-
-mkdir -p ${HOME}/.cargo/
-cat << EOF >> "${HOME}/.cargo/config"
-[target.aarch64-unknown-linux-gnu]
-linker = "aarch64-linux-gnu-gcc"
-EOF
-%endif
 
 cargo build --offline --release --target %{_arch}-unknown-linux-gnu
-
 
 %install
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/lib
@@ -80,7 +58,6 @@ mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
 cp ./afb-binding/etc/*.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 cp ./afb-binding/etc/*.sh %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
-
 
 %files
 %dir %{_prefix}/redpesk/%{name}
