@@ -17,7 +17,7 @@ BuildRequires: gcc
 BuildRequires: gcc-c++
 BuildRequires: pkgconfig(librp-utils) >= 0.0.3
 BuildRequires: afb-cmake-modules
-BuildRequires:  afm-rpm-macros
+BuildRequires: afm-rpm-macros
 BuildRequires: pkgconfig(afb-binding)
 BuildRequires: pkgconfig(libafb)
 BuildRequires: pkgconfig(libafb-binder)
