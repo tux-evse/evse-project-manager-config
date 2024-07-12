@@ -15,13 +15,8 @@ Source2: cargo_config
 Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ti-am62x-binding-rs/manifest.yml
 Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/ti-am62x-binding-rs/manifest-test.yml
 
-%ifarch x86_64
-BuildRequires:   rust-archive >= 1.70.0
-%else
-%NativeBuildRequires   rust-archive >= 1.70.0
-
-%endif
-
+BuildRequires: rust >= 1.70
+BuildRequires: cargo >= 1.70
 BuildRequires: afb-librust
 BuildRequires: protobuf-compiler
 BuildRequires: ti-rpmsg-char-devel
@@ -50,26 +45,7 @@ mkdir -p .cargo
 cp %{SOURCE2} .cargo/config
 
 %build
-%ifarch aarch64
-export PKG_CONFIG_DIR="${PKG_CONFIG_DIR}:$CROSS_ROOT/usr/lib64/pkgconfig"
-export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:$CROSS_ROOT/usr/lib64/pkgconfig"
-export PKG_CONFIG=/usr/aarch64-linux-gnu/sys-root/usr/bin/pkgconf
-
-mkdir -p ${HOME}/.cargo/
-cat << EOF >> "${HOME}/.cargo/config"
-[target.aarch64-unknown-linux-gnu]
-linker = "aarch64-linux-gnu-gcc"
-EOF
-%endif
-
-#build fix
-mkdir -p gnu;
-touch gnu/stubs-32.h
-export C_INCLUDE_PATH="${C_INCLUDE_PATH}:$(pwd)"
-#End build fix
-
 cargo build --offline --release --target %{_arch}-unknown-linux-gnu
-
 
 %install
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/lib
