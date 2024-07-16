@@ -35,7 +35,7 @@ cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ../
 
 %install
 cd build
-%cmake_install
+DESTDIR="%{buildroot}" cmake --install ./
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/afb-ocpp/.rpconfig
 cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/afb-ocpp/.rpconfig/manifest.yml
