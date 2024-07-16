@@ -1,6 +1,6 @@
 %global debug_package %{nil}
 
-Name: lvgl-evse-lib
+Name: lv-evse-hmi-lib
 Version: 0.0.1
 Release: 5%{?dist}
 Summary: LVGL for frame buffer lib
