@@ -36,7 +36,7 @@ LVGL for frame buffer lib devel.
 %cmake_build
 
 %install
-%make_install
+%cmake_install
 
 %files
 %{_prefix}/lib64/*.so
