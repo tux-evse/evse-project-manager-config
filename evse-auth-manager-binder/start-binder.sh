@@ -21,5 +21,6 @@ afb-binder --name=afb-auth -v \
   --binding=/usr/redpesk/auth-binding-rs/lib/libafb_auth.so \
   --binding=/usr/redpesk/scard-binding-rs/lib/libafb_nfc.so \
   --binding=/usr/redpesk/ocpp-binding-rs/lib/libafb_ocpp.so \
+  --ws-client=unix:/tmp/api/engy \
   --tracereq=all \
   $*
