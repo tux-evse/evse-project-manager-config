@@ -169,14 +169,14 @@ fi
 %files libs
 %license COPYING
 %{_libdir}/libpcsclite.so.*
-%{_libdir}/libpcsclite_real.so
+%{_libdir}/libpcscspy.so*
+%{_libdir}/libpcsclite_real.so.*
 
 %files devel
 %{_bindir}/pcsc-spy
 %{_includedir}/PCSC/
 %{_libdir}/libpcsclite.so
-%{_libdir}/libpcscspy.so*
-%{_libdir}/libpcsclite_real.so.*
+%{_libdir}/libpcsclite_real.so
 %dir %{_datadir}/doc/pcsc-lite
 %{_datadir}/doc/pcsc-lite/setup_spy.sh
 %{_libdir}/pkgconfig/libpcsclite.pc
