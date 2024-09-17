@@ -1,5 +1,5 @@
 %global debug_package %{nil}
-ExcludeArch: x86_64
+
 
 Name: linky-binding-rs
 Version: 0.0.0+20231117+173249+0+ge1f8b8f

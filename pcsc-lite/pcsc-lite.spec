@@ -1,5 +1,5 @@
 
-ExcludeArch: x86_64
+
 %global debug_package %{nil}
 
 # doesn't make sense to install a polkit configuration inside a Flatpak

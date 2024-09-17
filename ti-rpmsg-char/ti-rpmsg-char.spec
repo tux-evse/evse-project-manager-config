@@ -1,4 +1,4 @@
-ExcludeArch: x86_64
+
 
 Name: ti-rpmsg-char
 Version: 0.6.3

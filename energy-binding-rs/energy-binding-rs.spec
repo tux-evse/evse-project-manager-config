@@ -1,5 +1,5 @@
 %global debug_package %{nil}
-ExcludeArch: x86_64
+
 
 Name:    energy-binding-rs
 Version: 0.0.1

@@ -1,5 +1,5 @@
 
-ExcludeArch: x86_64
+
 %global debug_package %{nil}
 
 %global dropdir /usr/lib64/pcsc/drivers

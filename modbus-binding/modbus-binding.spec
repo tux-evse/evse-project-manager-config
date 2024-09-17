@@ -1,5 +1,5 @@
 %define debug_package %{nil}
-ExcludeArch: x86_64
+
 
 Name: modbus-binding
 Version: 1.4.0
@@ -34,7 +34,7 @@ BuildRequires:  pkgconfig(librp-utils-static)
 BuildRequires:  pkgconfig(afb-helpers4-static)
 
 Requires:       afb-binder
-ExcludeArch: x86_64
+
 
 %description
 %{name} Binding to serve an API connected to modbus hardware.

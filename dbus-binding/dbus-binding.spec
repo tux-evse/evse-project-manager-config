@@ -1,5 +1,5 @@
 %global debug_package %{nil}
-ExcludeArch: x86_64
+
 
 Name: dbus-binding
 Version: 1.0.0

@@ -1,4 +1,4 @@
-ExcludeArch: x86_64
+
 %global debug_package %{nil}
 
 Name: tux-evse-board-configuration

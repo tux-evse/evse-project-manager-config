@@ -1,5 +1,5 @@
 %global debug_package %{nil}
-ExcludeArch: x86_64
+
 
 Name:    charging-binding-rs
 Version: 0.0.1
