@@ -21,7 +21,6 @@ BuildRequires:  clang
 BuildRequires:  pkgconfig(json-c)
 BuildRequires:  pkgconfig(afb-binding)
 
-BuildRequires:  libafb5
 BuildRequires:  iputils
 
 BuildRequires: clang-devel
