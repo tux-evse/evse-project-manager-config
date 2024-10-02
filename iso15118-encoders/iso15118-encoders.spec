@@ -1,7 +1,8 @@
 %global debug_package %{nil}
 
 Name: iso15118-encoders
-Version: 0.0.1
+#Hexsha: c5c0ed5fa8d970e5da137c813f666c75597fc28c
+Version: 0.0.1+20240917+1+gc5c0ed5
 Release: 1%{?dist}
 Summary: Those encoder are generated from ISO15118
 
@@ -52,10 +53,10 @@ rm -fr %{buildroot}%{_prefix}/lib*/libcb_exi_codec.*
 %postun -p /sbin/ldconfig
 
 %files
-%{_prefix}/lib64/libiso15118.so.*
+%{_prefix}/lib*/libiso15118.so.*
 
 %files devel
-%{_prefix}/lib64/libiso15118.so
+%{_prefix}/lib*/libiso15118.so
 %dir %{_prefix}/include/iso15118
 %{_prefix}/include/iso15118/*.h
 %changelog
