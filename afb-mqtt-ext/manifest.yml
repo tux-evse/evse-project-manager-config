@@ -1,0 +1,17 @@
+rp-manifest: 1
+id: afb-mqtt
+version: 0.1
+name: afb-mqtt
+description: afb-mqtt-ext binding
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: lib/libafb-mqtt-ext.so
+      type: application/vnd.agl.resource
+
+
+provided-binding:
+   - name: afb-mqtt
+     value: lib/libafb-mqtt-ext.so
