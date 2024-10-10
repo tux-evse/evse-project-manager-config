@@ -9,7 +9,7 @@ Summary: josev binding
 License: MIT
 URL: https://github.com/tux-evse/josev-binding-rs.git
 Source0: %{name}-%{version}.tar.gz
-Source1: vendor.tar.gz
+Source1: vendor.tar.bz2
 Source2: cargo_config
 
 Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/josev-binding-rs/manifest.yml
@@ -49,13 +49,13 @@ cp ./target/%{_arch}-unknown-linux-gnu/release/*.so %{buildroot}%{_prefix}/redpe
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig
 cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/%{name}/.rpconfig/manifest.yml
 
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig
-cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml
+#mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig
+#cp %{SOURCE11} %{buildroot}%{_prefix}/redpesk/%{name}/test/.rpconfig/manifest.yml
 
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
-mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
-cp ./afb-binding/etc/*.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
-cp ./afb-binding/etc/*.sh %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
+#mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
+#mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
+#cp ./afb-binding/etc/*.json %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
+#cp ./afb-binding/etc/*.sh %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
 
 %files
 %dir %{_prefix}/redpesk/%{name}
