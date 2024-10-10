@@ -4,7 +4,7 @@ ExcludeArch: x86_64
 Name: afb-mqtt-ext
 Version: 0.0.1
 Release: 0%{?dist}
-Summary: AFB micro-service framework extention for MQTT
+Summary: AFB micro-service framework extension for MQTT
 
 License: Apache
 URL: https://github.com/tux-evse/afb-mqtt-ext.git
@@ -21,6 +21,9 @@ BuildRequires: afm-rpm-macros
 BuildRequires: pkgconfig(afb-binding)
 BuildRequires: pkgconfig(libafb)
 BuildRequires: pkgconfig(libafb-binder)
+BuildRequires: pkgconfig(libmosquitto)
+
+Requires: mosquitto
 
 %description
 AFB micro-service framework extention for MQTT.
@@ -31,12 +34,14 @@ AFB micro-service framework extention for MQTT.
 %build
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ../
+cmake ..
+make
 
 %install
 cd build
-DESTDIR="%{buildroot}" cmake --install ./
 
+mkdir -p %{buildroot}%{_prefix}/redpesk/afb-mqtt/lib
+cp libafb-mqtt-ext.so %{buildroot}%{_prefix}/redpesk/afb-mqtt/lib
 mkdir -p %{buildroot}%{_prefix}/redpesk/afb-mqtt/.rpconfig
 cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/afb-mqtt/.rpconfig/manifest.yml
 
@@ -44,22 +49,12 @@ cp %{SOURCE10} %{buildroot}%{_prefix}/redpesk/afb-mqtt/.rpconfig/manifest.yml
 
 %files
 %dir %{_prefix}/redpesk/afb-mqtt
-%dir %{_prefix}/redpesk/afb-mqtt/var
-%dir %{_prefix}/redpesk/afb-mqtt/etc
 %dir %{_prefix}/redpesk/afb-mqtt/lib
-%dir %{_prefix}/redpesk/afb-mqtt/htdocs
-%dir %{_prefix}/redpesk/afb-mqtt/bin
 %dir %{_prefix}/redpesk/afb-mqtt/.rpconfig
 
 %{_prefix}/redpesk/afb-mqtt
-%{_prefix}/redpesk/afb-mqtt/var
-%{_prefix}/redpesk/afb-mqtt/config.xml
-%{_prefix}/redpesk/afb-mqtt/icon.jpg
-%{_prefix}/redpesk/afb-mqtt/etc
 %{_prefix}/redpesk/afb-mqtt/lib
 %{_prefix}/redpesk/afb-mqtt/lib/libafb-mqtt-ext.so
-%{_prefix}/redpesk/afb-mqtt/htdocs
-%{_prefix}/redpesk/afb-mqtt/bin
 
 %{_prefix}/redpesk/afb-mqtt/.rpconfig/*
 
