@@ -15,3 +15,7 @@ targets:
 provided-binding:
    - name: afb-ocpp
      value: lib/libafb-ocpp-ext.so
+
+required-systemd:
+   - unit: network-online.target
+     mode: strong
