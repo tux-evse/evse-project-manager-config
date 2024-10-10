@@ -36,8 +36,8 @@ Dedicated for all Valeo Charger board config (net, firewall...)
 %{__install} -Dm644 ./linux_udev_rules/30-pcscd.rules %{buildroot}%{_udevrulesdir}/30-pcscd.rules
 
 #Conf eth2
-mkdir -p %{buildroot}%{_sysconfdir}NetworkManager/conf.d/
-%{__install} -Dm744 ./network/99-no-auto-default.conf %{buildroot}%{_sysconfdir}/config-network
+mkdir -p %{buildroot}%{_sysconfdir}/NetworkManager/conf.d/
+%{__install} -Dm744 ./network/99-no-auto-default.conf %{buildroot}%{_sysconfdir}/NetworkManager/conf.d/
 
 # systemD units & scripts installs
 %{__install} -Dm644 ./network/config-network.service %{buildroot}%{_unitdir}/config-network.service
@@ -94,7 +94,7 @@ fi
 
 %files
 # eth2 conf
-%{_sysconfdir}/config-network/99-no-auto-default.conf 
+%{_sysconfdir}/NetworkManager/conf.d/99-no-auto-default.conf 
 
 # some configuration files (usb, udev rules...)
 %{_udevrulesdir}/10-tty-evse.rules
