@@ -35,6 +35,10 @@ Dedicated for all Valeo Charger board config (net, firewall...)
 %{__install} -Dm644 ./linux_udev_rules/20-rpmsg.rules %{buildroot}%{_udevrulesdir}/20-rpmsg.rules
 %{__install} -Dm644 ./linux_udev_rules/30-pcscd.rules %{buildroot}%{_udevrulesdir}/30-pcscd.rules
 
+#Conf eth2
+mkdir -p %{buildroot}%{_sysconfdir}NetworkManager/conf.d/
+%{__install} -Dm744 ./network/99-no-auto-default.conf %{buildroot}%{_sysconfdir}/config-network
+
 # systemD units & scripts installs
 %{__install} -Dm644 ./network/config-network.service %{buildroot}%{_unitdir}/config-network.service
 %{__install} -Dm744 ./network/config-network.sh %{buildroot}%{_bindir}/config-network
@@ -89,6 +93,9 @@ fi
 %systemd_postun_with_restart cynagora-debug-configuration.service
 
 %files
+# eth2 conf
+%{buildroot}%{_sysconfdir}/config-network/99-no-auto-default.conf 
+
 # some configuration files (usb, udev rules...)
 %{_udevrulesdir}/10-tty-evse.rules
 %{_udevrulesdir}/20-rpmsg.rules
