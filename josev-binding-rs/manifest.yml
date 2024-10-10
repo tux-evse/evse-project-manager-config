@@ -1,0 +1,17 @@
+rp-manifest: 1
+id: josev-binding-rs
+version: 0.1
+name: josev-binding-rs
+description: josev binding
+author: IoT.bzh team <team@iot.bzh>
+license: MIT
+targets:
+  - target: main
+    content:
+      src: lib/libafb_josev.so
+      type: application/vnd.agl.resource
+
+
+provided-binding:
+   - name: josev-binding-rs
+     value: lib/libafb_josev.so
