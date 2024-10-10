@@ -94,7 +94,7 @@ fi
 
 %files
 # eth2 conf
-%{buildroot}%{_sysconfdir}/config-network/99-no-auto-default.conf 
+%{_sysconfdir}/config-network/99-no-auto-default.conf 
 
 # some configuration files (usb, udev rules...)
 %{_udevrulesdir}/10-tty-evse.rules
