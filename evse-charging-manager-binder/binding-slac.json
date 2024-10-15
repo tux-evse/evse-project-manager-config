@@ -8,7 +8,7 @@
         "info": "RUST Slac ISO15118-3",
         "iec_api": "am62x",
         "iso_itf": "eth2",
-        "verbosity": 9
+        "verbosity": 7
     }
   }
 }

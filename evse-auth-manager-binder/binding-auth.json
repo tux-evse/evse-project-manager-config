@@ -9,7 +9,7 @@
             "nfc_api": "scard",
             "ocpp_api": "ocpp",
             "engy_api": "engy",
-            "verbosity": 9
+            "verbosity": 7
         }
     }
 }

@@ -9,7 +9,7 @@
             "tic": 0,
             "lock_api": "i2c",
             "lock_verb": "gpio/lock-motor",
-            "verbosity": 9
+            "verbosity": 7
         }
     }
 }
