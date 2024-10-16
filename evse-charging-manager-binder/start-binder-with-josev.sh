@@ -1,0 +1,31 @@
+#!/bin/bash
+
+export LD_LIBRARY_PATH=/usr/local/lib64
+pkill afb-charging
+cynagora-admin set '' 'HELLO' '' '*' yes
+clear
+
+# build test config dirname
+DIRNAME=`dirname $0`
+cd $DIRNAME/..
+CONFDIR=`pwd`/etc
+
+echo Energy debug mode config=$CONFDIR/../../*.json
+
+afb-binder --name=afb-charging -v \
+  --config=$CONFDIR/binder-test.json \
+  --config=$CONFDIR/../../etc/binding-i2c.json \
+  --config=$CONFDIR/../../etc/binding-am62x.json \
+  --config=$CONFDIR/../../etc/binding-chmgr.json \
+  --config=$CONFDIR/../../etc/binding-slac.json \
+  --config=$CONFDIR/../../etc/binding-debug.json \
+  --config=$CONFDIR/../../etc/binding-josev-ac.json \
+  --binding=/usr/redpesk/i2c-binding-rs/lib/libafb_i2c.so \
+  --binding=/usr/redpesk/ti-am62x-binding-rs/lib/libafb_tiam62x.so \
+  --binding=/usr/redpesk/charging-binding-rs/lib/libafb_chmgr.so \
+  --binding=/usr/redpesk/slac-binding-rs/lib/libafb_slac.so \
+  --binding=/usr/redpesk/josev-binding-rs/lib/libafb_josev.so \
+  --extension=/usr/redpesk/afb-mqtt-ext/lib/libafb-mqtt-ext.so \
+  --tracereq=all \
+  $* \
+  --mqtt-config-file=$CONFDIR/../../etc/mqtt-config.yml
