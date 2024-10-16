@@ -40,7 +40,7 @@ mkdir -p .cargo
 cp %{SOURCE2} .cargo/config
 
 %build
-cargo build --offline --release --target %{_arch}-unknown-linux-gnu
+cargo build %_smp_mflags --offline --release --target %{_arch}-unknown-linux-gnu
 
 %install
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/lib
