@@ -25,7 +25,7 @@ afb-binder --name=afb-charging -v \
   --binding=/usr/redpesk/charging-binding-rs/lib/libafb_chmgr.so \
   --binding=/usr/redpesk/slac-binding-rs/lib/libafb_slac.so \
   --binding=/usr/redpesk/josev-binding-rs/lib/libafb_josev.so \
-  --extension=/usr/redpesk/afb-mqtt-ext/lib/libafb-mqtt-ext.so \
+  --extension=/usr/redpesk/afb-mqtt/lib/libafb-mqtt-ext.so \
   --tracereq=all \
   $* \
   --mqtt-config-file=$CONFDIR/../../etc/mqtt-config.yml
