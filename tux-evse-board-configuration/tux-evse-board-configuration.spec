@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name: tux-evse-board-configuration
-Version: 2.0.1
+Version: 2.0.2
 Release: 1%{?dist}
 Summary: Board config (net, wifi hotspot, firewall...)
 
@@ -37,7 +37,7 @@ Dedicated for all Valeo Charger board config (net, firewall...)
 
 #Conf eth2
 mkdir -p %{buildroot}%{_sysconfdir}/NetworkManager/conf.d/
-%{__install} -Dm744 ./network/99-no-auto-default.conf %{buildroot}%{_sysconfdir}/NetworkManager/conf.d/
+%{__install} -Dm744 ./network/99-eth2-unmanaged.conf %{buildroot}%{_sysconfdir}/NetworkManager/conf.d/
 
 # systemD units & scripts installs
 %{__install} -Dm644 ./network/config-network.service %{buildroot}%{_unitdir}/config-network.service
@@ -94,7 +94,7 @@ fi
 
 %files
 # eth2 conf
-%{_sysconfdir}/NetworkManager/conf.d/99-no-auto-default.conf 
+%{_sysconfdir}/NetworkManager/conf.d/99-eth2-unmanaged.conf 
 
 # some configuration files (usb, udev rules...)
 %{_udevrulesdir}/10-tty-evse.rules
