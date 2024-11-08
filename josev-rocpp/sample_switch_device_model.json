@@ -1,0 +1,26 @@
+{
+  "model": "Prototype 001",
+  "vendor": "IoT bzh",
+  "identity": "<station_id>",
+  "ocpp_csms_url": "ws://ocpp.switch-ev.com/<station_id>",
+  "security_profile": 1,
+  "basic_auth_password": "<password_in_clear>",
+  "serial_number": "9783161484100",
+  "firmware_version": "1.0.0",
+  "evses": [
+    {
+      "ocpp_id": 1,
+      "iso15118_id": "DE*PNX*E12345*1",
+      "power_kw": 50,
+      "supply_phases": 3,
+      "connectors": [
+        {
+          "id": 1,
+          "connector_type": "cCCS2"
+        }
+      ]
+    }
+  ],
+  "sim_iccid": "891460000000000012",
+  "sim_imsi": "313460000000001"
+}
