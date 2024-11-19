@@ -1,5 +1,7 @@
 
 %global debug_package %{nil}
+# not available on x86
+ExcludeArch: x86_64
 
 Name: ti-am62x-binding-rs
 Version: 0.0.4
