@@ -21,7 +21,9 @@ Source17: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 
 Source18: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-josev-ac.json
 Source19: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/mqtt-config.yml
-Source20: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/start-binder-with-josev.sh
+Source20: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/ext-mqtt.json
+Source21: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/start-binder-with-josev.sh
+
 #For debug only
 Source90: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-debug.json
 
@@ -62,6 +64,7 @@ cp %{SOURCE16} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE17} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE18} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE19} %{buildroot}%{_prefix}/redpesk/%{name}/etc
+cp %{SOURCE20} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 
 #For debug only
 cp %{SOURCE90} %{buildroot}%{_prefix}/redpesk/%{name}/etc
@@ -74,7 +77,7 @@ cp %{SOURCE13} %{buildroot}%{_prefix}/redpesk/%{name}/test/etc
 
 mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/test/bin
 cp %{SOURCE12} %{buildroot}%{_prefix}/redpesk/%{name}/test/bin/start-binder.sh
-cp %{SOURCE20} %{buildroot}%{_prefix}/redpesk/%{name}/test/bin/start-binder-with-josev.sh
+cp %{SOURCE21} %{buildroot}%{_prefix}/redpesk/%{name}/test/bin/start-binder-with-josev.sh
 
 %files
 %dir %{_prefix}/redpesk/%{name}
