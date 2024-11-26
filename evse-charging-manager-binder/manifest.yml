@@ -18,6 +18,8 @@ targets:
         value: extern
       - name: charging-binding-rs
         value: extern
+      - name: josev-binding-rs
+        value: extern
       - name: slac-binding-rs
         value: extern
 
