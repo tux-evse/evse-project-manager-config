@@ -24,6 +24,8 @@ targets:
     provided-api:
       - name: chmgr
         value: auto
+      - name: josev
+        value: auto
 
     required-api:
       - name: engy
@@ -38,9 +40,12 @@ targets:
       - etc/binding-am62x.json
       - etc/binding-chmgr.json
       - etc/binding-slac.json
+      - etc/binding-josev-ac.json
+      - etc/ext-mqtt.json
       - etc/binding-debug.json
 
     required-permission:
+      - urn:AGL:permission::system:run-by-default
       - urn:AGL:permission::system:capability:keep-all
       - acl:engy
       - acl:auth

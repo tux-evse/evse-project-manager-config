@@ -10,8 +10,14 @@ targets:
     content:
       src: bin/start-binder.sh
       type: application/x-executable
+  - target: main
+    content:
+      src: bin/start-binder-with-josev.sh
+      type: application/x-executable
 
 
 file-properties:
   - name: bin/start-binder.sh
+    value: executable
+  - name: bin/start-binder-with-josev.sh
     value: executable

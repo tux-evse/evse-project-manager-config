@@ -1,0 +1,12 @@
+{
+  "extension": [
+    {
+      "path": "/usr/redpesk/afb-mqtt/lib/libafb-mqtt-ext.so"
+    }
+  ],
+  "@extconfig": {
+    "MQTT": {
+      "mqtt-config-file": "/usr/redpesk/evse-charging-manager-binder/etc/mqtt-config.yml"
+    }
+  }
+}
