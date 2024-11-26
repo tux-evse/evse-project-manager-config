@@ -61,6 +61,7 @@ cp -R ./hotspot_wifi/captive_portal/* %{buildroot}%{_prefix}/redpesk/captive_por
 %systemd_post config-firewall.service
 %systemd_post config-hotspot.service
 %systemd_post cynagora-debug-configuration.service
+%systemd_post mosquitto.service
 
 systemctl enable config-network.service > /dev/null
 systemctl enable config-firewall.service > /dev/null
