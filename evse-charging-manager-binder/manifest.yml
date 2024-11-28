@@ -34,8 +34,6 @@ targets:
         value: auto
       - name: auth
         value: auto
-      - name: ocpp
-        value: auto
 
     required-config:
       - etc/binding-i2c.json
