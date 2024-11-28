@@ -16,13 +16,9 @@ targets:
         value: extern
       - name: scard-binding-rs
         value: extern
-      - name: ocpp-binding-rs
-        value: extern
     
     provided-api:
       - name: auth
-        value: auto
-      - name: ocpp
         value: auto
 
     required-api:
@@ -32,7 +28,6 @@ targets:
     required-config:
       - etc/binding-auth.json
       - etc/binding-scard.json
-      - etc/binding-bia-power.json
       - etc/binding-debug.json
 
     required-permission:
