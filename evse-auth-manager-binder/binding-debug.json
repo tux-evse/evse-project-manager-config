@@ -7,9 +7,7 @@
     "tic": 5000,
     "ws-server": [
         "unix:/tmp/api/auth",
-        "tcp:*:12381/auth",
-        "unix:/tmp/api/ocpp",
-        "tcp:*:12382/ocpp"
+        "tcp:*:12381/auth"
     ],
     "interface": [
         "tcp:*:1238"

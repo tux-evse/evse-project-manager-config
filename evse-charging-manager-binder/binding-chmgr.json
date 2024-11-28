@@ -9,7 +9,6 @@
             "iec_api": "am62x",
             "auth_api": "auth",
             "energy_api": "engy",
-            "ocpp_api": "ocpp",
             "tic": 0,
             "verbosity": 7
         }
