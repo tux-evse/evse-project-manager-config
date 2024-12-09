@@ -1,6 +1,8 @@
 
 %global debug_package %{nil}
 
+ExcludeArch: x86_64
+
 Name: firmware-bin
 Version: 1.0.0
 Release: 1%{?dist}
