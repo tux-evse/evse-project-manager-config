@@ -24,6 +24,8 @@ Source19: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 Source20: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/ext-mqtt.json
 Source21: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/start-binder-with-josev.sh
 
+Source22: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-chmgr-with-slac.json
+
 #For debug only
 Source90: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-debug.json
 
@@ -65,6 +67,7 @@ cp %{SOURCE17} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE18} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE19} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE20} %{buildroot}%{_prefix}/redpesk/%{name}/etc
+cp %{SOURCE22} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 
 #For debug only
 cp %{SOURCE90} %{buildroot}%{_prefix}/redpesk/%{name}/etc
