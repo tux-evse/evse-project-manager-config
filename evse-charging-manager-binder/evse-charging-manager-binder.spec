@@ -19,7 +19,7 @@ Source15: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config
 Source16: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-i2c.json
 Source17: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-slac.json
 
-Source18: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-josev-ac.json
+Source18: binding-josev-ac.json
 Source19: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/mqtt-config.yml
 Source20: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/ext-mqtt.json
 Source21: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/start-binder-with-josev.sh
