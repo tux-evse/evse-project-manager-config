@@ -35,14 +35,12 @@ Dedicated for all Valeo Charger board config (net, firewall...)
 %{__install} -Dm644 ./linux_udev_rules/20-rpmsg.rules %{buildroot}%{_udevrulesdir}/20-rpmsg.rules
 %{__install} -Dm644 ./linux_udev_rules/30-pcscd.rules %{buildroot}%{_udevrulesdir}/30-pcscd.rules
 
-#nmcli configurations
-mkdir -p %{buildroot}%{_sysconfdir}/NetworkManager/system-connections
-%{__install} -Dm644 ./network/tuxevse_static.nmconnection %{buildroot}%{_sysconfdir}/NetworkManager/system-connections
-%{__install} -Dm644 ./network/tuxevse_dhcp.nmconnection %{buildroot}%{_sysconfdir}/NetworkManager/system-connections
-%{__install} -Dm644 ./network/tuxevse_linklocal.nmconnection %{buildroot}%{_sysconfdir}/NetworkManager/system-connections
-%{__install} -Dm644 ./network/tuxevse_plc.nmconnection %{buildroot}%{_sysconfdir}/NetworkManager/system-connections
+#Conf eth2
+mkdir -p %{buildroot}%{_sysconfdir}/NetworkManager/conf.d/
 
 # systemD units & scripts installs
+%{__install} -Dm644 ./network/config-network.service %{buildroot}%{_unitdir}/config-network.service
+%{__install} -Dm744 ./network/config-network.sh %{buildroot}%{_bindir}/config-network
 %{__install} -Dm644 ./firewall/config-firewall.service %{buildroot}%{_unitdir}/config-firewall.service
 %{__install} -Dm744 ./firewall/config-firewall.sh %{buildroot}%{_bindir}/config-firewall
 %{__install} -Dm644 ./hotspot_wifi/config-hotspot.service %{buildroot}%{_unitdir}/config-hotspot.service
@@ -58,11 +56,13 @@ mkdir -p %{buildroot}%{_prefix}/redpesk/captive_portal/
 cp -R ./hotspot_wifi/captive_portal/* %{buildroot}%{_prefix}/redpesk/captive_portal/
 
 %post
+%systemd_post config-network.service
 %systemd_post config-firewall.service
 %systemd_post config-hotspot.service
 %systemd_post cynagora-debug-configuration.service
 %systemd_post mosquitto.service
 
+systemctl enable config-network.service > /dev/null
 systemctl enable config-firewall.service > /dev/null
 systemctl enable config-hotspot.service > /dev/null
 systemctl enable cynagora-debug-configuration.service > /dev/null
@@ -81,22 +81,18 @@ if ! [ -d "/usr/redpesk/genssl" ] ; then
     /usr/bin/genssl-demo
 fi
 
+%systemd_preun config-network.service
 %systemd_preun config-firewall.service
 %systemd_preun config-hotspot.service
 %systemd_preun cynagora-debug-configuration.service
 
 %postun
+%systemd_postun_with_restart config-network.service
 %systemd_postun_with_restart config-firewall.service
 %systemd_postun_with_restart config-hotspot.service
 %systemd_postun_with_restart cynagora-debug-configuration.service
 
 %files
-# eth2 conf
-%{_sysconfdir}/NetworkManager/system-connections/tuxevse_static.nmconnection
-%{_sysconfdir}/NetworkManager/system-connections/tuxevse_dhcp.nmconnection
-%{_sysconfdir}/NetworkManager/system-connections/tuxevse_linklocal.nmconnection
-%{_sysconfdir}/NetworkManager/system-connections/tuxevse_plc.nmconnection
-
 # some configuration files (usb, udev rules...)
 %{_udevrulesdir}/10-tty-evse.rules
 %{_udevrulesdir}/20-rpmsg.rules
@@ -112,6 +108,8 @@ fi
 %{_bindir}/genssl-demo
 
 #systemD services files
+%{_unitdir}/config-network.service
+%{_bindir}/config-network
 %{_unitdir}/config-firewall.service
 %{_bindir}/config-firewall
 %{_unitdir}/config-hotspot.service
