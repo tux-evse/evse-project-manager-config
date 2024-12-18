@@ -41,10 +41,12 @@ tar tJvf %{_sourcedir}/%{tarball} | awk '{print$6;}' | tail +3 | sed 's!ocpp_ser
 tar -x --strip-components 2 -Jf %{_sourcedir}/%{tarball}
 mv ocpp_service %{buildroot}/usr/josev/pocpp
 
-echo /usr/josev/pocpp/start.sh >> files.txt
+
 mv %{SOURCE2} %{buildroot}/usr/josev/pocpp
 
 
 %files -f files.txt
+%defattr(755,root,root)
+/usr/josev/pocpp/start.sh
 
 %changelog
