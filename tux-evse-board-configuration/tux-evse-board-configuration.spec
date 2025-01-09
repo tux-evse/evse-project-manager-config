@@ -34,7 +34,9 @@ Dedicated for all Valeo Charger board config (net, firewall...)
 %{__install} -Dm644 ./linux_udev_rules/10-tty-evse.rules %{buildroot}%{_udevrulesdir}/10-tty-evse.rules
 %{__install} -Dm644 ./linux_udev_rules/20-rpmsg.rules %{buildroot}%{_udevrulesdir}/20-rpmsg.rules
 %{__install} -Dm644 ./linux_udev_rules/30-pcscd.rules %{buildroot}%{_udevrulesdir}/30-pcscd.rules
+
 # nfc module blacklisting
+mkdir -p %{buildroot}%{_sysconfdir}/modprobe.d/
 %{__install} -Dm644 ./linux_pcscd_usb/blacklist-libnfc.conf %{buildroot}%{_sysconfdir}/modprobe.d/
 
 #Conf eth2
