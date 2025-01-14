@@ -70,6 +70,7 @@ systemctl enable config-network.service > /dev/null
 systemctl enable config-firewall.service > /dev/null
 systemctl enable config-hotspot.service > /dev/null
 systemctl enable cynagora-debug-configuration.service > /dev/null
+systemctl enable mosquitto.service > /dev/null
 
 # disable dnf metadata expiration
 repo_file=$(ls /etc/yum.repos.d/tux-evse*.repo >/dev/null)
