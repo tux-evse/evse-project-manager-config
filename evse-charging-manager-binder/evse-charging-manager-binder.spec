@@ -9,30 +9,31 @@ Summary: evse charging manager binder
 License: MIT
 URL: https://github.com/tux-evse/evse-project-manager-config
 
-Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/manifest.yml
-Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/manifest-test.yml
-Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/start-binder.sh
+Source10: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/valeo/evse-charging-manager-binder/manifest.yml
+Source11: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/valeo/evse-charging-manager-binder/manifest-test.yml
+Source12: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/valeo/evse-charging-manager-binder/start-binder.sh
 
-Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binder-test.json
-Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-am62x.json
-Source15: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-chmgr.json
-Source16: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-i2c.json
-Source17: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-slac.json
+Source13: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/valeo/evse-charging-manager-binder/binder-test.json
+Source14: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/valeo/evse-charging-manager-binder/binding-am62x.json
+Source15: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/valeo/evse-charging-manager-binder/binding-chmgr.json
+Source16: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/valeo/evse-charging-manager-binder/binding-i2c.json
 
 Source18: binding-josev-ac.json
-Source19: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/mqtt-config.yml
-Source20: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/ext-mqtt.json
-Source21: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/start-binder-with-josev.sh
-
-Source22: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-chmgr-with-slac.json
+Source19: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/valeo/evse-charging-manager-binder/mqtt-config.yml
+Source20: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/valeo/evse-charging-manager-binder/ext-mqtt.json
+Source21: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/valeo/evse-charging-manager-binder/start-binder-with-josev.sh
 
 #For debug only
-Source90: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/main/evse-charging-manager-binder/binding-debug.json
+Source90: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/valeo/evse-charging-manager-binder/binding-debug.json
 
 Requires: charging-binding-rs
 Requires: ti-am62x-binding-rs
 Requires: i2c-binding-rs
-Requires: slac-binding-rs
+Requires: josev-rslac
+Requires: josev-pocpp
+Requires: josev-piso15118
+Requires: josev-binding-rs
+Requires: afb-mqtt-ext
 
 %description
 evse charging manager binder.
