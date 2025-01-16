@@ -20,8 +20,6 @@ targets:
         value: extern
       - name: josev-binding-rs
         value: extern
-      - name: slac-binding-rs
-        value: extern
 
     provided-api:
       - name: chmgr
@@ -39,7 +37,6 @@ targets:
       - etc/binding-i2c.json
       - etc/binding-am62x.json
       - etc/binding-chmgr.json
-      - etc/binding-slac.json
       - etc/binding-josev-ac.json
       - etc/ext-mqtt.json
       - etc/binding-debug.json
