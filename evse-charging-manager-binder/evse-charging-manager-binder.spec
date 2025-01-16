@@ -64,11 +64,9 @@ mkdir -p %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE14} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE15} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE16} %{buildroot}%{_prefix}/redpesk/%{name}/etc
-cp %{SOURCE17} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE18} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE19} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 cp %{SOURCE20} %{buildroot}%{_prefix}/redpesk/%{name}/etc
-cp %{SOURCE22} %{buildroot}%{_prefix}/redpesk/%{name}/etc
 
 #For debug only
 cp %{SOURCE90} %{buildroot}%{_prefix}/redpesk/%{name}/etc
