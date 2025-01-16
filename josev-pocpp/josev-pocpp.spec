@@ -11,9 +11,9 @@ Version: 1.0.7
 Release: 1%{?dist}
 Summary: EcoG's OCPP Python implementation
 
+URL: https://github.com/tux-evse/evse-project-manager-config.git
 Source0: %{name}-%{version}.tar.gz
 Source1: ocpp_service_1.0.7_py3.10_aarch64_libc-2.28.tar.xz
-Source2: https://raw.githubusercontent.com/tux-evse/evse-project-manager-config/refs/heads/main/josev-pocpp/start.sh
 License: Proprietary EcoG License
 
 %global tarball %{basename:%{SOURCE1}}
@@ -35,6 +35,8 @@ EcoG's OCPP Python implementation
 %autosetup -b 1
 
 %install
+tar xzvf %{_sourcedir}/%{name}-%{version}.tar.gz
+
 mkdir -p %{buildroot}/usr/josev
 echo /usr/josev > files.txt
 tar tJvf %{_sourcedir}/%{tarball} | awk '{print$6;}' | tail +3 | sed 's!ocpp_service.*service/!/usr/josev/pocpp/!' >> files.txt
@@ -44,9 +46,20 @@ mv ocpp_service %{buildroot}/usr/josev/pocpp
 
 mv %{SOURCE2} %{buildroot}/usr/josev/pocpp
 
+%{__install} -Dm644 %{name}-%{version}/josev-pocpp/josev-pocpp.service %{buildroot}/%{_unitdir}/josev-pocpp.service
+%{__install} -Dm755 %{name}-%{version}/josev-pocpp/start.sh %{buildroot}/usr/josev/pocpp
+
+%post
+%systemd_post josev-pocpp.service
+
+systemctl enable josev-pocpp.service > /dev/null
+
+%systemd_prerun josev-pocpp.service
+
 
 %files -f files.txt
 %defattr(755,root,root)
 /usr/josev/pocpp/start.sh
+/%{_unitdir}/josev-pocpp.service
 
 %changelog

@@ -1,0 +1,11 @@
+[Unit]
+Description=Josev Python OCPP implementation
+Wants=afm-appli-charging-manager--main@1001.service
+After=afm-appli-charging-manager--main@1001.service
+
+[Service]
+ExecStart=/usr/josev/pocpp/start.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
