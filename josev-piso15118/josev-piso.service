@@ -1,0 +1,11 @@
+[Unit]
+Description=Josev Python ISO15118 implementation
+Wants=afm-appli-charging-manager--main@1001.service
+After=afm-appli-charging-manager--main@1001.service
+
+[Service]
+ExecStart=/usr/josev/piso15118/start.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
