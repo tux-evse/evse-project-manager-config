@@ -28,16 +28,16 @@ Requires: xz
 EcoG's SLAC Rust implementation
 
 %prep
-%autosetup -b 0
-# Use Source1, a.k.a. the binary
-%autosetup -b 1
 
 %install
+tar xzvf %{_sourcedir}/%{name}-%{version}.tar.gz
+
 mkdir -p %{buildroot}/usr/josev/rslac
 tar xJvf %{_sourcedir}/%{tarball}
 mv slac_*/josev_pro/slac_service/slac_service %{buildroot}/usr/josev/rslac/slac_service
 
-%{__install} -Dm644 ./josev-rslac/josev-rslac.service %{buildroot}%{_unitdir}/josev-rslac.service
+%{__install} -Dm644 ./%{name}-%{version}/josev-rslac/josev-rslac.service %{buildroot}/%{_unitdir}/josev-rslac.service
+%{__install} -Dm755 ./%{name}-%{version}/josev-rslac/start.sh %{buildroot}/usr/josev/rslac/start.sh
 
 %post
 %systemd_post josev-rslac.service
@@ -52,6 +52,6 @@ systemctl enable josev-rslac.service > /dev/null
 /usr/josev/rslac/slac_service
 %defattr(755,root,root)
 /usr/josev/rslac/start.sh
-%{_unitdir}/josev-rslac.service
+/%{_unitdir}/josev-rslac.service
 
 %changelog
