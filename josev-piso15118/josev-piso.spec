@@ -26,6 +26,8 @@ AutoReqProv: no
 Requires: glibc
 Requires: xz
 
+BuildRequires: systemd
+
 
 %description
 EcoG's ISO-15118 Python implementation
@@ -45,8 +47,6 @@ echo /usr/josev/piso15118/start.sh >> files.txt
 %{__install} -Dm644 %{name}-%{version}/josev-piso15118/josev-piso.service %{buildroot}/%{_unitdir}/josev-piso.service
 %{__install} -Dm755 %{name}-%{version}/josev-piso15118/start.sh %{buildroot}/usr/josev/piso15118
 
-echo /%{_unitdir}/josev-piso.service >> files.txt
-
 %post
 %systemd_post josev-piso.service
 
@@ -58,5 +58,6 @@ systemctl enable josev-piso.service > /dev/null
 %files -f files.txt
 %defattr(755,root,root)
 /usr/josev/piso15118/start.sh
+/%{_unitdir}/josev-piso.service
 
 %changelog
