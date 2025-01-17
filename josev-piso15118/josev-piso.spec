@@ -52,7 +52,7 @@ echo /usr/josev/piso15118/start.sh >> files.txt
 
 systemctl enable josev-piso.service > /dev/null
 
-%systemd_prerun josev-piso.service
+%systemd_preun josev-piso.service
 
 
 %files -f files.txt
