@@ -5,7 +5,7 @@ After=afm-appli-charging-manager--main@1001.service
 
 [Service]
 ExecStart=/usr/josev/rslac/start.sh
-Restart=on-failure
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
