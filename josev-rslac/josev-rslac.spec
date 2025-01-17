@@ -23,6 +23,8 @@ AutoReqProv: no
 Requires: glibc
 Requires: xz
 
+BuildRequires: systemd
+
 
 %description
 EcoG's SLAC Rust implementation
@@ -44,7 +46,7 @@ mv slac_*/josev_pro/slac_service/slac_service %{buildroot}/usr/josev/rslac/slac_
 
 systemctl enable josev-rslac.service > /dev/null
 
-%systemd_prerun josev-rslac.service
+%systemd_preun josev-rslac.service
 
 %files
 /usr/josev

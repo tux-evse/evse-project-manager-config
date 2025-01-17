@@ -25,6 +25,7 @@ License: Proprietary EcoG License
 AutoReqProv: no
 Requires: glibc
 Requires: xz
+BuildRequires: systemd
 
 
 %description
@@ -54,7 +55,7 @@ mv %{SOURCE2} %{buildroot}/usr/josev/pocpp
 
 systemctl enable josev-pocpp.service > /dev/null
 
-%systemd_prerun josev-pocpp.service
+%systemd_preun josev-pocpp.service
 
 
 %files -f files.txt
