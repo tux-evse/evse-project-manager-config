@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name: tux-evse-board-configuration
-Version: 2.0.3
+Version: 2.0.4
 Release: 1%{?dist}
 Summary: Board config (net, wifi hotspot, firewall...)
 
