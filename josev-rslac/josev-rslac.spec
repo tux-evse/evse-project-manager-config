@@ -22,6 +22,7 @@ License: Proprietary EcoG License
 AutoReqProv: no
 Requires: glibc
 Requires: xz
+Requires: jq
 
 BuildRequires: systemd
 
