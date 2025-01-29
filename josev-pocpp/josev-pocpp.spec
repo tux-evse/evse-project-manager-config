@@ -49,18 +49,26 @@ mv %{SOURCE2} %{buildroot}/usr/josev/pocpp
 
 %{__install} -Dm644 %{name}-%{version}/josev-pocpp/josev-pocpp.service %{buildroot}/%{_unitdir}/josev-pocpp.service
 %{__install} -Dm755 %{name}-%{version}/josev-pocpp/start.sh %{buildroot}/usr/josev/pocpp
+%{__install} -Dm755 %{name}-%{version}/josev-pocpp/ocpp-reset.sh %{buildroot}/usr/josev/pocpp
+%{__install} -Dm644 %{name}-%{version}/josev-pocpp/ocpp-reset.service %{buildroot}/%{_unitdir}/ocpp-reset.service
 
 %post
 %systemd_post josev-pocpp.service
+%systemd_post ocpp-reset.service
 
 systemctl enable josev-pocpp.service > /dev/null
+systemctl enable ocpp-reset.service > /dev/null
 
 %systemd_preun josev-pocpp.service
+%systemd_preun ocpp-reset.service
 
 
 %files -f files.txt
 %defattr(755,root,root)
 /usr/josev/pocpp/start.sh
+%defattr(755,root,root)
+/usr/josev/pocpp/ocpp-reset.sh
 /%{_unitdir}/josev-pocpp.service
+/%{_unitdir}/ocpp-reset.service
 
 %changelog

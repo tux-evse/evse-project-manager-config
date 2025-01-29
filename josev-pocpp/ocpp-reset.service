@@ -1,0 +1,11 @@
+[Unit]
+Description=OCPP reset
+Wants=mosquitto.service
+After=mosquitto.service
+
+[Service]
+ExecStart=/usr/josev/pocpp/ocpp-reset.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
