@@ -45,10 +45,12 @@ mv josev_pro %{buildroot}/usr/josev/piso15118
 
 echo /usr/josev/piso15118/start.sh >> files.txt
 echo /usr/josev/piso15118/start-smart-charging.sh >> files.txt
+echo /usr/josev/pki >> files.txt
 %{__install} -Dm644 %{name}-%{version}/josev-piso15118/josev-piso.service %{buildroot}/%{_unitdir}/josev-piso.service
 %{__install} -Dm644 %{name}-%{version}/josev-piso15118/josev-smart-charging.service %{buildroot}/%{_unitdir}/josev-smart-charging.service
 %{__install} -Dm755 %{name}-%{version}/josev-piso15118/start.sh %{buildroot}/usr/josev/piso15118
 %{__install} -Dm755 %{name}-%{version}/josev-piso15118/start-smart-charging.sh %{buildroot}/usr/josev/piso15118
+mkdir -p /usr/josev/pki
 
 %post
 %systemd_post josev-piso.service

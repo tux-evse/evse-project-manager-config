@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+PKI_PATH=/usr/josev/pki \
 LOG_LEVEL=DEBUG \
     CS_DEFAULT_HEARTBEAT_INTERVAL=30 \
     MQTT_HOST=localhost \
