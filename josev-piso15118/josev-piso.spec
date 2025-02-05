@@ -50,6 +50,7 @@ echo /usr/josev/pki >> files.txt
 %{__install} -Dm644 %{name}-%{version}/josev-piso15118/josev-smart-charging.service %{buildroot}/%{_unitdir}/josev-smart-charging.service
 %{__install} -Dm755 %{name}-%{version}/josev-piso15118/start.sh %{buildroot}/usr/josev/piso15118
 %{__install} -Dm755 %{name}-%{version}/josev-piso15118/start-smart-charging.sh %{buildroot}/usr/josev/piso15118
+mkdir -p %{buildroot}/usr/josev/pki
 
 %post
 %systemd_post josev-piso.service
