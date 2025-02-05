@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-PKIT_PATH=/usr/josev/pki \
+PKI_PATH=/usr/josev/pki \
 MQTT_HOST=localhost \
 	MQTT_PORT=1883 \
 	LOG_LEVEL=DEBUG \
