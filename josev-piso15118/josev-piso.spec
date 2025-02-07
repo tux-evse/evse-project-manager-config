@@ -13,7 +13,7 @@ Summary: EcoG's ISO-15118 Python implementation
 
 URL: https://github.com/tux-evse/evse-project-manager-config.git
 Source0: %{name}-%{version}.tar.gz
-Source1: josev_pro_rc-1.0.8_py3.10_aarch64_libc-2.28_Valeo.tar.xz
+Source1: josev_pro_1.0.9-38-gcff2793_py3.10.6_aarch64_libc-2.28.tar.xz
 License: Proprietary EcoG License
 
 %global tarball %{basename:%{SOURCE1}}
