@@ -91,6 +91,9 @@ fi
 %systemd_preun config-hotspot.service
 %systemd_preun cynagora-debug-configuration.service
 
+# remove getty on tty1 so that it does not conflict with touchscreen
+systemctl mask systemctl mask getty@tty1.service
+
 %postun
 %systemd_postun_with_restart config-network.service
 %systemd_postun_with_restart config-firewall.service
