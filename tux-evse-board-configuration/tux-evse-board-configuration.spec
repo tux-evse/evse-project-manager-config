@@ -92,7 +92,7 @@ fi
 %systemd_preun cynagora-debug-configuration.service
 
 # remove getty on tty1 so that it does not conflict with touchscreen
-systemctl mask systemctl mask getty@tty1.service
+systemctl mask getty@tty1.service
 
 %postun
 %systemd_postun_with_restart config-network.service
