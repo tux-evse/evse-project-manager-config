@@ -1,5 +1,4 @@
 %global debug_package %{nil}
-ExcludeArch: x86_64
 
 Name: afb-mqtt-ext
 Version: 0.0.1
